@@ -4,7 +4,7 @@ import json
 import unittest
 from pathlib import Path
 
-from scripts.extract_oab_sp import (
+from python.scripts.extract_oab_sp import (
     extract_items,
     extract_pdf,
     parse_amount_cents,
@@ -14,7 +14,7 @@ from scripts.extract_oab_sp import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PDF_PATH = ROOT / "docs" / "tabela-oab-sp.pdf"
+PDF_PATH = ROOT / "data" / "tabela-oab-sp.pdf"
 
 
 class ParserTests(unittest.TestCase):

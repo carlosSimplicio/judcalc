@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.init_database import DEFAULT_INPUT, initialize_database
+from python.scripts.init_database import DEFAULT_INPUT, initialize_database
 
 
 class DatabaseTests(unittest.TestCase):

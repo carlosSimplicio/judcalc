@@ -7,9 +7,10 @@
 - Sempre que o esquema, os campos, as constraints, os relacionamentos, a carga
   ou a busca FTS forem modificados, atualize também esta seção do `AGENTS.md` na
   mesma alteração.
-- O MVP usa SQLite com FTS5. O esquema está em `database/schema.sql`.
-- `data/oab-sp.json` é a fonte de verdade. Execute `python -m scripts.init_database`
-  para criar ou sincronizar `data/app.db`; o arquivo do banco é regenerável e não
+- O MVP usa SQLite com FTS5. O esquema está em `python/database/schema.sql`.
+- `python/data/oab-sp.json` é a fonte de verdade. Execute
+  `python -m python.scripts.init_database` para criar ou sincronizar
+  `backend/data/app.db`; o arquivo do banco é regenerável e não
   deve ser versionado.
 - A carga é transacional, substitui integralmente os dados anteriores e habilita
   `PRAGMA foreign_keys = ON`.

@@ -9,6 +9,8 @@ from typing import Iterable, Iterator, Sequence
 import pdfplumber
 
 
+ROOT = Path(__file__).resolve().parents[1]
+
 FIRST_TABLE_PAGE = 5
 LAST_TABLE_PAGE = 23
 
@@ -205,13 +207,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--input",
         type=Path,
-        default=Path("docs/tabela-oab-sp.pdf"),
+        default=ROOT / "data" / "tabela-oab-sp.pdf",
         help="PDF de origem.",
     )
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("data/oab-sp.json"),
+        default=ROOT / "data" / "oab-sp.json",
         help="Arquivo JSON de destino.",
     )
     parser.add_argument(

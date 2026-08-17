@@ -10,7 +10,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data" / "oab-sp.json"
-DEFAULT_OUTPUT = ROOT / "data" / "app.db"
+DEFAULT_OUTPUT = ROOT.parent / "backend" / "data" / "app.db"
 DEFAULT_SCHEMA = ROOT / "database" / "schema.sql"
 
 

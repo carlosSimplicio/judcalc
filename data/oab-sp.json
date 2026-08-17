@@ -1,0 +1,4556 @@
+[
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Consulta",
+    "price": {
+      "amount_cents": 53925,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Consulta - a) Consulta em condições excepcionais (com exame de documentos)",
+    "price": {
+      "amount_cents": 115552,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Hora intelectual",
+    "price": {
+      "amount_cents": 86896,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Acompanhamento ou exame de documentos em órgão público",
+    "price": {
+      "amount_cents": 121654,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Acompanhamento de citação, notificação, intimação, interpelação e exames periciais",
+    "price": {
+      "amount_cents": 86896,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Acompanhamento de depoimento pessoal ou inquirição de testemunhas (por ato)",
+    "price": {
+      "amount_cents": 243309,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Cobrança amigável (art. 395 do CC/2002), independentemente dos honorários contratuais",
+    "price": {
+      "amount_cents": 121654,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Consignação em pagamento na via extrajudicial",
+    "price": {
+      "amount_cents": 208552,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Exame e visto em instrumento de constituição de pessoa jurídica",
+    "price": {
+      "amount_cents": 208552,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Elaboração de notificação extrajudicial",
+    "price": {
+      "amount_cents": 86896,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Elaboração de minutas de contrato, distrato, alteração, estatuto, testamento, escritura ou documento",
+    "price": {
+      "amount_cents": 493026,
+      "percentage_min": 3,
+      "percentage_max": 3
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Parecer ou memorial",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Requerimento ou petições",
+    "price": {
+      "amount_cents": 121654,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Exame de processo em geral",
+    "price": {
+      "amount_cents": 77035,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Intervenção para solução de qualquer assunto no terreno amigável, mesmo quando for de valor inestimável",
+    "price": {
+      "amount_cents": 308142,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades avulsas ou extrajudiciais",
+    "service": "Intervenção para solução de qualquer assunto no terreno amigável, mesmo quando for de valor inestimável - a) Havendo interesse econômico, 10% desse valor",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Matéria administrativa",
+    "service": "Sindicância e processo administrativo – acompanhamento/defesa",
+    "price": {
+      "amount_cents": 312826,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Matéria administrativa",
+    "service": "Processo administrativo – recurso",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Matéria administrativa",
+    "service": "Ação ou defesa – fase administrativa",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Matéria administrativa",
+    "service": "Recurso – fase administrativa",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Matéria administrativa",
+    "service": "Ação ou defesa – fase judicial",
+    "price": {
+      "amount_cents": 1737918,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Matéria administrativa",
+    "service": "Recurso – fase judicial",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em juizados especiais: estadual e federal",
+    "service": "Inicial ou contestação e audiência",
+    "price": {
+      "amount_cents": 139033,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em juizados especiais: estadual e federal",
+    "service": "Atuação em segunda instância",
+    "price": {
+      "amount_cents": 104275,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em juizados especiais: estadual e federal",
+    "service": "Sustentação oral perante turmas recursais",
+    "price": {
+      "amount_cents": 104275,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Procedimento ordinário: proposição ou defesa",
+    "price": {
+      "amount_cents": 625651,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Procedimento sumário: proposição ou defesa",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Cumprimento de sentença",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Impugnação ao cumprimento de sentença",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Execução de título extrajudicial",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Impugnação/embargos à execução de título extrajudicial",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Impugnação/embargos à penhora, à arrematação, à adjudicação, ao leilão, de títulos judiciais e extrajudiciais",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Processo cautelar específico: incidental ou preparatório",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Processo cautelar inominado: incidental ou preparatório",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Consignação em pagamento",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Depósito",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Anulação e substituição de título ao portador",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Prestação de contas",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Móvel",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Imóvel: interdito proibitório – manutenção – reintegração",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Nunciação de obra nova",
+    "price": {
+      "amount_cents": 539248,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Usucapião",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Divisão e demarcação",
+    "price": {
+      "amount_cents": 539248,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Embargos de terceiro",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Habilitação",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Restauração de autos",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Das vendas a crédito com reserva de domínio",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Do Juízo arbitral",
+    "price": {
+      "amount_cents": 539248,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Da ação monitória",
+    "price": {
+      "amount_cents": 308141,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Desapropriação direta",
+    "price": {
+      "amount_cents": 616284,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Desapropriação indireta",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Inominada",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Ação de retificação de registro público",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Alvará judicial",
+    "price": {
+      "amount_cents": 308141,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Ação de constituição, extinção de usufruto ou fideicomisso",
+    "price": {
+      "amount_cents": 462213,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Mandado de segurança",
+    "price": {
+      "amount_cents": 695168,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Ação ordinária de despejo",
+    "price": {
+      "amount_cents": 539248,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Ação renovatória de locação",
+    "price": {
+      "amount_cents": 539248,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Ação de revisão e/ou arbitramento de aluguel",
+    "price": {
+      "amount_cents": 539248,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Ação de consignação de aluguel",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Atos/acompanhamento despejo/reintegração",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Ação de dissolução de sociedade",
+    "price": {
+      "amount_cents": 695168,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Ação de cancelamento de protesto",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 15,
+      "percentage_max": 15
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Mandado de injunção",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Habeas data",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Ação negatória ou de abstenção de uso de matéria de propriedade intelectual",
+    "price": {
+      "amount_cents": 1824815,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Ação indenizadora por prejuízos decorrentes de contrafação ou crime em matéria de propriedade intelectual",
+    "price": {
+      "amount_cents": 1216543,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Busca e apreensão em matéria de propriedade intelectual",
+    "price": {
+      "amount_cents": 1477231,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Procedimentos administrativos de propriedade intelectual: depósitos de marca ou patente, oposição, recursos, revisão, caducidade, nulidade etc.",
+    "price": {
+      "amount_cents": 539248,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Análise da documentação e pedido de registro de loteamento ou desmembramento, por grupo de dez lotes",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria cível",
+    "service": "Opção de nacionalidade",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de insolvência, falências e recuperação de empresas",
+    "service": "Pedido de falência e acompanhamento até a decretação",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de insolvência, falências e recuperação de empresas",
+    "service": "Ação de restituição e ação reivindicatória, até a decisão final",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de insolvência, falências e recuperação de empresas",
+    "service": "Pedido de recuperação de empresa",
+    "price": {
+      "amount_cents": 924425,
+      "percentage_min": 2,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria de insolvência, falências e recuperação de empresas",
+    "service": "Pedido de declaração de insolvência",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de insolvência, falências e recuperação de empresas",
+    "service": "Habilitação tempestiva ou retardatária e divergência de crédito",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de insolvência, falências e recuperação de empresas",
+    "service": "Representação do falido (sobre o montante do passivo)",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de insolvência, falências e recuperação de empresas",
+    "service": "Representação do devedor insolvente (sobre o montante do passivo)",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de insolvência, falências e recuperação de empresas",
+    "service": "Representação do administrador judicial na falência ou na recuperação judicial",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Divórcio Judicial - a) Consensual",
+    "price": {
+      "amount_cents": 782064,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Divórcio Judicial - b) Cumulado com alimentos e/ou bens, acrescido do percentual",
+    "price": {
+      "amount_cents": 782064,
+      "percentage_min": 6,
+      "percentage_max": 6
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Divórcio Judicial - c) Litigioso",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Divórcio Judicial - d) Cumulado com alimentos e/ou bens, acrescido do percentual",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Reconvenção em divórcio",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": 8,
+      "percentage_max": 8
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação anulatória de separação judicial, divórcio e/ou rescisória (acrescido do percentual sobre o patrimônio)",
+    "price": {
+      "amount_cents": 1196822,
+      "percentage_min": 8,
+      "percentage_max": 8
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Divórcio extrajudicial em cartório (acrescido do percentual sobre alimentos, patrimônio e/ou quinhão)",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 6,
+      "percentage_max": 6
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Dissolução de união estável - a) Consensual",
+    "price": {
+      "amount_cents": 782064,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Dissolução de união estável - b) Cumulada com alimentos e/ou bens, acrescida do percentual",
+    "price": {
+      "amount_cents": 782064,
+      "percentage_min": 6,
+      "percentage_max": 6
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Dissolução de união estável - c) Litigiosa",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Dissolução de união estável - d) Cumulada com alimentos e/ou bens, acrescida do percentual",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Investigação de paternidade cumulada - a) com petição de herança, acrescida do percentual sobre o quinhão",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Investigação de paternidade cumulada - b) com petição de alimentos, acrescida do percentual sobre o valor da causa",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação negatória de paternidade",
+    "price": {
+      "amount_cents": 1477231,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação negatória de paternidade - a) Ação rescisória de paternidade",
+    "price": {
+      "amount_cents": 1477231,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de nulidade ou anulação de casamento",
+    "price": {
+      "amount_cents": 1477231,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de alimentos: provisórios – provisionais (majoração – redução – exoneração) e ação revisional de alimentos",
+    "price": {
+      "amount_cents": 260688,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de alimentos: provisórios – provisionais (majoração – redução – exoneração) e ação revisional de alimentos - a) Proposição e/ou contestação – valor de 3 (três) pensões mensais",
+    "price": {
+      "amount_cents": 260688,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Execução de alimentos – pena de prisão/penhora",
+    "price": {
+      "amount_cents": 260688,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Execução de alimentos – pena de prisão/penhora - a) Proposição e/ou contestação: valor de 3 (três) pensões mensais",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Curatela",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Tutela",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Emancipação ou suprimento",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Suprimento judicial de outorga de consentimento",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Adoção - a) Por nacional",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Adoção - b) Por estrangeiro",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ações cautelares – Direito de Família",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ações cautelares – Direito de Família - a) Arrolamento de bens",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ações cautelares – Direito de Família - b) Busca e apreensão de crianças e adolescentes ou bens",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ações cautelares – Direito de Família - c) Guarda provisória",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ações cautelares – Direito de Família - d) Regulamentação de visitas",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ações cautelares – Direito de Família - e) Separação de corpos",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ações cautelares – Direito de Família - f) Sequestro de bens",
+    "price": {
+      "amount_cents": 782064,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação ordinária de regulamentação de visitas",
+    "price": {
+      "amount_cents": 782064,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação ordinária de busca e apreensão de crianças e adolescentes",
+    "price": {
+      "amount_cents": 782064,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de interdição ou levantamento",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de alteração de guarda",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Habeas corpus (prisão civil)",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Desconsideração da personalidade jurídica",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Inventário, arrolamento e sobrepartilha judicial - a) Sem litígio: 8% sobre o valor real do monte-mor ou sobre o valor real do quinhão de cada herdeiro",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 8,
+      "percentage_max": 8
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Inventário, arrolamento e sobrepartilha judicial - b) Com litígio: 10% sobre o valor real do monte-mor ou sobre o valor real do quinhão de cada herdeiro",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Inventário, arrolamento e sobrepartilha judicial - c) Sobrepartilha: aplicam-se os mesmos índices do inventário ou arrolamento",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Inventário negativo",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Inventário, arrolamento e sobrepartilha extrajudicial - a) 6% sobre o valor real do monte-mor ou 6% sobre o valor real do quinhão de cada herdeiro",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 6,
+      "percentage_max": 6
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Reserva de bens",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Remoção de inventariante",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de colação",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de doação inoficiosa – 10% sobre os bens excedentes",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de sonegados",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de nulidade de testamento",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação anulatória de testamento",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de nulidade de partilha",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de habilitação de herdeiros (sobre o valor habilitado)",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação de habilitação de crédito (sobre o valor habilitado)",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação declaratória de indignidade (sobre o valor do quinhão do excluído)",
+    "price": {
+      "amount_cents": 816822,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Ação declaratória de deserdação (sobre o quinhão do deserdado)",
+    "price": {
+      "amount_cents": 816822,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Retificação de partilha",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de família e sucessões",
+    "service": "Minuta de testamento e/ou assistência ao ato e a abertura de testamento",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Concessão ou restabelecimento de aposentadoria, auxílio-acidente, pensão por morte e benefícios assistenciais (BPC)",
+    "price": {
+      "amount_cents": 350316,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Concessão ou restabelecimento de auxílio-doença ou auxílio-reclusão",
+    "price": {
+      "amount_cents": 116772,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Concessão de salário-maternidade",
+    "price": {
+      "amount_cents": 116772,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Revisão de benefício",
+    "price": {
+      "amount_cents": 350316,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Solicitação e expedição de Certidão de Tempo de Contribuição",
+    "price": {
+      "amount_cents": 260688,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Justificação administrativa, além do valor bruto do benefício",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Retificação e atualização do Cadastro Nacional de Informações Sociais – CNIS",
+    "price": {
+      "amount_cents": 260688,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Regularização de recolhimento previdenciário",
+    "price": {
+      "amount_cents": 260688,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Cálculo e planejamento previdenciário",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Atuação somente a partir da fase recursal",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Procedimento visando à restituição de valores indevidamente cobrados e/ou declaração de inexigibilidade dos valores cobrados pelo gestor do regime previdenciário, inclusive no caso de benefício de prestação continuada da LOAS, bem como repetição de indébito",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Sustentação oral perante órgãos recursais administrativos",
+    "price": {
+      "amount_cents": 173792,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Realização de defesa administrativa para evitar a suspensão do benefício previdenciário ou assistencial",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Parecer jurídico solicitado por entidades sindicais, associações, gestores de regimes previdenciários e outras pessoas jurídicas",
+    "price": {
+      "amount_cents": 868960,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Retificação de PPP",
+    "price": {
+      "amount_cents": 154551,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Pedido e organização de formulários previdenciários (PPP, LTCAT)",
+    "price": {
+      "amount_cents": 154551,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação de concessão ou restabelecimento de aposentadoria, auxílio- acidente, pensão por morte e benefícios assistenciais (BPC)",
+    "price": {
+      "amount_cents": 350316,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação de concessão ou restabelecimento de auxílio-doença ou auxílio- reclusão",
+    "price": {
+      "amount_cents": 116772,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação para concessão de salário-maternidade",
+    "price": {
+      "amount_cents": 116772,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação de revisão de benefício",
+    "price": {
+      "amount_cents": 350316,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação para requerer expedição de Certidão de Tempo de Contribuição",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação de reconhecimento de tempo de serviço/contribuição",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação ou contestação visando à manutenção de benefício previdenciário",
+    "price": {
+      "amount_cents": 350316,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação visando à restituição de valores indevidamente cobrados e/ou declaração de inexigibilidade dos valores cobrados pelo gestor do regime previdenciário, inclusive no caso de benefício de prestação continuada da LOAS, bem como repetição de indébito;",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Mandado de injunção e habeas data individual",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Mandado de segurança individual",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação rescisória",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Sustentação oral",
+    "price": {
+      "amount_cents": 173792,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ações coletivas",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Atuação somente a partir da fase recursal",
+    "price": {
+      "amount_cents": 350316,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Consultoria mensal sem vínculo empregatício:",
+    "price": {
+      "amount_cents": 86896,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Para empresas com até 20 empregados",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Para empresas com 21 a 40 empregados",
+    "price": {
+      "amount_cents": 695168,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Para empresas com acima de 41 empregados",
+    "price": {
+      "amount_cents": 868960,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Parecer sobre interpretação de normas previdenciárias, planejamento previdenciário ou qualquer tipo enquadramento realizado pelo MPS ou INSS",
+    "price": {
+      "amount_cents": 868960,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Atuação em Processo Administrativo – Acidente do Trabalho",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Atuação em Processo Administrativo Fase Recursal – Acidente do Trabalho",
+    "price": {
+      "amount_cents": 260688,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Atuação no Programa de Reabilitação Profissional junto ao INSS",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Contestação FAP",
+    "price": {
+      "amount_cents": 868960,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Atuação em Ação de Acidente do Trabalho como Terceiro Interveniente Interessado",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação de Descaracterização de Acidente do Trabalho",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação de Redução Alíquota FAP/SAT",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Ação de Repetição Indébito ou Compensação",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Defesa em Ação Regressiva Previdenciária – Acidente do Trabalho",
+    "price": {
+      "amount_cents": 521376,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria previdenciária",
+    "service": "Defesa em ação penal de apropriação indébito previdenciário",
+    "price": {
+      "amount_cents": 837899,
+      "percentage_min": 30,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Patrocínio de reclamante: sobre o valor econômico da questão ou da condenação, ou do acordo",
+    "price": {
+      "amount_cents": 173791,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Acréscimo no caso de recurso ordinário",
+    "price": {
+      "amount_cents": 121654,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Acréscimo no caso de recurso de revista e/ou contrarrazões",
+    "price": {
+      "amount_cents": 121654,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Patrocínio do reclamado: sobre o valor real do pedido ou do valor econômico da questão com pagamento no início da ação",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Acréscimo no caso de recurso ordinário sobre o valor do pedido",
+    "price": {
+      "amount_cents": 312826,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Acréscimo no caso de recurso de revista sobre o valor do pedido e/ou contrarrazões",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Execução de sentença ou embargos - a) Como mandatário específico para o ato",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Execução de sentença ou embargos - b) Se já for mandatário da causa principal, acrescer",
+    "price": {
+      "amount_cents": 208551,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Processos cautelares - a) Como medida autônoma",
+    "price": {
+      "amount_cents": 312826,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Processos cautelares - b) Para reintegração de empregado",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Pedido de homologação judicial de demissão de estável e de transação com opção pelo FGTS (Fundo de Garantia por Tempo de Serviço) sobre o valor da transação",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Pedido de assistência à demissão de empregado estável, sobre o valor da transação",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Dissídios coletivos: representação em dissídio, acordo ou convenção coletiva",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "De empresa de até 100 empregados",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "De empresa de 101 até 300 empregados",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "De empresa de 301 até 600 empregados",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "De empresa com mais de 600 empregados",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "De sindicato com até 50 empresas",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "De sindicato com mais de 50 empresas",
+    "price": {
+      "amount_cents": 2085502,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "De sindicato de empregados: aplicam-se os mesmos valores acima ou valor recolhido pelo sindicato, a título de contribuição assistencial",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "O inquérito judicial para a apuração de falta grave de empregado - a) Defesa do empregado",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "O inquérito judicial para a apuração de falta grave de empregado - b) Propositura do inquérito",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Consultoria, sem vínculo empregatício, de sindicato de trabalhadores - a) Na reclamatória do associado, sobre o valor auferido",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Consultoria, sem vínculo empregatício, de sindicato de trabalhadores - b) Na reclamatória do não associado, sobre o valor auferido",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Consultoria, sem vínculo empregatício, de empresas com menos de 50 empregados",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Consultoria, sem vínculo empregatício, de empresa com mais de 50 empregados",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Habilitação de crédito trabalhista tempestiva/retardatária",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista",
+    "service": "Ação de indenização por acidente de trabalho – 20% a 30% sobre o valor econômico da questão",
+    "price": {
+      "amount_cents": 539248,
+      "percentage_min": 20,
+      "percentage_max": 30
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Procedimento ou defesa administrativa – 1ª instância",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Procedimento ou defesa administrativa – 2ª instância",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Parecer sobre interpretação de normas tributárias, planejamento tributário ou qualquer tipo de lançamento realizado contra o interessado pelo fisco",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Ação anulatória de débito tributário (sobre o montante excluído)",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": 15,
+      "percentage_max": 15
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Defesa em execução de natureza fiscal, sobre o valor da ação",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": 15,
+      "percentage_max": 15
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Ação de repetição de indébito (sobre o montante repetido)",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": 15,
+      "percentage_max": 15
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Liberação de mercadorias",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Outros procedimentos em matéria fiscal ou tributária",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Consultoria sem vínculo empregatício, na esfera administrativa e/ou judicial - a) Micro e pequena Empresa",
+    "price": {
+      "amount_cents": 208551,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Consultoria sem vínculo empregatício, na esfera administrativa e/ou judicial - b) Ltda.",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Consultoria sem vínculo empregatício, na esfera administrativa e/ou judicial - c) S/A",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria fiscal e tributária",
+    "service": "Consultoria sem vínculo empregatício, na esfera administrativa e/ou judicial - d) Demais entidades (ex.: cooperativas, sociedades civis etc.)",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "Procedimento ou defesa administrativa sobre o valor econômico envolvido, como mandatário da empresa",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "Parecer sobre normas de relação de consumo",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "Ação movida pelo consumidor, visando responsabilizar o fornecedor pelo fato do produto e do serviço",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "Ação movida pelo consumidor, visando responsabilizar o fornecedor por vício do produto e do serviço",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "Ação movida pelo consumidor, visando responsabilizar o fornecedor por publicidade enganosa ou abusiva",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "Ação movida pelo consumidor, visando à nulidade de cláusulas abusivas constantes em contratos de consumo",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "Defesa em ação judicial movida pelo consumidor, sobre o valor atualizado da ação",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "Atuação em audiência isolada, para coleta de prova oral",
+    "price": {
+      "amount_cents": 243309,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "De entidade civil de consumidores",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "De associação de fornecedores",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "De sindicato de categoria econômica de consumidores e de fornecedores",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "De empresas de pequeno porte",
+    "price": {
+      "amount_cents": 695168,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "De empresas de médio porte",
+    "price": {
+      "amount_cents": 955854,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "De empresas de grande porte",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "Entidade civil de consumidores",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "De associações de fornecedores",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de consumidor",
+    "service": "De sindicato de categoria econômica de consumidores e fornecedores",
+    "price": {
+      "amount_cents": 1303438,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Análise dos aspectos ambientais e/ou urbanísticos de contrato",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 3,
+      "percentage_max": 3
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Procedimentos ou defesa administrativa, inclusive auto de infração, sobre o valor econômico",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Atuação ou acompanhamento de licenciamento ou certificação ambiental ou urbanística",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": 3,
+      "percentage_max": 3
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Processo contencioso - a) Defesa em inquérito civil",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Processo contencioso - b) Defesa em processo civil",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Atuação em inquérito civil público ou ação civil pública",
+    "price": {
+      "amount_cents": 1737918,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Atuação em audiência isolada para coleta de prova",
+    "price": {
+      "amount_cents": 243309,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Acompanhamento de estudos ambientais ou urbanísticos, sobre projeto ambiental ou urbanístico ou qualquer tipo de lançamento realizado contra o interessado",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": 15,
+      "percentage_max": 15
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Parecer sobre interpretação de normas ambientais ou urbanísticas, sobre projeto ambiental ou qualquer tipo de lançamento realizado contra o interessado",
+    "price": {
+      "amount_cents": 695168,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Processo-crime ambiental",
+    "price": {
+      "amount_cents": 2085502,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Atuação em audiência pública em matéria ambiental e urbanística",
+    "price": {
+      "amount_cents": 308141,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Assessoria em regularização ambiental ou fundiária",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Atuação na licitação de concessão florestal, parques ambientais e parques urbanos em todas as fases",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Atuação na licitação de concessão florestal em apenas uma ou algumas fases específicas",
+    "price": {
+      "amount_cents": 608273,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Atuação no processo administrativo do contrato administrativo de concessão florestal, parques ambientais e parques urbanos.",
+    "price": {
+      "amount_cents": 1564127,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Acompanhamento e negociação e Termos de Compromisso em matéria ambiental ou urbanística",
+    "price": {
+      "amount_cents": 521375,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Ação popular",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Mandado de segurança em matéria ambiental ou urbanística",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Ação anulatória de auto de infração",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Embargos à execução",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Embargos de terceiro",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Tutelas de urgência em matéria ambiental ou urbanística",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Atuação como ‘amicus curiae’ em processo de natureza ambiental ou urbanística",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Assessoria e consultoria em ‘compliance’ ambiental ou urbanística",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Assessoria e consultoria em ESG",
+    "price": {
+      "amount_cents": 1737918,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Assessoria e consultoria em ‘due diligence’ ambiental ou urbanística",
+    "price": {
+      "amount_cents": 521375,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Assessoria e consultoria em questões de sustentabilidade",
+    "price": {
+      "amount_cents": 308141,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Participação em audiência púbica",
+    "price": {
+      "amount_cents": 154551,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria ambiental e urbanística",
+    "service": "Participação em reuniões técnicas em órgãos urbano e ambientais",
+    "price": {
+      "amount_cents": 87564,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria eleitoral",
+    "service": "Representação ou impugnação",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria eleitoral",
+    "service": "Defesa em processo eleitoral (investigação judicial ou impugnação de mandato)",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria eleitoral",
+    "service": "Defesa por crime eleitoral",
+    "price": {
+      "amount_cents": 2433086,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria eleitoral",
+    "service": "Outros procedimentos ou atos perante a Justiça Eleitoral",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Diligência em termo circunstanciado de Juizados Especiais Criminais – horário diurno (das 7 às 19 horas)",
+    "price": {
+      "amount_cents": 231105,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Diligência em termo circunstanciado de Juizados Especiais Criminais – horário noturno (das 19h às 7h)",
+    "price": {
+      "amount_cents": 417101,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em inquérito policial (e outras investigações criminais) desde a instauração de portaria até a apresentação de relatório final",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Ato judicial",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atos em órgãos policiais – horário diurno (das 7 às 19h)",
+    "price": {
+      "amount_cents": 208551,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atos em órgãos policiais – horário noturno (das 19 às 7h)",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Exame de processo penal com parecer verbal",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Defesa em procedimento sumário (desde a denúncia até a publicação da sentença)",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Defesa em procedimento comum (desde a denúncia até a publicação da sentença)",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Defesa em procedimentos especiais (desde a denúncia até a publicação da sentença)",
+    "price": {
+      "amount_cents": 2433086,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Defesa em procedimentos especiais, com foro privilegiado (desde a denúncia até a publicação da sentença)",
+    "price": {
+      "amount_cents": 3649628,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Defesa em procedimento de júri (desde a denúncia até a sentença de pronúncia)",
+    "price": {
+      "amount_cents": 3649628,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Defesa em procedimento de júri: atuação em plenário e recursos inerentes no Tribunal do Estado",
+    "price": {
+      "amount_cents": 3649628,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Pela representação",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Pelo acompanhamento",
+    "price": {
+      "amount_cents": 921096,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Defesa em processo de execução penal",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Pedido de suspensão condicional da pena, de reabilitação, de explicações (interpelação judicial), de liberdade provisória, de relaxamento de flagrante ou concessão de fiança",
+    "price": {
+      "amount_cents": 816822,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Pedido de concessão de graça, indulto, anistia, comutação de penas, livramento condicional, unificação de penas, revogação de medida de segurança, prisão albergue, prisão domiciliar, progressão de regime ou qualquer pedido incidental de benefício em processo de execução penal",
+    "price": {
+      "amount_cents": 816822,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Acompanhamento de busca e apreensão",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Acompanhamento de busca e apreensão em procedimento de crime contra a propriedade imaterial",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Impetração de ação autônoma de habeas corpus preventivo ou liberatório",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Impetração de ação autônoma de habeas corpus preventivo ou liberatório, em horário de plantão",
+    "price": {
+      "amount_cents": 2433086,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Impetração de ação autônoma de habeas corpus para trancamento de ação penal",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Impetração de ação autônoma de mandado de segurança contra ato jurisdicional penal",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Impetração de ação autônoma de revisão criminal",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - a) interposição de apelação",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - b) elaboração e apresentação de memoriais",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - c) sustentação oral",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - d) embargos infringentes",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - e) embargos declaratórios",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - f) Agravo em execução penal",
+    "price": {
+      "amount_cents": 766185,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - g) Impetração de habeas corpus perante os Tribunais Superiores em sede de execução penal (nas hipóteses de cabimento)",
+    "price": {
+      "amount_cents": 1641825,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - h) Atendimento ao cliente preso /a pelo sistema de videoconferência",
+    "price": {
+      "amount_cents": 54728,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - i) Atuação em sindicância no âmbito da administração Penitenciária, por acusação e falta disciplina – fase administrativa",
+    "price": {
+      "amount_cents": 383093,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - j) Atuação em sindicância no âmbito da administração Penitenciária, por acusação e falta disciplina – fase judicial (1ª. Instância)",
+    "price": {
+      "amount_cents": 547275,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - k) Pedido de transferência entre unidades prisionais do Estado de São Paulo, no âmbito da Administração Penitenciária",
+    "price": {
+      "amount_cents": 328365,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em segundo grau - l) Pedido de transferência para unidade prisional de outro Estado da Federação",
+    "price": {
+      "amount_cents": 766185,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em processo relativo ao Estatuto da Criança e do Adolescente",
+    "price": {
+      "amount_cents": 1425093,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Cumprimento de precatória",
+    "price": {
+      "amount_cents": 312826,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria penal",
+    "service": "Atuação em audiência por nomeação de juiz",
+    "price": {
+      "amount_cents": 312826,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em inquérito policial militar (e outras investigações criminais) desde a instauração de portaria até a apresentação de relatório final",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Ato judicial",
+    "price": {
+      "amount_cents": 521375,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atos em órgãos policiais – horário diurno (das 7 às 19 horas)",
+    "price": {
+      "amount_cents": 208551,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atos em órgãos policiais – horário noturno (das 19 às 7 horas)",
+    "price": {
+      "amount_cents": 521375,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Exame de processo penal militar com parecer verbal",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Defesa em procedimento comum (desde a denúncia até a publicação da sentença)",
+    "price": {
+      "amount_cents": 1565732,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Defesa em procedimentos especiais (desde a denúncia até a publicação da sentença)",
+    "price": {
+      "amount_cents": 2307395,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Assistência à acusação (os mesmos valores aplicados à defesa)",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em processo de execução penal",
+    "price": {
+      "amount_cents": 1216543,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Impetração de ação autônoma de habeas corpus preventivo ou liberatório",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Impetração de ação autônoma de habeas corpus preventivo ou liberatório (em horário de plantão)",
+    "price": {
+      "amount_cents": 2433086,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Impetração de ação autônoma de habeas corpus para trancamento de ação penal",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Impetração de ação autônoma de mandado de segurança contra ato jurisdicional penal",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em 2º grau – Justiça Militar - a) interposição de apelação (razões e contrarrazões)",
+    "price": {
+      "amount_cents": 1153697,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em 2º grau – Justiça Militar - b) elaboração e apresentação de memoriais",
+    "price": {
+      "amount_cents": 576849,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em 2º grau – Justiça Militar - c) sustentação oral",
+    "price": {
+      "amount_cents": 576849,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em 2º grau – Justiça Militar - d) embargos infringentes",
+    "price": {
+      "amount_cents": 576849,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em 2º grau – Justiça Militar - e) embargos declaratórios",
+    "price": {
+      "amount_cents": 494441,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em 2º grau – Justiça Militar - f) correição parcial (razões e contrarrazões)",
+    "price": {
+      "amount_cents": 576849,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em 2º grau – Justiça Militar - g) recurso em sentido estrito (razões e contrarrazões)",
+    "price": {
+      "amount_cents": 576849,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em 2º grau – Justiça Militar - h) reclamação",
+    "price": {
+      "amount_cents": 576849,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em 2º grau – Justiça Militar - i) revisão",
+    "price": {
+      "amount_cents": 576849,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de justiça militar",
+    "service": "Atuação em 2º grau – Justiça Militar - j) atuação em processos de competência originária do Tribunal",
+    "price": {
+      "amount_cents": 1565732,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de trânsito",
+    "service": "Assistência a defesa prévia e recursos de infração de trânsito",
+    "price": {
+      "amount_cents": 52137,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de trânsito",
+    "service": "Suspensão do direito de dirigir por pontuação",
+    "price": {
+      "amount_cents": 117218,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de trânsito",
+    "service": "Suspensão do direito de dirigir por infração que preveja essa penalidade administrativa",
+    "price": {
+      "amount_cents": 208551,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de trânsito",
+    "service": "Sumário de Centro de Formação de Condutores",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de trânsito",
+    "service": "Sumário de Centro de Remoção e Depósito",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de trânsito",
+    "service": "Sumário de Centro de Registros de Veículos Automotores",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de trânsito",
+    "service": "Perante o Departamento Estadual de Trânsito/Conselho Estadual de Trânsito",
+    "price": {
+      "amount_cents": 434480,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de trânsito",
+    "service": "Ação ou defesa",
+    "price": {
+      "amount_cents": 695168,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Defesa Justiça Desportiva por denunciado (1º grau CD – Pleno do TJD)",
+    "price": {
+      "amount_cents": 139033,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Defesa Justiça Desportiva por denunciado (1º grau CD – Pleno do TJD) - a) Defesa Justiça Desportiva por denunciado (2º grau oriundo dos TJDs, CD e Pleno do STJD)",
+    "price": {
+      "amount_cents": 278067,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Procedimentos Especiais na Justiça Desportiva",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Ação Cível: procedimento ordinário (proposição ou defesa)",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Ação Cível: procedimento sumário (proposição ou defesa)",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Patrocínio de reclamante (sobre a condenação ou acordo)",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Patrocínio de reclamante (sobre a condenação ou acordo) - a) Acréscimo em caso de recurso ordinário",
+    "price": {
+      "amount_cents": 173791,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Patrocínio de reclamante (sobre a condenação ou acordo) - b) Acréscimo em caso de recurso de revista",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Patrocínio de reclamado (sobre o valor real do pedido)",
+    "price": {
+      "amount_cents": 521374,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Patrocínio de reclamado (sobre o valor real do pedido) - a) Acréscimo em caso de recurso ordinário",
+    "price": {
+      "amount_cents": 173791,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Patrocínio de reclamado (sobre o valor real do pedido) - b) Acréscimo em caso de recurso de revista",
+    "price": {
+      "amount_cents": 347584,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Consultoria jurídica, sem vínculo empregatício, entidade de prática desportiva com mais de 35 atletas e/ou membro(s) de comissão (ões) técnica(s)",
+    "price": {
+      "amount_cents": 1737918,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Consultoria Jurídica, sem vínculo empregatício, entidade de prática desportiva com menos de 35 atletas e/ou membro(s) de comissão (ões) técnica(s)",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Procedimento litigioso na defesa de interesse de cliente (clube, agente, atleta etc.) frente às entidades de administração do desporto – âmbito nacional e regional",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Procedimento litigioso na defesa de interesse de cliente (clube, agente, atleta etc.) frente à Fifa e TAS/CAS",
+    "price": {
+      "amount_cents": 3475837,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Procedimento litigioso na defesa de interesse de cliente (clube, agente, atleta etc.) frente à Fifa e TAS/CAS - a) Participação em painel (audiência/recurso)",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 5,
+      "percentage_max": 5
+    }
+  },
+  {
+    "area": "Atividade em matéria desportiva",
+    "service": "Os valores em matéria desportiva são acrescidos de 20% caso a atuação envolva atletas, clubes e contratos em língua estrangeira",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Procedimentos isolados perante os Tribunais Estaduais e/ou Regionais - a) Recurso de agravo de instrumento",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Procedimentos isolados perante os Tribunais Estaduais e/ou Regionais - b) Recurso de apelação ou contrarrazões",
+    "price": {
+      "amount_cents": 816822,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Procedimentos isolados perante os Tribunais Estaduais e/ou Regionais - c) Embargos declaratórios ou embargos infringentes",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Procedimentos isolados perante os Tribunais Estaduais e/ou Regionais - d) Conflito de jurisdição",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Procedimentos isolados perante os Tribunais Estaduais e/ou Regionais - e) Exceção de suspeição",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Procedimentos isolados perante os Tribunais Estaduais e/ou Regionais - f) Outros procedimentos",
+    "price": {
+      "amount_cents": 608272,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Recursos perante tribunais superiores - a) Recurso especial e extraordinário (interposição/resposta)",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Recursos perante tribunais superiores - b) Outros recursos",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Recursos perante tribunais superiores - c) Outros procedimentos",
+    "price": {
+      "amount_cents": 816822,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Ação rescisória – proposição ou defesa",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Mandado de Injunção",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Mandado de segurança",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Atuação perante Tribunal de Contas",
+    "price": {
+      "amount_cents": 1651022,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Atuação perante Conselho Profissional",
+    "price": {
+      "amount_cents": 1042752,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Atuação perante Conselho Administrativo",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Sustentação oral - a) Tribunais estaduais, regionais e conselhos estaduais",
+    "price": {
+      "amount_cents": 868958,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades perante tribunais e conselhos",
+    "service": "Sustentação oral - b) Tribunais superiores e conselhos federais",
+    "price": {
+      "amount_cents": 1216542,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Distribuição de petições em qualquer área",
+    "price": {
+      "amount_cents": 15408,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Distribuição de ação em qualquer área (primeira instância)",
+    "price": {
+      "amount_cents": 23110,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Distribuição de qualquer recurso",
+    "price": {
+      "amount_cents": 30813,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Audiência de conciliação em qualquer área como advogada/advogado ou representante",
+    "price": {
+      "amount_cents": 53925,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Audiência de instrução em qualquer área como advogada/advogado ou representante",
+    "price": {
+      "amount_cents": 107849,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Acompanhamento a cliente em repartição policial por ato",
+    "price": {
+      "amount_cents": 92443,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Despacho com juiz ou chefe de secretaria",
+    "price": {
+      "amount_cents": 53925,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Despacho em qualquer órgão público",
+    "price": {
+      "amount_cents": 53925,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Acompanhamento a clientes em exames periciais",
+    "price": {
+      "amount_cents": 92443,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Requerimentos de certidões ou qualquer outro documento e envio",
+    "price": {
+      "amount_cents": 30813,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Retirada/levantamento, envio de alvará",
+    "price": {
+      "amount_cents": 30813,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Acompanhamento de busca e apreensão de veículo ou outros bens",
+    "price": {
+      "amount_cents": 77035,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Extração de cópia de autos (até 100 copias)",
+    "price": {
+      "amount_cents": 15408,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Digitalização dos autos",
+    "price": {
+      "amount_cents": 15408,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Acompanhamento de movimentação processual (processo físico ou PJE)",
+    "price": {
+      "amount_cents": 46221,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Distribuição de carta precatória",
+    "price": {
+      "amount_cents": 23110,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tabela de diligências – advogada/advogado correspondente",
+    "service": "Preenchimento de guias e pagamentos de custas",
+    "price": {
+      "amount_cents": 23110,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atendimento virtual / eletrônico",
+    "service": "Para o trabalho desenvolvido virtual/eletronicamente, serão cobrados os mesmos honorários anteriormente previstos.",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em assessoria jurídica em métodos autocompositivos (*)",
+    "service": "Consulta genérica acerca dos benefícios e características da utilização dos métodos autocompositivos de solução de conflitos",
+    "price": {
+      "amount_cents": 49266,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em assessoria jurídica em métodos autocompositivos (*)",
+    "service": "Consulta para identificação do método autocompositivo adequado à solução do conflito, observando o caso concreto com análise detalhada de documentos",
+    "price": {
+      "amount_cents": 105570,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em assessoria jurídica em métodos autocompositivos (*)",
+    "service": "Hora técnica e intelectual para análise dos elementos do conflito e assessoria jurídico-estratégica",
+    "price": {
+      "amount_cents": 79390,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em assessoria jurídica em métodos autocompositivos (*)",
+    "service": "Acompanhamento em sessão ou reunião de Práticas Colaborativas, Mediação, Conciliação, Negociação ou qualquer método autocompositivo (por ato)",
+    "price": {
+      "amount_cents": 222292,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em assessoria jurídica em métodos autocompositivos (*)",
+    "service": "Elaboração e/ou revisão de Termo de Acordo total ou parcial resultante do encerramento de Práticas Colaborativas, Mediação, Conciliação, Negociação ou qualquer método autocompositivo",
+    "price": {
+      "amount_cents": 450437,
+      "percentage_min": 3,
+      "percentage_max": 3
+    }
+  },
+  {
+    "area": "Atividades em assessoria jurídica em métodos autocompositivos (*)",
+    "service": "Requerimento de homologação de acordo realizado em esfera extrajudicial perante o Poder Judiciário",
+    "price": {
+      "amount_cents": 376442,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em assessoria jurídica em métodos autocompositivos (*)",
+    "service": "Assessoria jurídica exclusivamente para procedimento de método autocompositivo de solução de conflitos, especialmente Práticas Colaborativas, Mediação, Conciliação e Negociação, em qualquer matéria, considerando todas as etapas",
+    "price": {
+      "amount_cents": 903461,
+      "percentage_min": 6,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Tutela protetiva dos direitos da criança e do adolescente",
+    "service": "Acompanhamento do adolescente em delegacia especializada",
+    "price": {
+      "amount_cents": 229407,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tutela protetiva dos direitos da criança e do adolescente",
+    "service": "Audiência de oitiva informal perante o Ministério Público (audiência do art. 179 do Estatuto da Criança e do Adolescente)",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tutela protetiva dos direitos da criança e do adolescente",
+    "service": "Pedido de revogação de internação provisória",
+    "price": {
+      "amount_cents": 898503,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tutela protetiva dos direitos da criança e do adolescente",
+    "service": "Habeas corpus no horário de expediente",
+    "price": {
+      "amount_cents": 1816124,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Tutela protetiva dos direitos da criança e do adolescente",
+    "service": "Habeas corpus perante plantão",
+    "price": {
+      "amount_cents": 2676394,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa técnica em execução de medidas socioeducativas",
+    "service": "Acompanhamento da formulação do Plano Individual de Atendimento",
+    "price": {
+      "amount_cents": 898503,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa técnica em execução de medidas socioeducativas",
+    "service": "Impugnação ao Plano Individual de Atendimento",
+    "price": {
+      "amount_cents": 898503,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa técnica em execução de medidas socioeducativas",
+    "service": "Audiência de reavaliação de medida socioeducativa",
+    "price": {
+      "amount_cents": 898503,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa técnica em execução de medidas socioeducativas",
+    "service": "Defesa em procedimento de aplicação de sanção disciplinar a adolescente submetido a medida de internação",
+    "price": {
+      "amount_cents": 898503,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa técnica em execução de medidas socioeducativas",
+    "service": "Pedido incidental (revogação, unificação ou substituição de medida socioeducativa)",
+    "price": {
+      "amount_cents": 898503,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Adoção internacional",
+    "price": {
+      "amount_cents": 1816124,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Adoção nacional (SNA)",
+    "price": {
+      "amount_cents": 955853,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Adoção nacional direta (intuitu personae) com anuência dos genitores, estando estes falecidos, suspensos ou destituídos do poder familiar",
+    "price": {
+      "amount_cents": 955853,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Adoção nacional direta (intuitu personae) cumulada com destituição do poder familiar",
+    "price": {
+      "amount_cents": 955853,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Habilitação de pretendentes à adoção",
+    "price": {
+      "amount_cents": 955853,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Tutela ou curatela",
+    "price": {
+      "amount_cents": 1147026,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Ação de colocação em família substituta nas modalidades guarda e tutela",
+    "price": {
+      "amount_cents": 955853,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Defesa dos genitores em caso de destituição do poder familiar",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Defesa do tutor ou do guardião legal em caso de perda ou modificação da tutela ou guarda",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Ação de danos materiais e morais decorrente de desistência do pretendente em relação à guarda para fins de adoção ou a devolução da criança ou do adolescente depois do trânsito em julgado da sentença de adoção",
+    "price": {
+      "amount_cents": 1624955,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Reconhecimento voluntário da paternidade perante o oficial de registro civil das pessoas naturais (Provimento nº 83/2019 do CNJ)",
+    "price": {
+      "amount_cents": 133819,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Reconhecimento de dupla maternidade/paternidade",
+    "price": {
+      "amount_cents": 688215,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Ação negatória de paternidade",
+    "price": {
+      "amount_cents": 688215,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Suspensão do poder familiar",
+    "price": {
+      "amount_cents": 1624955,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Renúncia ao poder familiar",
+    "price": {
+      "amount_cents": 1624955,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Emancipação ou suprimento",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos referentes ao direito à convivência familiar e comunitária",
+    "service": "Ação autônoma ou incidental de alienação parental (conforme previsto no art. 4° da Lei nº 12.318/2010)",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos relativos a ações coletivas e outros procedimentos especiais previstos no estatuto da criança e do adolescente",
+    "service": "Representação de entidade em ação civil pública",
+    "price": {
+      "amount_cents": 1911710,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos relativos a ações coletivas e outros procedimentos especiais previstos no estatuto da criança e do adolescente",
+    "service": "Mandado de segurança e ação ordinária c/c preceito cominatório visando a direito fundamental (educação, saúde etc.)",
+    "price": {
+      "amount_cents": 764685,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Procedimentos relativos a ações coletivas e outros procedimentos especiais previstos no estatuto da criança e do adolescente",
+    "service": "Defesa em procedimento relativo à imputação de irregularidades em entidades de atendimento e em procedimento relativo à aplicação de penalidades administrativas nos casos de infrações contra norma de proteção à criança ou ao adolescente",
+    "price": {
+      "amount_cents": 344109,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Outras ações judiciais, conforme art. 148, parágrafo único, do estatuto da criança e do adolescente (situação de risco)",
+    "service": "Ação visando a suprimento de capacidade ou ao consentimento para o casamento",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Outras ações judiciais, conforme art. 148, parágrafo único, do estatuto da criança e do adolescente (situação de risco)",
+    "service": "Pedidos baseados em discordância paterna ou materna, em relação ao exercício do poder familiar (inclusa a autorização de viagem)",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Outras ações judiciais, conforme art. 148, parágrafo único, do estatuto da criança e do adolescente (situação de risco)",
+    "service": "Emancipação",
+    "price": {
+      "amount_cents": 477928,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Outras ações judiciais, conforme art. 148, parágrafo único, do estatuto da criança e do adolescente (situação de risco)",
+    "service": "Ação de alimentos",
+    "price": {
+      "amount_cents": 286756,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Outras ações judiciais, conforme art. 148, parágrafo único, do estatuto da criança e do adolescente (situação de risco)",
+    "service": "Retificação de registro civil",
+    "price": {
+      "amount_cents": 477928,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Outras ações judiciais, conforme art. 148, parágrafo único, do estatuto da criança e do adolescente (situação de risco)",
+    "service": "Retirada de crianças e adolescentes de local que ameace ou viole seus direitos, ou busca e apreensão de bens",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Curadoria especial e representação direta/imediata de interesses de crianças e adolescentes quando seus interesses colidirem com os de seus pais ou responsável, ou quando carecer de representação ou assistência legal ainda que eventual",
+    "service": "Curadoria especial de genitores ou responsáveis legais (guardiões ou tutores legais)",
+    "price": {
+      "amount_cents": 1147027,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Curadoria especial e representação direta/imediata de interesses de crianças e adolescentes quando seus interesses colidirem com os de seus pais ou responsável, ou quando carecer de representação ou assistência legal ainda que eventual",
+    "service": "Curadoria especial ou Advocacia em nome de interesse manifesto de criança ou adolescente que não corresponda aos interesses de seus genitores, tutores ou guardiões",
+    "price": {
+      "amount_cents": 477928,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Curadoria especial e representação direta/imediata de interesses de crianças e adolescentes quando seus interesses colidirem com os de seus pais ou responsável, ou quando carecer de representação ou assistência legal ainda que eventual",
+    "service": "Violência doméstica",
+    "price": {
+      "amount_cents": 1147027,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Curadoria especial e representação direta/imediata de interesses de crianças e adolescentes quando seus interesses colidirem com os de seus pais ou responsável, ou quando carecer de representação ou assistência legal ainda que eventual",
+    "service": "Justiça Restaurativa",
+    "price": {
+      "amount_cents": 1567602,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atuação junto ao conselho tutelar",
+    "service": "Defesa em procedimento contencioso junto ao Conselho Tutelar, conforme Resolução nº 170/2012 do Conselho Nacional dos Direitos da Criança e do Adolescente (Conanda)",
+    "price": {
+      "amount_cents": 1147027,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atuação junto ao conselho tutelar",
+    "service": "Pedido à autoridade judiciária de revisão de deliberação do Conselho Tutelar (art. 137 do Estatuto da Criança e do Adolescente)",
+    "price": {
+      "amount_cents": 1147027,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa de direitos de crianças e adolescentes perante tribunais",
+    "service": "Agravo ou contrarrazões em procedimento de apuração de ato infracional ou execução de medidas socioeducativas",
+    "price": {
+      "amount_cents": 1338197,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa de direitos de crianças e adolescentes perante tribunais",
+    "service": "Agravo ou contrarrazões em procedimentos não relativos a atos infracionais",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa de direitos de crianças e adolescentes perante tribunais",
+    "service": "Apelação ou contrarrazões em procedimento de apuração de ato infracional ou execução de medidas socioeducativas",
+    "price": {
+      "amount_cents": 1338197,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa de direitos de crianças e adolescentes perante tribunais",
+    "service": "Apelação ou contrarrazões em procedimentos não relativos a atos infracionais",
+    "price": {
+      "amount_cents": 898504,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa de direitos de crianças e adolescentes perante tribunais",
+    "service": "Memoriais em procedimento de apuração de ato infracional ou execução de medidas socioeducativas",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa de direitos de crianças e adolescentes perante tribunais",
+    "service": "Memoriais em procedimentos não relativos a atos infracionais",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Defesa de direitos de crianças e adolescentes perante tribunais",
+    "service": "Sustentação oral em procedimentos referentes à apuração de ato infracional e em procedimentos não relativos a atos infracionais",
+    "price": {
+      "amount_cents": 955854,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista/cível",
+    "service": "Obtenção de alvará judicial para trabalho infantil artístico",
+    "price": {
+      "amount_cents": 669099,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista/cível",
+    "service": "Elaboração de contrato cível para atuação de gamers",
+    "price": {
+      "amount_cents": 542329,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista/cível",
+    "service": "Elaboração de contrato cível para trabalho infantil artístico em mídias tradicionais",
+    "price": {
+      "amount_cents": 542329,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista/cível",
+    "service": "Elaboração de contrato cível envolvendo publicidade comercial em mídias tradicionais",
+    "price": {
+      "amount_cents": 542329,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista/cível",
+    "service": "\"Elaboração de contrato cível envolvendo publicidade comercial na internet/redes",
+    "price": {
+      "amount_cents": 542329,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista/cível",
+    "service": "sociais/plataformas digitais\"",
+    "price": {
+      "amount_cents": 382342,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria trabalhista/cível",
+    "service": "Elaboração de parecer sobre cumprimento de cota de aprendizagem",
+    "price": {
+      "amount_cents": 191170,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Assessoria e Consultoria mensal especializada (até 100 unidades):",
+    "price": {
+      "amount_cents": 154551,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Consulta âmbito condominial",
+    "price": {
+      "amount_cents": 87564,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Cobrança extrajudicial de cotas condominiais/multas",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": 10,
+      "percentage_max": 10
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Elaboração/alteração de Convenção ou Estatuto",
+    "price": {
+      "amount_cents": 1094550,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Elaboração/alteração de Regimento Interno de associação ou condomínio",
+    "price": {
+      "amount_cents": 1094550,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Participação e assessoria ao condomínio em assembleia ou reunião",
+    "price": {
+      "amount_cents": 158710,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Ação de Prestação de contas",
+    "price": {
+      "amount_cents": 634839,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Ação de restituição de valores",
+    "price": {
+      "amount_cents": 415929,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Ação de impugnação de assembleia",
+    "price": {
+      "amount_cents": 569166,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Ação impugnação de assembleia c/c pedido de liminar",
+    "price": {
+      "amount_cents": 711458,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Ação de vícios construtivos",
+    "price": {
+      "amount_cents": 1641825,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Ação de antecipação de provas (vícios construtivos)",
+    "price": {
+      "amount_cents": 1094550,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Ação exclusão de condômino antissocial",
+    "price": {
+      "amount_cents": 1641825,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Ação defesa do (a) síndico (a)",
+    "price": {
+      "amount_cents": 656730,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Direito condominial",
+    "service": "Ação indenizatória (favorável ou contra gestão)",
+    "price": {
+      "amount_cents": 656730,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Mapeamento de dados pessoais (por processo)",
+    "price": {
+      "amount_cents": 49255,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Elaboração de políticas ou procedimento (por política/procedimento)",
+    "price": {
+      "amount_cents": 356276,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Elaboração de Relatório de Impacto à Proteção de Dados Pessoais (DPIA)",
+    "price": {
+      "amount_cents": 800116,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Avaliação do Legítimo Interesse (LIA)",
+    "price": {
+      "amount_cents": 285021,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Elaboração de plano de atendimento aos titulares de dados",
+    "price": {
+      "amount_cents": 498787,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Elaboração do Plano de Resposta a Incidentes com Dados Pessoais",
+    "price": {
+      "amount_cents": 712552,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Suporte e orientação para aplicação do Privacy by Design, por produto, serviço ou solução",
+    "price": {
+      "amount_cents": 498787,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Elaboração do programa de governança em proteção de dados pessoais",
+    "price": {
+      "amount_cents": 1140084,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Elaboração de termo de consentimento (padrão, dados sensíveis, dados de crianças e adolescentes e idosos) (valor por termo)",
+    "price": {
+      "amount_cents": 153237,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Análise dos processos internos da empresa e proposição de recomendações de melhorias (GAP Analysis) (por processo)",
+    "price": {
+      "amount_cents": 49255,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Revisão e/ou atualização de políticas e procedimentos já existentes na empresa (por política/procedimento)",
+    "price": {
+      "amount_cents": 285021,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Elaboração da comunicação de incidente à ANPD / titulares de dados, e demais tipos de notificações necessárias (imprensa, mercado, órgãos administrativos, etc.).",
+    "price": {
+      "amount_cents": 498787,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Resposta à ofício da ANPD e outros órgãos competentes",
+    "price": {
+      "amount_cents": 285021,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Resposta a requisição do titular de dados pessoais, por requisição",
+    "price": {
+      "amount_cents": 76619,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Treinamento, palestras, workshops (por evento)",
+    "price": {
+      "amount_cents": 712552,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Revisão e atualização de inventário de dados pessoais (por processo)",
+    "price": {
+      "amount_cents": 38309,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Elaboração de tabela de temporalidade para retenção de dados pessoais",
+    "price": {
+      "amount_cents": 498787,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Elaboração de documentação para formalização do cargo de Encarregado pelo Tratamento de Dados Pessoais",
+    "price": {
+      "amount_cents": 153237,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Análise de aspectos de privacidade e proteção de dados em contratos, por contrato",
+    "price": {
+      "amount_cents": 350256,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Suporte na gestão de incidentes com dados pessoais (o processo de comunicação à ANPD, titulares e autoridades competentes não está inclusa neste tópico)",
+    "price": {
+      "amount_cents": null,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "- para agentes de tratamento de pequeno porte, por incidente",
+    "price": {
+      "amount_cents": 921174,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "- para demais agentes de tratamento de dados, por incidente",
+    "price": {
+      "amount_cents": 2562999,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "- na hipótese de contratação por carga horária (por hora)",
+    "price": {
+      "amount_cents": 99768,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Avaliação de aspectos de proteção de dados pessoais na contratação e/ou gestão de terceiros envolvidos no compartilhamento de dados, por avaliação.",
+    "price": {
+      "amount_cents": 356276,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Parecer / consultoria e outros trabalhos não especificados - para agentes de tratamento de pequeno porte",
+    "price": {
+      "amount_cents": 498787,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Parecer / consultoria e outros trabalhos não especificados - para demais agentes de tratamento de dados",
+    "price": {
+      "amount_cents": 712552,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Atuação como DPO as a Service - por hora",
+    "price": {
+      "amount_cents": 99757,
+      "percentage_min": null,
+      "percentage_max": null
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Parecer / consultoria e outros trabalhos não especificados:",
+    "price": {
+      "amount_cents": 800116,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "- para agentes de tratamento de pequeno porte",
+    "price": {
+      "amount_cents": 800116,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "- para demais agentes de tratamento de dados",
+    "price": {
+      "amount_cents": 517722,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Procedimento ou defesa administrativa nas demais instâncias como mandatário do titular de dados",
+    "price": {
+      "amount_cents": 517722,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Defesa dos interesses do controlador",
+    "price": {
+      "amount_cents": 1028877,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  },
+  {
+    "area": "Atividades em matéria de privacidade e proteção de dados",
+    "service": "Defesa dos interesses do titular de dados",
+    "price": {
+      "amount_cents": 570042,
+      "percentage_min": 20,
+      "percentage_max": 20
+    }
+  }
+]

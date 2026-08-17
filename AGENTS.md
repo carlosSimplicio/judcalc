@@ -1,3 +1,45 @@
 # Instruções para agentes
 
 - Seja conciso e direto em suas respostas.
+
+## Banco de dados
+
+- Sempre que o esquema, os campos, as constraints, os relacionamentos, a carga
+  ou a busca FTS forem modificados, atualize também esta seção do `AGENTS.md` na
+  mesma alteração.
+- O MVP usa SQLite com FTS5. O esquema está em `database/schema.sql`.
+- `data/oab-sp.json` é a fonte de verdade. Execute `python -m scripts.init_database`
+  para criar ou sincronizar `data/app.db`; o arquivo do banco é regenerável e não
+  deve ser versionado.
+- A carga é transacional, substitui integralmente os dados anteriores e habilita
+  `PRAGMA foreign_keys = ON`.
+
+### Tabela `areas`
+
+- `id`: chave primária inteira.
+- `name`: nome obrigatório e único da área jurídica.
+
+### Tabela `services`
+
+- `id`: chave primária inteira.
+- `area_id`: chave estrangeira obrigatória para `areas.id`, com exclusão em
+  cascata.
+- `name`: descrição obrigatória do serviço.
+- `amount_cents`: valor monetário mínimo em centavos; aceita `NULL` quando não
+  informado e não aceita valores negativos.
+- `percentage_min` e `percentage_max`: limites percentuais reais; ambos devem ser
+  `NULL` ou ambos preenchidos, entre 0 e 100, com o mínimo menor ou igual ao
+  máximo.
+- `area_id` possui índice para relacionamentos e filtros.
+- Uma variante é única pela combinação de área, nome, valor e percentuais.
+  Isso preserva o serviço homônimo `Atuação somente a partir da fase recursal`,
+  que aparece na mesma área previdenciária com dois valores distintos.
+
+### Busca textual
+
+- `areas_fts` indexa `areas.name` e `services_fts` indexa `services.name` como
+  tabelas virtuais FTS5 de conteúdo externo.
+- O tokenizer `unicode61 remove_diacritics 2` permite buscas sem acentos e por
+  prefixos.
+- Triggers de inserção, atualização e exclusão mantêm os índices FTS
+  sincronizados; não os atualize diretamente.

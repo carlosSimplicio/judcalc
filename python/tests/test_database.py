@@ -195,6 +195,36 @@ class DatabaseTests(unittest.TestCase):
             self.connection.execute("PRAGMA integrity_check").fetchone()[0], "ok"
         )
 
+    def test_fixed_costs_constraints_and_catalog_reload_preservation(self) -> None:
+        self.connection.execute(
+            """
+            INSERT INTO user_fixed_costs(
+                user_id, oab_annual_fee_cents, internet_cents
+            ) VALUES (?, ?, ?)
+            """,
+            ("user-1", 120_000, 15_000),
+        )
+        self.connection.commit()
+
+        with self.assertRaises(sqlite3.IntegrityError):
+            self.connection.execute(
+                "INSERT INTO user_fixed_costs(user_id, phone_cents) VALUES (?, ?)",
+                ("user-invalid", -1),
+            )
+        self.connection.rollback()
+
+        initialize_database(DEFAULT_INPUT, self.database_path)
+
+        stored = self.connection.execute(
+            """
+            SELECT oab_annual_fee_cents, internet_cents
+            FROM user_fixed_costs
+            WHERE user_id = ?
+            """,
+            ("user-1",),
+        ).fetchone()
+        self.assertEqual(stored, (120_000, 15_000))
+
 
 if __name__ == "__main__":
     unittest.main()

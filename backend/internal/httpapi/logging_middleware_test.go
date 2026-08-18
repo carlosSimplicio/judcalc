@@ -12,7 +12,7 @@ import (
 func TestRequestLoggerUsesInjectedLogger(t *testing.T) {
 	var output bytes.Buffer
 	logger := slog.New(slog.NewJSONHandler(&output, nil))
-	router := NewRouter(&areaRepositoryStub{}, &serviceRepositoryStub{}, logger)
+	router := NewRouter(&areaRepositoryStub{}, &serviceRepositoryStub{}, &fixedCostsRepositoryStub{}, logger)
 
 	request := httptest.NewRequest(http.MethodGet, "/unknown", nil)
 	response := httptest.NewRecorder()

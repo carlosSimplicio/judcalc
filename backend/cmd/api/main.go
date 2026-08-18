@@ -33,9 +33,10 @@ func run(logger *slog.Logger) error {
 
 	areaRepository := sqlitestorage.NewAreaRepository(database)
 	serviceRepository := sqlitestorage.NewServiceRepository(database)
+	fixedCostsRepository := sqlitestorage.NewFixedCostsRepository(database)
 	server := &http.Server{
 		Addr:              httpAddress,
-		Handler:           httpapi.NewRouter(areaRepository, serviceRepository, logger),
+		Handler:           httpapi.NewRouter(areaRepository, serviceRepository, fixedCostsRepository, logger),
 		ReadHeaderTimeout: 5 * time.Second,
 		ReadTimeout:       15 * time.Second,
 		WriteTimeout:      15 * time.Second,

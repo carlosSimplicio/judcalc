@@ -14,8 +14,8 @@ func TestOpenDatabaseRejectsMissingFile(t *testing.T) {
 	}
 }
 
-func TestOpenDatabaseValidatesSchemaAndEnforcesReadOnlyMode(t *testing.T) {
-	path := filepath.Join(t.TempDir(), "read-only.db")
+func TestOpenDatabaseValidatesSchemaAndAllowsWrites(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "writable.db")
 	writable, err := sql.Open("sqlite", path)
 	if err != nil {
 		t.Fatal(err)
@@ -28,12 +28,12 @@ func TestOpenDatabaseValidatesSchemaAndEnforcesReadOnlyMode(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	readOnly, err := OpenDatabase(context.Background(), path)
+	database, err := OpenDatabase(context.Background(), path)
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer readOnly.Close()
-	if _, err := readOnly.Exec(`INSERT INTO areas(name) VALUES ('Proibida')`); err == nil {
-		t.Fatal("read-only database accepted a write")
+	defer database.Close()
+	if _, err := database.Exec(`INSERT INTO user_fixed_costs(user_id, internet_cents) VALUES ('user-1', 1000)`); err != nil {
+		t.Fatalf("writable database rejected a write: %v", err)
 	}
 }

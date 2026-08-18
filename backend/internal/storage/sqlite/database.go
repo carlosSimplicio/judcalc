@@ -27,7 +27,7 @@ func OpenDatabase(ctx context.Context, path string) (*sql.DB, error) {
 		return nil, fmt.Errorf("resolver caminho SQLite %q: %w", path, err)
 	}
 
-	dsn := "file:" + filepath.ToSlash(absolutePath) + "?mode=ro"
+	dsn := "file:" + filepath.ToSlash(absolutePath) + "?mode=rw&_pragma=foreign_keys(1)"
 	database, err := sql.Open("sqlite", dsn)
 	if err != nil {
 		return nil, fmt.Errorf("abrir banco SQLite: %w", err)
@@ -53,6 +53,12 @@ func validateSchema(ctx context.Context, database *sql.DB) error {
 		"SELECT id, area_id, name, amount_cents, percentage_min, percentage_max FROM services LIMIT 0",
 		"SELECT rowid, name FROM areas_fts LIMIT 0",
 		"SELECT rowid, name FROM services_fts LIMIT 0",
+		`SELECT user_id, oab_annual_fee_cents, digital_certificate_cents,
+			accountant_cents, legal_software_cents, internet_cents, phone_cents,
+			recurring_transport_cents, coworking_or_office_rent_cents,
+			professional_domain_website_email_cents, marketing_cents,
+			office_supplies_cents, equipment_and_depreciation_cents,
+			other_costs_cents FROM user_fixed_costs LIMIT 0`,
 	}
 	for _, query := range queries {
 		rows, err := database.QueryContext(ctx, query)

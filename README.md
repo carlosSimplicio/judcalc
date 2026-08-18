@@ -34,7 +34,7 @@ go mod download
 go run ./cmd/api
 ```
 
-A API escuta em `:8080` e abre `data/app.db` somente para leitura. As
+A API escuta em `:8080` e abre `data/app.db` para leitura e escrita. As
 configurações podem ser substituídas por variáveis de ambiente:
 
 ```powershell
@@ -51,8 +51,10 @@ inicialização com uma mensagem de erro.
 
 - `GET /api/v1/areas`
 - `GET /api/v1/services`
+- `GET /api/v1/fixed-costs/:user_id`
+- `PATCH /api/v1/fixed-costs`
 
-Ambos aceitam `page` (padrão `1`), `page_size` (padrão `20`, máximo `100`) e
+Os endpoints de áreas e serviços aceitam `page` (padrão `1`), `page_size` (padrão `20`, máximo `100`) e
 `q`. A busca ignora acentos, busca prefixos e exige correspondência de todos os
 termos.
 
@@ -60,6 +62,27 @@ Exemplo:
 
 ```text
 GET /api/v1/services?page=1&page_size=20&q=acao%20previd
+```
+
+Os custos fixos são consultados pelo identificador textual do usuário. Quando
+ainda não há cadastro, o GET retorna todas as categorias zeradas:
+
+```text
+GET /api/v1/fixed-costs/user-123
+```
+
+O PATCH cria o registro ou atualiza somente os custos enviados. Os valores são
+inteiros em centavos; a anuidade da OAB é convertida para uma média mensal na
+resposta.
+
+```json
+{
+  "user_id": "user-123",
+  "costs": {
+    "oab_annual_fee": { "annual_amount_cents": 120000 },
+    "internet": { "monthly_amount_cents": 15000 }
+  }
+}
 ```
 
 ## Testes

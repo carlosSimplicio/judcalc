@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"reflect"
+	"strings"
 	"testing"
 
 	"github.com/gin-gonic/gin"
@@ -32,6 +33,13 @@ type serviceRepositoryStub struct {
 	err    error
 }
 
+type fixedCostsRepositoryStub struct {
+	result domain.FixedCosts
+	exists bool
+	err    error
+	patch  domain.FixedCostsPatch
+}
+
 type responseMetadata struct {
 	Page       int64 `json:"page"`
 	PageSize   int64 `json:"page_size"`
@@ -46,6 +54,18 @@ type responseError struct {
 }
 
 func (stub *serviceRepositoryStub) ListServices(context.Context, domain.ListOptions) (domain.ListResult[domain.Service], error) {
+	return stub.result, stub.err
+}
+
+func (stub *fixedCostsRepositoryStub) GetFixedCosts(_ context.Context, userID string) (domain.FixedCosts, bool, error) {
+	if stub.result.UserID == "" {
+		stub.result.UserID = userID
+	}
+	return stub.result, stub.exists, stub.err
+}
+
+func (stub *fixedCostsRepositoryStub) UpsertFixedCosts(_ context.Context, patch domain.FixedCostsPatch) (domain.FixedCosts, error) {
+	stub.patch = patch
 	return stub.result, stub.err
 }
 
@@ -154,12 +174,104 @@ func TestInternalErrorsDoNotLeakDetails(t *testing.T) {
 	}
 }
 
+func TestGetFixedCostsReturnsZerosWhenUserHasNoRecord(t *testing.T) {
+	response := performRequest(t, &areaRepositoryStub{}, &serviceRepositoryStub{}, "/api/v1/fixed-costs/user-123")
+	if response.Code != http.StatusOK {
+		t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+	}
+	var body map[string]any
+	decodeResponse(t, response, &body)
+	data := body["data"].(map[string]any)
+	if data["user_id"] != "user-123" {
+		t.Fatalf("user_id = %#v", data["user_id"])
+	}
+	costs := data["costs"].(map[string]any)
+	if len(costs) != 13 {
+		t.Fatalf("cost categories = %d, want 13", len(costs))
+	}
+	oab := costs["oab_annual_fee"].(map[string]any)
+	if oab["annual_amount_cents"] != float64(0) || oab["monthly_amount_cents"] != float64(0) {
+		t.Fatalf("unexpected OAB cost: %#v", oab)
+	}
+}
+
+func TestPatchFixedCostsUsesPartialValuesAndReturnsMonthlyOABAverage(t *testing.T) {
+	annual := int64(120006)
+	internet := int64(15000)
+	repository := &fixedCostsRepositoryStub{result: domain.FixedCosts{
+		UserID: "user-123", OABAnnualFeeCents: annual, InternetCents: internet,
+	}}
+	body := `{"user_id":" user-123 ","costs":{"oab_annual_fee":{"annual_amount_cents":120006},"internet":{"monthly_amount_cents":15000}}}`
+	response := performJSONRequest(t, &areaRepositoryStub{}, &serviceRepositoryStub{}, repository, http.MethodPatch, "/api/v1/fixed-costs", body)
+	if response.Code != http.StatusOK {
+		t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+	}
+	if repository.patch.UserID != "user-123" || repository.patch.OABAnnualFeeCents == nil || *repository.patch.OABAnnualFeeCents != annual {
+		t.Fatalf("unexpected patch: %#v", repository.patch)
+	}
+	if repository.patch.PhoneCents != nil {
+		t.Fatalf("omitted phone should remain nil: %#v", repository.patch.PhoneCents)
+	}
+	var responseBody map[string]any
+	decodeResponse(t, response, &responseBody)
+	data := responseBody["data"].(map[string]any)
+	costs := data["costs"].(map[string]any)
+	oab := costs["oab_annual_fee"].(map[string]any)
+	if oab["monthly_amount_cents"] != float64(10001) {
+		t.Fatalf("monthly OAB average = %#v", oab["monthly_amount_cents"])
+	}
+}
+
+func TestPatchFixedCostsRejectsInvalidBodies(t *testing.T) {
+	tests := []string{
+		`{`,
+		`{"user_id":"","costs":{"internet":{"monthly_amount_cents":1}}}`,
+		`{"user_id":"user-1","costs":{}}`,
+		`{"user_id":"user-1","costs":{"internet":{}}}`,
+		`{"user_id":"user-1","costs":{"internet":{"monthly_amount_cents":-1}}}`,
+		`{"user_id":"user-1","costs":{"unknown":{"monthly_amount_cents":1}}}`,
+		`{"user_id":"user-1","costs":{"internet":{"unknown":1}}}`,
+	}
+	for _, body := range tests {
+		t.Run(body, func(t *testing.T) {
+			response := performJSONRequest(t, &areaRepositoryStub{}, &serviceRepositoryStub{}, &fixedCostsRepositoryStub{}, http.MethodPatch, "/api/v1/fixed-costs", body)
+			if response.Code != http.StatusBadRequest {
+				t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+			}
+			var responseBody responseError
+			decodeResponse(t, response, &responseBody)
+			if responseBody.Error.Code != "invalid_body" {
+				t.Fatalf("error code = %q", responseBody.Error.Code)
+			}
+		})
+	}
+}
+
+func TestFixedCostsInternalErrorsDoNotLeakDetails(t *testing.T) {
+	repository := &fixedCostsRepositoryStub{err: errors.New("UPDATE private_costs SET secret = 1")}
+	response := performJSONRequest(t, &areaRepositoryStub{}, &serviceRepositoryStub{}, repository, http.MethodGet, "/api/v1/fixed-costs/user-1", "")
+	if response.Code != http.StatusInternalServerError {
+		t.Fatalf("status = %d", response.Code)
+	}
+	if body := response.Body.String(); body == "" || contains(body, "secret") || contains(body, "UPDATE") {
+		t.Fatalf("unsafe response body: %s", body)
+	}
+}
+
 func performRequest(t *testing.T, areas domain.AreaRepository, services domain.ServiceRepository, target string) *httptest.ResponseRecorder {
+	t.Helper()
+	return performJSONRequest(t, areas, services, &fixedCostsRepositoryStub{}, http.MethodGet, target, "")
+}
+
+func performJSONRequest(t *testing.T, areas domain.AreaRepository, services domain.ServiceRepository, fixedCosts domain.FixedCostsRepository, method, target, body string) *httptest.ResponseRecorder {
 	t.Helper()
 	gin.SetMode(gin.TestMode)
 	logger := slog.New(slog.NewTextHandler(io.Discard, nil))
-	router := NewRouter(areas, services, logger)
-	request := httptest.NewRequest(http.MethodGet, target, nil)
+	router := NewRouter(areas, services, fixedCosts, logger)
+	request := httptest.NewRequest(method, target, strings.NewReader(body))
+	if body != "" {
+		request.Header.Set("Content-Type", "application/json")
+	}
 	response := httptest.NewRecorder()
 	router.ServeHTTP(response, request)
 	return response

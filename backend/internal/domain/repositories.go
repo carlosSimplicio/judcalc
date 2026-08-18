@@ -9,3 +9,8 @@ type AreaRepository interface {
 type ServiceRepository interface {
 	ListServices(context.Context, ListOptions) (ListResult[Service], error)
 }
+
+type FixedCostsRepository interface {
+	GetFixedCosts(context.Context, string) (FixedCosts, bool, error)
+	UpsertFixedCosts(context.Context, FixedCostsPatch) (FixedCosts, error)
+}

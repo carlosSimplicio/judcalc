@@ -43,7 +43,7 @@ body {
 .benefit-list { display: grid; gap: 0.75rem; padding: 0; list-style: none; }
 .benefit-list li { padding: 1rem; border: 1px solid var(--border); border-radius: 1rem; background: rgba(255,255,255,.82); }
 .field { display: grid; gap: 0.5rem; margin-top: 1rem; }
-.field input { width: 100%; min-height: 3rem; padding: 0.75rem 0.875rem; border: 1px solid var(--border); border-radius: 0.75rem; background: #fff; color: var(--navy); font: inherit; }
+.field input:not([type="checkbox"]) { width: 100%; min-height: 3rem; padding: 0.75rem 0.875rem; border: 1px solid var(--border); border-radius: 0.75rem; background: #fff; color: var(--navy); font: inherit; }
 .password-wrap { position: relative; }
 .password-wrap input { padding-right: 5rem; }
 .password-wrap button { position: absolute; inset: 0 0 0 auto; border: 0; padding: 0 0.875rem; color: var(--blue); background: transparent; font: inherit; font-weight: 700; }

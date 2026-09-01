@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Criar conta | JudCalc</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="auth-shell">
+      <aside class="brand-panel" aria-labelledby="brand-title">
+        <div>
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M24 6v36M12 15h24M15 15l-7 18h14l-7-18ZM33 15l-7 18h14l-7-18ZM16 42h16" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h1 id="brand-title">JudCalc</h1>
+          <p class="brand-copy">Honorários mais seguros. Decisões mais claras.</p>
+        </div>
+        <ul class="benefit-list" aria-label="Benefícios">
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4 14 4-4 3 3 7-7M14 6h4v4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Precificação orientada
+          </li>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 11h14v9H5zM8 11V8a4 4 0 0 1 8 0v3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Custos sob controle
+          </li>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4a12 12 0 0 1 0 16M12 4a12 12 0 0 0 0 16" stroke-linecap="round"/></svg>
+            Acesso em qualquer dispositivo
+          </li>
+        </ul>
+      </aside>
+
+      <section class="form-panel" aria-labelledby="signup-title">
+        <div class="auth-card">
+          <h2 id="signup-title">Crie sua conta</h2>
+          <p>Comece a precificar com mais segurança.</p>
+          <form id="signup-form">
+            <div class="field">
+              <label for="full-name">Nome completo</label>
+              <input id="full-name" name="full-name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="password">Senha</label>
+              <div class="password-wrap">
+                <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required aria-describedby="password-help password-meter-label">
+                <button id="toggle-password" type="button" aria-controls="password" aria-pressed="false">Mostrar</button>
+              </div>
+              <p id="password-help">Use ao menos 8 caracteres.</p>
+              <div id="password-meter" class="password-meter" aria-hidden="true"><span></span></div>
+              <p id="password-meter-label">Segurança da senha: não informada</p>
+            </div>
+            <div class="field">
+              <label><input id="terms" name="terms" type="checkbox" required> Concordo com os Termos de Uso e a Política de Privacidade</label>
+            </div>
+            <div class="field">
+              <button class="button" type="submit">Criar conta</button>
+            </div>
+          </form>
+          <p id="form-status" role="status"></p>
+          <p>Já tem uma conta? <a href="login.html">Entre aqui</a></p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const password = document.querySelector('#password');
+      const toggle = document.querySelector('#toggle-password');
+      const meter = document.querySelector('#password-meter');
+      const meterLabel = document.querySelector('#password-meter-label');
+      const form = document.querySelector('#signup-form');
+      const status = document.querySelector('#form-status');
+
+      toggle.addEventListener('click', () => {
+        const visible = password.type === 'text';
+        password.type = visible ? 'password' : 'text';
+        toggle.textContent = visible ? 'Mostrar' : 'Ocultar';
+        toggle.setAttribute('aria-pressed', String(!visible));
+      });
+
+      password.addEventListener('input', () => {
+        const value = password.value;
+        const score = [value.length >= 8, /\p{L}/u.test(value), /\p{N}/u.test(value), /[^\p{L}\p{N}]/u.test(value)].filter(Boolean).length;
+        const level = !value ? '' : score <= 2 ? 'weak' : score === 3 ? 'medium' : 'strong';
+        const label = { '': 'não informada', weak: 'fraca', medium: 'média', strong: 'forte' }[level];
+        meter.className = `password-meter${level ? ` is-${level}` : ''}`;
+        meterLabel.textContent = `Segurança da senha: ${label}`;
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        status.textContent = 'Protótipo: nenhuma conta foi criada.';
+        status.scrollIntoView({ block: 'center' });
+      });
+    </script>
+  </body>
+</html>

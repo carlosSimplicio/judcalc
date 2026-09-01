@@ -4,3 +4,6 @@ __pycache__/
 /backend/data/app.db
 /backend/data/app.db-shm
 /backend/data/app.db-wal
+
+*/.venv/
+*/venv/

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Entrar | JudCalc</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="auth-shell">
+      <aside class="brand-panel" aria-labelledby="brand-title">
+        <div>
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M24 6v36M12 15h24M15 15l-7 18h14l-7-18ZM33 15l-7 18h14l-7-18ZM16 42h16" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h1 id="brand-title">JudCalc</h1>
+          <p class="brand-copy">Honorários mais seguros. Decisões mais claras.</p>
+        </div>
+        <ul class="benefit-list" aria-label="Benefícios">
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4 14 4-4 3 3 7-7M14 6h4v4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Precificação orientada
+          </li>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 11h14v9H5zM8 11V8a4 4 0 0 1 8 0v3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Custos sob controle
+          </li>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4a12 12 0 0 1 0 16M12 4a12 12 0 0 0 0 16" stroke-linecap="round"/></svg>
+            Acesso em qualquer dispositivo
+          </li>
+        </ul>
+      </aside>
+
+      <section class="form-panel" aria-labelledby="login-title">
+        <div class="auth-card">
+          <h2 id="login-title">Entre na sua conta</h2>
+          <p>Informe seus dados para continuar.</p>
+          <form id="login-form">
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="password">Senha</label>
+              <div class="password-wrap">
+                <input id="password" name="password" type="password" autocomplete="current-password" required>
+                <button id="toggle-password" type="button" aria-controls="password" aria-pressed="false">Mostrar</button>
+              </div>
+            </div>
+            <div class="field">
+              <label><input id="remember" name="remember" type="checkbox"> Lembrar-me</label>
+            </div>
+            <div class="field">
+              <a href="#">Esqueci minha senha</a>
+            </div>
+            <button class="button" type="submit">Entrar</button>
+          </form>
+          <p>Novo por aqui? <a href="cadastro.html">Crie sua conta</a></p>
+        </div>
+      </section>
+    </main>
+
+    <p id="form-status" role="status"></p>
+    <script>
+      const password = document.querySelector('#password');
+      const toggle = document.querySelector('#toggle-password');
+      const form = document.querySelector('#login-form');
+      const status = document.querySelector('#form-status');
+
+      toggle.addEventListener('click', () => {
+        const visible = password.type === 'text';
+        password.type = visible ? 'password' : 'text';
+        toggle.textContent = visible ? 'Mostrar' : 'Ocultar';
+        toggle.setAttribute('aria-pressed', String(!visible));
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        status.textContent = 'Protótipo: nenhuma informação foi enviada.';
+      });
+    </script>
+  </body>
+</html>

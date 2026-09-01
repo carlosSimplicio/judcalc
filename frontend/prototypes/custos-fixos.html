@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custos fixos | JudCalc</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="app-body">
+    <div class="app-shell">
+      <aside class="app-sidebar" aria-label="Navegação principal">
+        <a class="app-brand" href="#" aria-label="JudCalc - Início">
+          <svg width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M24 6v36M12 15h24M15 15l-7 18h14l-7-18ZM33 15l-7 18h14l-7-18ZM16 42h16" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>JudCalc</span>
+        </a>
+
+        <nav class="sidebar-nav">
+          <a href="#">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" stroke-linejoin="round"/></svg>
+            Início
+          </a>
+          <a href="#">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM8 8h8M8 12h3M8 16h8" stroke-linecap="round"/></svg>
+            Honorários
+          </a>
+          <a class="is-active" href="#" aria-current="page">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2v3M18 2v3M3 9h18M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2Z" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14h8M8 17h5" stroke-linecap="round"/></svg>
+            Custos fixos
+          </a>
+          <a href="#">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0" stroke-linecap="round"/></svg>
+            Perfil
+          </a>
+        </nav>
+
+        <div class="sidebar-tip">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 1 1 4.1 2.1c-.9.6-1.6 1.1-1.6 2.4M12 17h.01" stroke-linecap="round"/></svg>
+          <p><strong>Dica</strong>Revise seus custos sempre que uma despesa recorrente mudar.</p>
+        </div>
+      </aside>
+
+      <main class="costs-main">
+        <header class="app-header">
+          <div>
+            <p class="eyebrow">Configurações financeiras</p>
+            <h1>Custos fixos</h1>
+            <p>Informe suas despesas recorrentes para calcular honorários com mais segurança.</p>
+          </div>
+          <button class="profile-button" type="button" aria-label="Abrir menu do perfil">
+            <span class="profile-avatar">CS</span>
+            <span class="profile-copy"><strong>Caio Silva</strong><small>Meu perfil</small></span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m7 10 5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </header>
+
+        <section class="cost-summary" aria-labelledby="summary-title">
+          <div class="summary-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2v3M18 2v3M3 9h18M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2Z" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14h8M8 17h5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <p id="summary-title">Total mensal estimado</p>
+            <strong>R$ 0,00</strong>
+            <small>Inclui a média mensal da anuidade da OAB</small>
+          </div>
+          <span class="summary-badge">Resumo mensal</span>
+        </section>
+
+        <form class="costs-form">
+          <section class="form-section" aria-labelledby="professional-costs-title">
+            <div class="section-heading">
+              <span class="section-icon section-icon-blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6V4h6v2M5 7h14v13H5zM5 12h14M10 12v2h4v-2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div><h2 id="professional-costs-title">Estrutura profissional</h2><p>Obrigações e ferramentas essenciais para o escritório.</p></div>
+            </div>
+            <div class="cost-fields-grid">
+              <div class="cost-field">
+                <label for="oab-fee">Anuidade da OAB</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="oab-fee" name="oab-annual-fee" type="text" inputmode="decimal" placeholder="0,00"></div>
+                <small>Informe o valor anual. Consideraremos a média mensal.</small>
+              </div>
+              <div class="cost-field">
+                <label for="digital-certificate">Certificado digital</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="digital-certificate" name="digital-certificate" type="text" inputmode="decimal" placeholder="0,00"></div>
+                <small>Valor mensal ou média do período contratado.</small>
+              </div>
+              <div class="cost-field">
+                <label for="accountant">Contador</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="accountant" name="accountant" type="text" inputmode="decimal" placeholder="0,00"></div>
+              </div>
+              <div class="cost-field">
+                <label for="legal-software">Software jurídico</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="legal-software" name="legal-software" type="text" inputmode="decimal" placeholder="0,00"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="office-costs-title">
+            <div class="section-heading">
+              <span class="section-icon section-icon-teal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 10h.01M15 10h.01M9 14h.01M15 14h.01M10 21v-3h4v3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div><h2 id="office-costs-title">Escritório e operação</h2><p>Despesas para manter sua rotina de trabalho.</p></div>
+            </div>
+            <div class="cost-fields-grid">
+              <div class="cost-field">
+                <label for="internet">Internet</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="internet" name="internet" type="text" inputmode="decimal" placeholder="0,00"></div>
+              </div>
+              <div class="cost-field">
+                <label for="phone">Telefone</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="phone" name="phone" type="text" inputmode="decimal" placeholder="0,00"></div>
+              </div>
+              <div class="cost-field">
+                <label for="transport">Transporte recorrente</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="transport" name="recurring-transport" type="text" inputmode="decimal" placeholder="0,00"></div>
+              </div>
+              <div class="cost-field">
+                <label for="rent">Coworking ou aluguel</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="rent" name="coworking-or-office-rent" type="text" inputmode="decimal" placeholder="0,00"></div>
+              </div>
+              <div class="cost-field">
+                <label for="website">Domínio, site e e-mail profissional</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="website" name="professional-domain-website-email" type="text" inputmode="decimal" placeholder="0,00"></div>
+              </div>
+              <div class="cost-field">
+                <label for="marketing">Marketing</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="marketing" name="marketing" type="text" inputmode="decimal" placeholder="0,00"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="other-costs-title">
+            <div class="section-heading">
+              <span class="section-icon section-icon-orange">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16v13H4zM8 7V4h8v3M9 12h6M9 16h4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div><h2 id="other-costs-title">Materiais e outros custos</h2><p>Complete o cadastro com as demais despesas mensais.</p></div>
+            </div>
+            <div class="cost-fields-grid">
+              <div class="cost-field">
+                <label for="supplies">Materiais de escritório</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="supplies" name="office-supplies" type="text" inputmode="decimal" placeholder="0,00"></div>
+              </div>
+              <div class="cost-field">
+                <label for="equipment">Equipamentos e depreciação</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="equipment" name="equipment-and-depreciation" type="text" inputmode="decimal" placeholder="0,00"></div>
+              </div>
+              <div class="cost-field cost-field-wide">
+                <label for="other-costs">Outros custos</label>
+                <div class="money-input"><span aria-hidden="true">R$</span><input id="other-costs" name="other-costs" type="text" inputmode="decimal" placeholder="0,00"></div>
+                <small>Use este campo para despesas recorrentes não listadas acima.</small>
+              </div>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <button class="button button-secondary" type="button">Cancelar</button>
+            <button class="button button-save" type="button">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3h12l2 2v16H5zM8 3v6h8V3M8 21v-7h8v7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Salvar custos
+            </button>
+          </div>
+        </form>
+      </main>
+
+      <nav class="mobile-nav" aria-label="Navegação principal para dispositivos móveis">
+        <a href="#">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" stroke-linejoin="round"/></svg>
+          Início
+        </a>
+        <a href="#">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM8 8h8M8 12h3M8 16h8" stroke-linecap="round"/></svg>
+          Honorários
+        </a>
+        <a class="is-active" href="#" aria-current="page">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2v3M18 2v3M3 9h18M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Custos
+        </a>
+        <a href="#">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0" stroke-linecap="round"/></svg>
+          Perfil
+        </a>
+      </nav>
+    </div>
+  </body>
+</html>

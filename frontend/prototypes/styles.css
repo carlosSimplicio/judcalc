@@ -59,7 +59,7 @@ button:disabled { cursor: not-allowed; opacity: 0.6; }
 .password-meter.is-strong span { width: 100%; background: var(--teal); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .auth-shell { grid-template-columns: 1fr; }
   .brand-panel { min-height: auto; padding: 1.25rem; }
   .brand-copy, .benefit-list { display: none; }

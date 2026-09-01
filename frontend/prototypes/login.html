@@ -56,12 +56,12 @@
             </div>
             <button class="button" type="submit">Entrar</button>
           </form>
+          <p id="form-status" role="status"></p>
           <p>Novo por aqui? <a href="cadastro.html">Crie sua conta</a></p>
         </div>
       </section>
     </main>
 
-    <p id="form-status" role="status"></p>
     <script>
       const password = document.querySelector('#password');
       const toggle = document.querySelector('#toggle-password');
@@ -78,6 +78,7 @@
       form.addEventListener('submit', (event) => {
         event.preventDefault();
         status.textContent = 'Protótipo: nenhuma informação foi enviada.';
+        status.scrollIntoView({ block: 'center' });
       });
     </script>
   </body>

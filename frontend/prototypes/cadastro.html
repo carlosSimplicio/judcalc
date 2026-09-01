@@ -62,12 +62,12 @@
               <button class="button" type="submit">Criar conta</button>
             </div>
           </form>
+          <p id="form-status" role="status"></p>
           <p>Já tem uma conta? <a href="login.html">Entre aqui</a></p>
         </div>
       </section>
     </main>
 
-    <p id="form-status" role="status"></p>
     <script>
       const password = document.querySelector('#password');
       const toggle = document.querySelector('#toggle-password');
@@ -85,7 +85,7 @@
 
       password.addEventListener('input', () => {
         const value = password.value;
-        const score = [value.length >= 8, /[A-Za-z]/.test(value), /\d/.test(value), /[^A-Za-z0-9]/.test(value)].filter(Boolean).length;
+        const score = [value.length >= 8, /\p{L}/u.test(value), /\p{N}/u.test(value), /[^\p{L}\p{N}]/u.test(value)].filter(Boolean).length;
         const level = !value ? '' : score <= 2 ? 'weak' : score === 3 ? 'medium' : 'strong';
         const label = { '': 'não informada', weak: 'fraca', medium: 'média', strong: 'forte' }[level];
         meter.className = `password-meter${level ? ` is-${level}` : ''}`;
@@ -95,6 +95,7 @@
       form.addEventListener('submit', (event) => {
         event.preventDefault();
         status.textContent = 'Protótipo: nenhuma conta foi criada.';
+        status.scrollIntoView({ block: 'center' });
       });
     </script>
   </body>

@@ -14,13 +14,17 @@ Criar dois protótipos estáticos e navegáveis para validar o design das telas 
 
 ## Direção visual
 
-A interface será premium e minimalista, com paleta de grafite, marfim e dourado discreto. A composição usará bastante espaço livre, contrastes contidos, bordas finas e tipografia elegante sem comprometer a legibilidade.
+A interface seguirá a linguagem visual da referência fornecida: produto digital simples e objetivo, com acabamento limpo, leve e contemporâneo. A paleta terá fundo branco ou cinza muito claro, azul-marinho nos títulos e textos principais, azul-cobalto nas ações primárias e verde-petróleo como cor secundária. Tons claros de azul e verde poderão destacar informações de apoio.
 
-Em desktop, cada página terá um painel dividido: uma área editorial com a marca e uma mensagem curta de valor, e uma área funcional com o formulário. Em telas menores, a área editorial será reduzida ao cabeçalho da marca e o formulário ocupará o fluxo principal, sem rolagem horizontal.
+Cards e campos terão superfícies brancas, bordas cinza suaves, cantos arredondados e sombras discretas. A tipografia será sem serifa, limpa e compacta, com hierarquia forte e alta legibilidade. Ícones serão lineares, simples e usados apenas quando ajudarem a identificar uma ação ou benefício.
+
+Em desktop, cada página terá um painel dividido: uma área editorial clara com a marca, uma mensagem curta de valor e pequenos cards de benefícios; e uma área funcional com o formulário. A composição não usará painel escuro, dourado ou tipografia ornamental. Em telas menores, a área editorial será condensada em um cabeçalho simples acima do formulário, que ocupará o fluxo principal sem rolagem horizontal.
 
 ## Conteúdo e componentes
 
 As duas páginas terão marca JudCalc, título, texto de apoio, campos com rótulos visíveis, chamada principal e link para alternar entre login e cadastro.
+
+A área editorial destacará benefícios diretamente ligados ao produto, como precificação mais segura, controle financeiro simples e acesso em qualquer dispositivo. Esses textos serão curtos e acompanhados por ícones lineares, seguindo a referência sem copiar sua composição de apresentação.
 
 ### Login
 

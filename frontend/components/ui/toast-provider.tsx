@@ -10,9 +10,10 @@ import {
   type ReactNode,
 } from "react";
 
-type ToastInput = {
+export type ToastInput = {
   title: string;
   message: string;
+  tone: "error" | "success";
 };
 
 type ToastContextValue = {
@@ -57,7 +58,11 @@ export function ToastProvider({ children }: { children: ReactNode }) {
     <ToastContext.Provider value={{ showToast }}>
       {children}
       {toast ? (
-        <div className="toast" role="alert" aria-live="assertive">
+        <div
+          className={`toast toast-${toast.tone}`}
+          role={toast.tone === "error" ? "alert" : "status"}
+          aria-live={toast.tone === "error" ? "assertive" : "polite"}
+        >
           <div>
             <strong>{toast.title}</strong>
             <p>{toast.message}</p>

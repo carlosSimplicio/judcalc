@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { authErrorToast } from "@/lib/auth/error-toast";
+import { apiErrorToast } from "@/lib/auth/error-toast";
 import { signIn } from "@/lib/auth/client";
 import { saveSession } from "@/lib/auth/session";
 import { Button } from "@/components/ui/button";
@@ -37,7 +37,7 @@ export function LoginForm() {
       saveSession(session);
       router.replace("/");
     } catch (error) {
-      showToast(authErrorToast(error));
+      showToast(apiErrorToast(error));
     } finally {
       setSubmitting(false);
     }

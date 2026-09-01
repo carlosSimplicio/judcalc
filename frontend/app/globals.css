@@ -294,11 +294,21 @@ a:focus-visible {
   gap: 1rem;
   width: min(calc(100vw - 2rem), 25rem);
   padding: 1rem;
-  border: 1px solid color-mix(in srgb, var(--danger) 35%, var(--border));
-  border-left: 0.3rem solid var(--danger);
+  border: 1px solid var(--border);
+  border-left: 0.3rem solid var(--border);
   border-radius: 0.875rem;
   background: var(--surface);
   box-shadow: var(--shadow);
+}
+
+.toast-error {
+  border-color: color-mix(in srgb, var(--danger) 35%, var(--border));
+  border-left-color: var(--danger);
+}
+
+.toast-success {
+  border-color: color-mix(in srgb, var(--teal) 35%, var(--border));
+  border-left-color: var(--teal);
 }
 
 .toast strong {

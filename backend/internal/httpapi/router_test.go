@@ -11,9 +11,11 @@ import (
 	"reflect"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/gin-gonic/gin"
 
+	"github.com/carlosSimplicio/judcalc/backend/internal/auth"
 	"github.com/carlosSimplicio/judcalc/backend/internal/domain"
 )
 
@@ -40,6 +42,12 @@ type fixedCostsRepositoryStub struct {
 	patch  domain.FixedCostsPatch
 }
 
+type authServiceStub struct {
+	session domain.User
+	result  auth.Session
+	err     error
+}
+
 type responseMetadata struct {
 	Page       int64 `json:"page"`
 	PageSize   int64 `json:"page_size"`
@@ -57,11 +65,29 @@ func (stub *serviceRepositoryStub) ListServices(context.Context, domain.ListOpti
 	return stub.result, stub.err
 }
 
-func (stub *fixedCostsRepositoryStub) GetFixedCosts(_ context.Context, userID string) (domain.FixedCosts, bool, error) {
-	if stub.result.UserID == "" {
+func (stub *fixedCostsRepositoryStub) GetFixedCosts(_ context.Context, userID int64) (domain.FixedCosts, bool, error) {
+	if stub.result.UserID == 0 {
 		stub.result.UserID = userID
 	}
 	return stub.result, stub.exists, stub.err
+}
+
+func (stub *authServiceStub) SignUp(context.Context, string, string, string) (auth.Session, error) {
+	return stub.result, stub.err
+}
+
+func (stub *authServiceStub) SignIn(context.Context, string, string) (auth.Session, error) {
+	return stub.result, stub.err
+}
+
+func (stub *authServiceStub) Authenticate(context.Context, string) (domain.User, error) {
+	if stub.err != nil {
+		return domain.User{}, stub.err
+	}
+	if stub.session.ID == 0 {
+		stub.session = domain.User{ID: 123, Email: "user@example.com", Name: "User"}
+	}
+	return stub.session, nil
 }
 
 func (stub *fixedCostsRepositoryStub) UpsertFixedCosts(_ context.Context, patch domain.FixedCostsPatch) (domain.FixedCosts, error) {
@@ -174,15 +200,122 @@ func TestInternalErrorsDoNotLeakDetails(t *testing.T) {
 	}
 }
 
+func TestProtectedRoutesRequireAValidBearerToken(t *testing.T) {
+	authentication := &authServiceStub{err: auth.ErrInvalidToken}
+	response := performRawRequest(t, authentication, http.MethodGet, "/api/v1/areas", "", "")
+	if response.Code != http.StatusUnauthorized {
+		t.Fatalf("missing token status = %d, body = %s", response.Code, response.Body.String())
+	}
+	response = performRawRequest(t, authentication, http.MethodGet, "/api/v1/areas", "", "Basic credentials")
+	if response.Code != http.StatusUnauthorized {
+		t.Fatalf("invalid scheme status = %d, body = %s", response.Code, response.Body.String())
+	}
+	response = performRawRequest(t, authentication, http.MethodGet, "/api/v1/areas", "", "Bearer invalid")
+	if response.Code != http.StatusUnauthorized {
+		t.Fatalf("invalid token status = %d, body = %s", response.Code, response.Body.String())
+	}
+	var body responseError
+	decodeResponse(t, response, &body)
+	if body.Error.Code != "unauthorized" {
+		t.Fatalf("error code = %q", body.Error.Code)
+	}
+}
+
+func TestSignUpReturnsCreatedSession(t *testing.T) {
+	expiresAt := time.Date(2026, 10, 1, 12, 0, 0, 0, time.UTC)
+	authentication := &authServiceStub{result: auth.Session{
+		User:        domain.User{ID: 17, Email: "maria@example.com", Name: "Maria"},
+		AccessToken: "opaque-token", ExpiresAt: expiresAt,
+	}}
+	response := performRawRequest(t, authentication, http.MethodPost, "/api/v1/auth/sign-up", `{"email":"maria@example.com","name":"Maria","password":"password-123"}`, "")
+	if response.Code != http.StatusCreated {
+		t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+	}
+	var body struct {
+		Data struct {
+			User        domain.User `json:"user"`
+			AccessToken string      `json:"access_token"`
+			TokenType   string      `json:"token_type"`
+			ExpiresAt   time.Time   `json:"expires_at"`
+		} `json:"data"`
+	}
+	decodeResponse(t, response, &body)
+	if body.Data.User.ID != 17 || body.Data.AccessToken != "opaque-token" || body.Data.TokenType != "Bearer" || !body.Data.ExpiresAt.Equal(expiresAt) {
+		t.Fatalf("unexpected body: %#v", body)
+	}
+}
+
+func TestSignInReturnsExistingUserSession(t *testing.T) {
+	authentication := &authServiceStub{result: auth.Session{
+		User:        domain.User{ID: 23, Email: "maria@example.com", Name: "Maria"},
+		AccessToken: "new-session-token", ExpiresAt: time.Date(2026, 10, 1, 12, 0, 0, 0, time.UTC),
+	}}
+	response := performRawRequest(t, authentication, http.MethodPost, "/api/v1/auth/sign-in", `{"email":"maria@example.com","password":"password-123"}`, "")
+	if response.Code != http.StatusOK {
+		t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+	}
+	var body struct {
+		Data struct {
+			User        domain.User `json:"user"`
+			AccessToken string      `json:"access_token"`
+		} `json:"data"`
+	}
+	decodeResponse(t, response, &body)
+	if body.Data.User.ID != 23 || body.Data.AccessToken != "new-session-token" {
+		t.Fatalf("unexpected body: %#v", body)
+	}
+}
+
+func TestAuthEndpointsMapExpectedErrors(t *testing.T) {
+	tests := []struct {
+		name, path, requestBody string
+		err                     error
+		status                  int
+		code                    string
+	}{
+		{name: "invalid signup", path: "/api/v1/auth/sign-up", requestBody: `{"email":"bad","name":"Maria","password":"password"}`, err: auth.ErrInvalidRegistration, status: http.StatusBadRequest, code: "invalid_body"},
+		{name: "duplicate email", path: "/api/v1/auth/sign-up", requestBody: `{"email":"maria@example.com","name":"Maria","password":"password"}`, err: domain.ErrEmailAlreadyExists, status: http.StatusConflict, code: "email_already_exists"},
+		{name: "invalid credentials", path: "/api/v1/auth/sign-in", requestBody: `{"email":"maria@example.com","password":"wrong-password"}`, err: auth.ErrInvalidCredentials, status: http.StatusUnauthorized, code: "invalid_credentials"},
+		{name: "unknown field", path: "/api/v1/auth/sign-in", requestBody: `{"email":"maria@example.com","password":"password","extra":true}`, status: http.StatusBadRequest, code: "invalid_body"},
+	}
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			response := performRawRequest(t, &authServiceStub{err: test.err}, http.MethodPost, test.path, test.requestBody, "")
+			if response.Code != test.status {
+				t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+			}
+			var body responseError
+			decodeResponse(t, response, &body)
+			if body.Error.Code != test.code {
+				t.Fatalf("error code = %q, want %q", body.Error.Code, test.code)
+			}
+		})
+	}
+}
+
+func TestJSONEndpointsRejectBodiesLargerThanLimit(t *testing.T) {
+	oversizedPassword := strings.Repeat("a", 70*1024)
+	body := `{"email":"maria@example.com","name":"Maria","password":"` + oversizedPassword + `"}`
+	response := performRawRequest(t, &authServiceStub{}, http.MethodPost, "/api/v1/auth/sign-up", body, "")
+	if response.Code != http.StatusRequestEntityTooLarge {
+		t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+	}
+	var responseBody responseError
+	decodeResponse(t, response, &responseBody)
+	if responseBody.Error.Code != "request_too_large" {
+		t.Fatalf("error code = %q", responseBody.Error.Code)
+	}
+}
+
 func TestGetFixedCostsReturnsZerosWhenUserHasNoRecord(t *testing.T) {
-	response := performRequest(t, &areaRepositoryStub{}, &serviceRepositoryStub{}, "/api/v1/fixed-costs/user-123")
+	response := performRequest(t, &areaRepositoryStub{}, &serviceRepositoryStub{}, "/api/v1/fixed-costs")
 	if response.Code != http.StatusOK {
 		t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
 	}
 	var body map[string]any
 	decodeResponse(t, response, &body)
 	data := body["data"].(map[string]any)
-	if data["user_id"] != "user-123" {
+	if data["user_id"] != float64(123) {
 		t.Fatalf("user_id = %#v", data["user_id"])
 	}
 	costs := data["costs"].(map[string]any)
@@ -199,14 +332,14 @@ func TestPatchFixedCostsUsesPartialValuesAndReturnsMonthlyOABAverage(t *testing.
 	annual := int64(120006)
 	internet := int64(15000)
 	repository := &fixedCostsRepositoryStub{result: domain.FixedCosts{
-		UserID: "user-123", OABAnnualFeeCents: annual, InternetCents: internet,
+		UserID: 123, OABAnnualFeeCents: annual, InternetCents: internet,
 	}}
-	body := `{"user_id":" user-123 ","costs":{"oab_annual_fee":{"annual_amount_cents":120006},"internet":{"monthly_amount_cents":15000}}}`
+	body := `{"costs":{"oab_annual_fee":{"annual_amount_cents":120006},"internet":{"monthly_amount_cents":15000}}}`
 	response := performJSONRequest(t, &areaRepositoryStub{}, &serviceRepositoryStub{}, repository, http.MethodPatch, "/api/v1/fixed-costs", body)
 	if response.Code != http.StatusOK {
 		t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
 	}
-	if repository.patch.UserID != "user-123" || repository.patch.OABAnnualFeeCents == nil || *repository.patch.OABAnnualFeeCents != annual {
+	if repository.patch.UserID != 123 || repository.patch.OABAnnualFeeCents == nil || *repository.patch.OABAnnualFeeCents != annual {
 		t.Fatalf("unexpected patch: %#v", repository.patch)
 	}
 	if repository.patch.PhoneCents != nil {
@@ -225,12 +358,12 @@ func TestPatchFixedCostsUsesPartialValuesAndReturnsMonthlyOABAverage(t *testing.
 func TestPatchFixedCostsRejectsInvalidBodies(t *testing.T) {
 	tests := []string{
 		`{`,
-		`{"user_id":"","costs":{"internet":{"monthly_amount_cents":1}}}`,
-		`{"user_id":"user-1","costs":{}}`,
-		`{"user_id":"user-1","costs":{"internet":{}}}`,
-		`{"user_id":"user-1","costs":{"internet":{"monthly_amount_cents":-1}}}`,
-		`{"user_id":"user-1","costs":{"unknown":{"monthly_amount_cents":1}}}`,
-		`{"user_id":"user-1","costs":{"internet":{"unknown":1}}}`,
+		`{"costs":{}}`,
+		`{"costs":{"internet":{}}}`,
+		`{"costs":{"internet":{"monthly_amount_cents":-1}}}`,
+		`{"costs":{"unknown":{"monthly_amount_cents":1}}}`,
+		`{"costs":{"internet":{"unknown":1}}}`,
+		`{"user_id":123,"costs":{"internet":{"monthly_amount_cents":1}}}`,
 	}
 	for _, body := range tests {
 		t.Run(body, func(t *testing.T) {
@@ -249,7 +382,7 @@ func TestPatchFixedCostsRejectsInvalidBodies(t *testing.T) {
 
 func TestFixedCostsInternalErrorsDoNotLeakDetails(t *testing.T) {
 	repository := &fixedCostsRepositoryStub{err: errors.New("UPDATE private_costs SET secret = 1")}
-	response := performJSONRequest(t, &areaRepositoryStub{}, &serviceRepositoryStub{}, repository, http.MethodGet, "/api/v1/fixed-costs/user-1", "")
+	response := performJSONRequest(t, &areaRepositoryStub{}, &serviceRepositoryStub{}, repository, http.MethodGet, "/api/v1/fixed-costs", "")
 	if response.Code != http.StatusInternalServerError {
 		t.Fatalf("status = %d", response.Code)
 	}
@@ -265,12 +398,25 @@ func performRequest(t *testing.T, areas domain.AreaRepository, services domain.S
 
 func performJSONRequest(t *testing.T, areas domain.AreaRepository, services domain.ServiceRepository, fixedCosts domain.FixedCostsRepository, method, target, body string) *httptest.ResponseRecorder {
 	t.Helper()
+	return performRequestWithDependencies(t, areas, services, fixedCosts, &authServiceStub{}, method, target, body, "Bearer valid-token")
+}
+
+func performRawRequest(t *testing.T, authentication AuthService, method, target, body, authorization string) *httptest.ResponseRecorder {
+	t.Helper()
+	return performRequestWithDependencies(t, &areaRepositoryStub{}, &serviceRepositoryStub{}, &fixedCostsRepositoryStub{}, authentication, method, target, body, authorization)
+}
+
+func performRequestWithDependencies(t *testing.T, areas domain.AreaRepository, services domain.ServiceRepository, fixedCosts domain.FixedCostsRepository, authentication AuthService, method, target, body, authorization string) *httptest.ResponseRecorder {
+	t.Helper()
 	gin.SetMode(gin.TestMode)
 	logger := slog.New(slog.NewTextHandler(io.Discard, nil))
-	router := NewRouter(areas, services, fixedCosts, logger)
+	router := NewRouter(areas, services, fixedCosts, authentication, logger)
 	request := httptest.NewRequest(method, target, strings.NewReader(body))
 	if body != "" {
 		request.Header.Set("Content-Type", "application/json")
+	}
+	if authorization != "" {
+		request.Header.Set("Authorization", authorization)
 	}
 	response := httptest.NewRecorder()
 	router.ServeHTTP(response, request)

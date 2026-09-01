@@ -1,6 +1,9 @@
 package handlers
 
 import (
+	"errors"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 
 	"github.com/carlosSimplicio/judcalc/backend/internal/domain"
@@ -52,4 +55,12 @@ func WriteError(ctx *gin.Context, status int, code, message string) {
 
 func writeError(ctx *gin.Context, status int, code, message string) {
 	ctx.AbortWithStatusJSON(status, errorResponse{Error: errorBody{Code: code, Message: message}})
+}
+
+func writeJSONDecodeError(ctx *gin.Context, err error) {
+	if errors.Is(err, errRequestBodyTooLarge) {
+		writeError(ctx, http.StatusRequestEntityTooLarge, "request_too_large", "O corpo da solicitação excede o limite permitido.")
+		return
+	}
+	writeError(ctx, http.StatusBadRequest, "invalid_body", "O corpo da solicitação é inválido.")
 }

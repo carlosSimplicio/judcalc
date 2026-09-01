@@ -6,12 +6,15 @@ import (
 	"io"
 	"log/slog"
 	"net/http"
-	"strings"
 
 	"github.com/gin-gonic/gin"
 
 	"github.com/carlosSimplicio/judcalc/backend/internal/domain"
 )
+
+const maxJSONBodyBytes int64 = 64 * 1024
+
+var errRequestBodyTooLarge = errors.New("request body too large")
 
 type FixedCosts struct {
 	repository domain.FixedCostsRepository
@@ -34,7 +37,7 @@ type annualCostRequest struct {
 }
 
 type fixedCostsRequestBody struct {
-	OABAnnualFee                    *annualCostRequest  `json:"oab_annual_fee"`
+	OABAnnualFee                   *annualCostRequest  `json:"oab_annual_fee"`
 	DigitalCertificate             *monthlyCostRequest `json:"digital_certificate"`
 	Accountant                     *monthlyCostRequest `json:"accountant"`
 	LegalSoftware                  *monthlyCostRequest `json:"legal_software"`
@@ -50,8 +53,7 @@ type fixedCostsRequestBody struct {
 }
 
 type patchFixedCostsRequest struct {
-	UserID string                 `json:"user_id"`
-	Costs  *fixedCostsRequestBody `json:"costs"`
+	Costs *fixedCostsRequestBody `json:"costs"`
 }
 
 type monthlyCostResponse struct {
@@ -64,7 +66,7 @@ type annualCostResponse struct {
 }
 
 type fixedCostsResponseBody struct {
-	OABAnnualFee                    annualCostResponse  `json:"oab_annual_fee"`
+	OABAnnualFee                   annualCostResponse  `json:"oab_annual_fee"`
 	DigitalCertificate             monthlyCostResponse `json:"digital_certificate"`
 	Accountant                     monthlyCostResponse `json:"accountant"`
 	LegalSoftware                  monthlyCostResponse `json:"legal_software"`
@@ -80,18 +82,18 @@ type fixedCostsResponseBody struct {
 }
 
 type fixedCostsResponse struct {
-	UserID string                 `json:"user_id"`
+	UserID int64                  `json:"user_id"`
 	Costs  fixedCostsResponseBody `json:"costs"`
 }
 
 func (handler *FixedCosts) Get(ctx *gin.Context) {
-	userID := strings.TrimSpace(ctx.Param("user_id"))
-	if userID == "" {
-		writeError(ctx, http.StatusBadRequest, "invalid_user_id", "O id do usuário é obrigatório.")
+	user, ok := AuthenticatedUser(ctx)
+	if !ok {
+		writeError(ctx, http.StatusUnauthorized, "unauthorized", "Autenticação obrigatória.")
 		return
 	}
 
-	costs, _, err := handler.repository.GetFixedCosts(ctx.Request.Context(), userID)
+	costs, _, err := handler.repository.GetFixedCosts(ctx.Request.Context(), user.ID)
 	if err != nil {
 		handler.logger.ErrorContext(ctx.Request.Context(), "falha ao buscar custos fixos", "error", err)
 		writeError(ctx, http.StatusInternalServerError, "internal_error", "Não foi possível processar a solicitação.")
@@ -101,13 +103,18 @@ func (handler *FixedCosts) Get(ctx *gin.Context) {
 }
 
 func (handler *FixedCosts) Patch(ctx *gin.Context) {
+	user, ok := AuthenticatedUser(ctx)
+	if !ok {
+		writeError(ctx, http.StatusUnauthorized, "unauthorized", "Autenticação obrigatória.")
+		return
+	}
 	var request patchFixedCostsRequest
 	if err := decodeStrictJSON(ctx, &request); err != nil {
-		writeError(ctx, http.StatusBadRequest, "invalid_body", "O corpo da solicitação é inválido.")
+		writeJSONDecodeError(ctx, err)
 		return
 	}
 
-	patch, err := request.toDomainPatch()
+	patch, err := request.toDomainPatch(user.ID)
 	if err != nil {
 		writeError(ctx, http.StatusBadRequest, "invalid_body", err.Error())
 		return
@@ -122,22 +129,28 @@ func (handler *FixedCosts) Patch(ctx *gin.Context) {
 }
 
 func decodeStrictJSON(ctx *gin.Context, destination any) error {
+	ctx.Request.Body = http.MaxBytesReader(ctx.Writer, ctx.Request.Body, maxJSONBodyBytes)
 	decoder := json.NewDecoder(ctx.Request.Body)
 	decoder.DisallowUnknownFields()
 	if err := decoder.Decode(destination); err != nil {
+		var maxBytesError *http.MaxBytesError
+		if errors.As(err, &maxBytesError) {
+			return errRequestBodyTooLarge
+		}
 		return err
 	}
 	if err := decoder.Decode(&struct{}{}); !errors.Is(err, io.EOF) {
+		var maxBytesError *http.MaxBytesError
+		if errors.As(err, &maxBytesError) {
+			return errRequestBodyTooLarge
+		}
 		return errors.New("o corpo deve conter um único objeto JSON")
 	}
 	return nil
 }
 
-func (request patchFixedCostsRequest) toDomainPatch() (domain.FixedCostsPatch, error) {
-	patch := domain.FixedCostsPatch{UserID: strings.TrimSpace(request.UserID)}
-	if patch.UserID == "" {
-		return patch, errors.New("O id do usuário é obrigatório.")
-	}
+func (request patchFixedCostsRequest) toDomainPatch(userID int64) (domain.FixedCostsPatch, error) {
+	patch := domain.FixedCostsPatch{UserID: userID}
 	if request.Costs == nil {
 		return patch, errors.New("Informe ao menos um custo para atualizar.")
 	}

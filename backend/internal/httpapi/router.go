@@ -10,7 +10,7 @@ import (
 	"github.com/carlosSimplicio/judcalc/backend/internal/httpapi/handlers"
 )
 
-func NewRouter(areas domain.AreaRepository, services domain.ServiceRepository, fixedCosts domain.FixedCostsRepository, logger *slog.Logger) *gin.Engine {
+func NewRouter(areas domain.AreaRepository, services domain.ServiceRepository, fixedCosts domain.FixedCostsRepository, authentication AuthService, logger *slog.Logger) *gin.Engine {
 	if logger == nil {
 		logger = slog.Default()
 	}
@@ -24,11 +24,16 @@ func NewRouter(areas domain.AreaRepository, services domain.ServiceRepository, f
 	areaHandler := handlers.NewArea(areas, logger)
 	serviceHandler := handlers.NewService(services, logger)
 	fixedCostsHandler := handlers.NewFixedCosts(fixedCosts, logger)
+	authenticationHandler := handlers.NewAuthentication(authentication, logger)
 	api := router.Group("/api/v1")
-	api.GET("/areas", areaHandler.List)
-	api.GET("/services", serviceHandler.List)
-	api.GET("/fixed-costs/:user_id", fixedCostsHandler.Get)
-	api.PATCH("/fixed-costs", fixedCostsHandler.Patch)
+	api.POST("/auth/sign-up", authenticationHandler.SignUp)
+	api.POST("/auth/sign-in", authenticationHandler.SignIn)
+	protected := api.Group("")
+	protected.Use(requireAuthentication(authentication, logger))
+	protected.GET("/areas", areaHandler.List)
+	protected.GET("/services", serviceHandler.List)
+	protected.GET("/fixed-costs", fixedCostsHandler.Get)
+	protected.PATCH("/fixed-costs", fixedCostsHandler.Patch)
 
 	router.NoRoute(func(ctx *gin.Context) {
 		handlers.WriteError(ctx, http.StatusNotFound, "not_found", "Rota não encontrada.")

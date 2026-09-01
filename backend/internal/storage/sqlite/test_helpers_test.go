@@ -17,8 +17,22 @@ CREATE TABLE services (
     percentage_min REAL,
     percentage_max REAL
 );
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    email TEXT NOT NULL COLLATE NOCASE UNIQUE,
+    name TEXT NOT NULL,
+    password_hash TEXT NOT NULL,
+    created_at INTEGER NOT NULL
+);
+CREATE TABLE auth_tokens (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    token_hash TEXT NOT NULL UNIQUE,
+    created_at INTEGER NOT NULL,
+    expires_at INTEGER NOT NULL
+);
 CREATE TABLE user_fixed_costs (
-    user_id TEXT PRIMARY KEY CHECK (length(trim(user_id)) > 0),
+    user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
     oab_annual_fee_cents INTEGER NOT NULL DEFAULT 0 CHECK (oab_annual_fee_cents >= 0),
     digital_certificate_cents INTEGER NOT NULL DEFAULT 0 CHECK (digital_certificate_cents >= 0),
     accountant_cents INTEGER NOT NULL DEFAULT 0 CHECK (accountant_cents >= 0),

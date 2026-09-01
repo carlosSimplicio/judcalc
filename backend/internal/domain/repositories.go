@@ -11,6 +11,6 @@ type ServiceRepository interface {
 }
 
 type FixedCostsRepository interface {
-	GetFixedCosts(context.Context, string) (FixedCosts, bool, error)
+	GetFixedCosts(context.Context, int64) (FixedCosts, bool, error)
 	UpsertFixedCosts(context.Context, FixedCostsPatch) (FixedCosts, error)
 }

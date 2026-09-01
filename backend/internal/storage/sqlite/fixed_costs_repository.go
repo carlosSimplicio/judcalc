@@ -23,7 +23,7 @@ const fixedCostsColumns = `user_id, oab_annual_fee_cents,
 	marketing_cents, office_supplies_cents, equipment_and_depreciation_cents,
 	other_costs_cents`
 
-func (repository *FixedCostsRepository) GetFixedCosts(ctx context.Context, userID string) (domain.FixedCosts, bool, error) {
+func (repository *FixedCostsRepository) GetFixedCosts(ctx context.Context, userID int64) (domain.FixedCosts, bool, error) {
 	row := repository.database.QueryRowContext(ctx,
 		"SELECT "+fixedCostsColumns+" FROM user_fixed_costs WHERE user_id = ?",
 		userID,

@@ -195,21 +195,107 @@ class DatabaseTests(unittest.TestCase):
             self.connection.execute("PRAGMA integrity_check").fetchone()[0], "ok"
         )
 
+    def test_authentication_schema_enforces_identity_and_cascades(self) -> None:
+        user_id = self.connection.execute(
+            """
+            INSERT INTO users(email, name, password_hash, created_at)
+            VALUES (?, ?, ?, ?)
+            """,
+            ("advogada@example.com", "Maria", "bcrypt-hash", 1_700_000_000),
+        ).lastrowid
+        self.assertIsInstance(user_id, int)
+
+        with self.assertRaises(sqlite3.IntegrityError):
+            self.connection.execute(
+                """
+                INSERT INTO users(email, name, password_hash, created_at)
+                VALUES (?, ?, ?, ?)
+                """,
+                ("ADVOGADA@EXAMPLE.COM", "Outra", "hash", 1_700_000_000),
+            )
+
+        self.connection.execute(
+            """
+            INSERT INTO auth_tokens(user_id, token_hash, created_at, expires_at)
+            VALUES (?, ?, ?, ?)
+            """,
+            (user_id, "a" * 64, 1_700_000_000, 1_700_086_400),
+        )
+        self.connection.execute(
+            "INSERT INTO user_fixed_costs(user_id, internet_cents) VALUES (?, ?)",
+            (user_id, 15_000),
+        )
+        self.connection.execute("DELETE FROM users WHERE id = ?", (user_id,))
+
+        self.assertEqual(
+            self.connection.execute("SELECT count(*) FROM auth_tokens").fetchone()[0],
+            0,
+        )
+        self.assertEqual(
+            self.connection.execute("SELECT count(*) FROM user_fixed_costs").fetchone()[0],
+            0,
+        )
+        next_user_id = self.connection.execute(
+            """
+            INSERT INTO users(email, name, password_hash, created_at)
+            VALUES ('next@example.com', 'Next', 'hash', 1700000001)
+            """
+        ).lastrowid
+        self.assertGreater(next_user_id, user_id)
+
+    def test_reload_preserves_authentication_data(self) -> None:
+        user_id = self.connection.execute(
+            """
+            INSERT INTO users(email, name, password_hash, created_at)
+            VALUES ('user@example.com', 'User', 'hash', 1700000000)
+            """
+        ).lastrowid
+        self.connection.execute(
+            """
+            INSERT INTO auth_tokens(user_id, token_hash, created_at, expires_at)
+            VALUES (?, ?, 1700000000, 1800000000)
+            """,
+            (user_id, "b" * 64),
+        )
+        self.connection.execute(
+            "INSERT INTO user_fixed_costs(user_id, internet_cents) VALUES (?, 15000)",
+            (user_id,),
+        )
+        self.connection.commit()
+
+        initialize_database(DEFAULT_INPUT, self.database_path)
+
+        self.assertEqual(self.connection.execute("SELECT count(*) FROM users").fetchone()[0], 1)
+        self.assertEqual(
+            self.connection.execute("SELECT count(*) FROM auth_tokens").fetchone()[0],
+            1,
+        )
+        self.assertEqual(
+            self.connection.execute("SELECT internet_cents FROM user_fixed_costs").fetchone()[0],
+            15_000,
+        )
+
     def test_fixed_costs_constraints_and_catalog_reload_preservation(self) -> None:
+        user_id = self.connection.execute(
+            """
+            INSERT INTO users(email, name, password_hash, created_at)
+            VALUES ('costs@example.com', 'Costs', 'hash', 1700000000)
+            """
+        ).lastrowid
         self.connection.execute(
             """
             INSERT INTO user_fixed_costs(
                 user_id, oab_annual_fee_cents, internet_cents
             ) VALUES (?, ?, ?)
             """,
-            ("user-1", 120_000, 15_000),
+            (user_id, 120_000, 15_000),
         )
         self.connection.commit()
 
         with self.assertRaises(sqlite3.IntegrityError):
             self.connection.execute(
                 "INSERT INTO user_fixed_costs(user_id, phone_cents) VALUES (?, ?)",
-                ("user-invalid", -1),
+                (user_id, -1),
             )
         self.connection.rollback()
 
@@ -221,7 +307,7 @@ class DatabaseTests(unittest.TestCase):
             FROM user_fixed_costs
             WHERE user_id = ?
             """,
-            ("user-1",),
+            (user_id,),
         ).fetchone()
         self.assertEqual(stored, (120_000, 15_000))
 

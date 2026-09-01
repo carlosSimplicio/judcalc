@@ -7,6 +7,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/carlosSimplicio/judcalc/backend/internal/auth"
 	"github.com/carlosSimplicio/judcalc/backend/internal/httpapi"
 	sqlitestorage "github.com/carlosSimplicio/judcalc/backend/internal/storage/sqlite"
 )
@@ -34,9 +35,11 @@ func run(logger *slog.Logger) error {
 	areaRepository := sqlitestorage.NewAreaRepository(database)
 	serviceRepository := sqlitestorage.NewServiceRepository(database)
 	fixedCostsRepository := sqlitestorage.NewFixedCostsRepository(database)
+	authRepository := sqlitestorage.NewAuthRepository(database)
+	authentication := auth.NewService(authRepository)
 	server := &http.Server{
 		Addr:              httpAddress,
-		Handler:           httpapi.NewRouter(areaRepository, serviceRepository, fixedCostsRepository, logger),
+		Handler:           httpapi.NewRouter(areaRepository, serviceRepository, fixedCostsRepository, authentication, logger),
 		ReadHeaderTimeout: 5 * time.Second,
 		ReadTimeout:       15 * time.Second,
 		WriteTimeout:      15 * time.Second,

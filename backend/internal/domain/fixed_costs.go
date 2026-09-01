@@ -1,7 +1,7 @@
 package domain
 
 type FixedCosts struct {
-	UserID                              string
+	UserID                              int64
 	OABAnnualFeeCents                   int64
 	DigitalCertificateCents             int64
 	AccountantCents                     int64
@@ -18,7 +18,7 @@ type FixedCosts struct {
 }
 
 type FixedCostsPatch struct {
-	UserID                              string
+	UserID                              int64
 	OABAnnualFeeCents                   *int64
 	DigitalCertificateCents             *int64
 	AccountantCents                     *int64

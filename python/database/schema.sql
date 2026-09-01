@@ -35,8 +35,35 @@ CREATE UNIQUE INDEX IF NOT EXISTS services_fee_variant_idx ON services(
     COALESCE(percentage_max, -1)
 );
 
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT NOT NULL COLLATE NOCASE UNIQUE,
+    name TEXT NOT NULL,
+    password_hash TEXT NOT NULL,
+    created_at INTEGER NOT NULL,
+    CHECK (length(trim(email)) > 0 AND email = lower(trim(email))),
+    CHECK (length(trim(name)) > 0 AND name = trim(name)),
+    CHECK (length(password_hash) > 0),
+    CHECK (created_at >= 0)
+);
+
+CREATE TABLE IF NOT EXISTS auth_tokens (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    token_hash TEXT NOT NULL UNIQUE,
+    created_at INTEGER NOT NULL,
+    expires_at INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    CHECK (length(token_hash) = 64),
+    CHECK (created_at >= 0),
+    CHECK (expires_at > created_at)
+);
+
+CREATE INDEX IF NOT EXISTS auth_tokens_user_id_idx ON auth_tokens(user_id);
+CREATE INDEX IF NOT EXISTS auth_tokens_expires_at_idx ON auth_tokens(expires_at);
+
 CREATE TABLE IF NOT EXISTS user_fixed_costs (
-    user_id TEXT PRIMARY KEY CHECK (length(trim(user_id)) > 0),
+    user_id INTEGER PRIMARY KEY,
     oab_annual_fee_cents INTEGER NOT NULL DEFAULT 0 CHECK (oab_annual_fee_cents >= 0),
     digital_certificate_cents INTEGER NOT NULL DEFAULT 0 CHECK (digital_certificate_cents >= 0),
     accountant_cents INTEGER NOT NULL DEFAULT 0 CHECK (accountant_cents >= 0),
@@ -49,7 +76,8 @@ CREATE TABLE IF NOT EXISTS user_fixed_costs (
     marketing_cents INTEGER NOT NULL DEFAULT 0 CHECK (marketing_cents >= 0),
     office_supplies_cents INTEGER NOT NULL DEFAULT 0 CHECK (office_supplies_cents >= 0),
     equipment_and_depreciation_cents INTEGER NOT NULL DEFAULT 0 CHECK (equipment_and_depreciation_cents >= 0),
-    other_costs_cents INTEGER NOT NULL DEFAULT 0 CHECK (other_costs_cents >= 0)
+    other_costs_cents INTEGER NOT NULL DEFAULT 0 CHECK (other_costs_cents >= 0),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE VIRTUAL TABLE IF NOT EXISTS areas_fts USING fts5(

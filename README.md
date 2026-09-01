@@ -26,6 +26,9 @@ python -m python.scripts.init_database
 
 O comando grava `backend/data/app.db`.
 
+O projeto ainda não possui migrações. Após uma alteração incompatível no
+esquema, apague esse arquivo e execute o comando novamente.
+
 ## Executar a API
 
 ```powershell
@@ -49,10 +52,48 @@ inicialização com uma mensagem de erro.
 
 ## Endpoints
 
+- `POST /api/v1/auth/sign-up`
+- `POST /api/v1/auth/sign-in`
 - `GET /api/v1/areas`
 - `GET /api/v1/services`
-- `GET /api/v1/fixed-costs/:user_id`
+- `GET /api/v1/fixed-costs`
 - `PATCH /api/v1/fixed-costs`
+
+Cadastre um usuário informando email, nome e uma senha de 8 a 72 bytes:
+
+```json
+{
+  "email": "advogada@example.com",
+  "name": "Maria Silva",
+  "password": "uma-senha-segura"
+}
+```
+
+O cadastro e o sign-in retornam um token opaco com validade de 30 dias:
+
+```json
+{
+  "data": {
+    "user": {
+      "id": 1,
+      "email": "advogada@example.com",
+      "name": "Maria Silva"
+    },
+    "access_token": "token-retornado-pela-api",
+    "token_type": "Bearer",
+    "expires_at": "2026-10-01T12:00:00Z"
+  }
+}
+```
+
+Para entrar novamente, envie `email` e `password` para
+`POST /api/v1/auth/sign-in`. Todas as outras rotas exigem o token:
+
+```text
+Authorization: Bearer token-retornado-pela-api
+```
+
+Corpos JSON são limitados a 64 KiB.
 
 Os endpoints de áreas e serviços aceitam `page` (padrão `1`), `page_size` (padrão `20`, máximo `100`) e
 `q`. A busca ignora acentos, busca prefixos e exige correspondência de todos os
@@ -64,11 +105,11 @@ Exemplo:
 GET /api/v1/services?page=1&page_size=20&q=acao%20previd
 ```
 
-Os custos fixos são consultados pelo identificador textual do usuário. Quando
-ainda não há cadastro, o GET retorna todas as categorias zeradas:
+Os custos fixos pertencem ao usuário identificado pelo token. Quando ele ainda
+não possui custos cadastrados, o GET retorna todas as categorias zeradas:
 
 ```text
-GET /api/v1/fixed-costs/user-123
+GET /api/v1/fixed-costs
 ```
 
 O PATCH cria o registro ou atualiza somente os custos enviados. Os valores são
@@ -77,7 +118,6 @@ resposta.
 
 ```json
 {
-  "user_id": "user-123",
   "costs": {
     "oab_annual_fee": { "annual_amount_cents": 120000 },
     "internet": { "monthly_amount_cents": 15000 }

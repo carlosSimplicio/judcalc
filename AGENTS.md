@@ -13,8 +13,10 @@
   `backend/data/app.db`; o arquivo do banco é regenerável e não
   deve ser versionado.
 - A carga é transacional, substitui integralmente apenas o catálogo de áreas e
-  serviços, preserva os custos fixos dos usuários e habilita
+  serviços, preserva usuários, tokens e custos fixos válidos e habilita
   `PRAGMA foreign_keys = ON`.
+- O projeto ainda não possui migrações. Após alterações incompatíveis no
+  esquema, apague `backend/data/app.db` e execute novamente o inicializador.
 
 ### Tabela `areas`
 
@@ -46,10 +48,32 @@
 - Triggers de inserção, atualização e exclusão mantêm os índices FTS
   sincronizados; não os atualize diretamente.
 
+### Tabela `users`
+
+- `id`: chave primária inteira autoincrementável; identifica o usuário na API.
+- `email`: email obrigatório, normalizado em minúsculas, único sem distinção de
+  maiúsculas e minúsculas.
+- `name`: nome obrigatório, armazenado sem espaços nas extremidades.
+- `password_hash`: hash bcrypt obrigatório; senhas nunca são armazenadas em
+  texto puro.
+- `created_at`: instante de criação em segundos Unix, obrigatório e não
+  negativo.
+
+### Tabela `auth_tokens`
+
+- `id`: chave primária inteira.
+- `user_id`: chave estrangeira obrigatória para `users.id`, com exclusão em
+  cascata e índice para relacionamento.
+- `token_hash`: SHA-256 hexadecimal obrigatório e único do token opaco; o token
+  utilizável nunca é armazenado.
+- `created_at` e `expires_at`: instantes em segundos Unix; a expiração deve ser
+  posterior à criação e possui índice para manutenção.
+- Cada sign-in ou cadastro cria um token independente com validade de 30 dias.
+
 ### Tabela `user_fixed_costs`
 
-- `user_id`: identificador textual obrigatório e chave primária; nesta fase não
-  possui relacionamento com uma tabela de usuários.
+- `user_id`: identificador inteiro e chave primária, relacionado a `users.id`
+  com exclusão em cascata.
 - `oab_annual_fee_cents`: anuidade da OAB em centavos. A média mensal é
   calculada pela API e não é armazenada.
 - `digital_certificate_cents`, `accountant_cents`, `legal_software_cents`,

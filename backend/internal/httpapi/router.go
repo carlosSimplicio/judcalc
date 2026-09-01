@@ -16,6 +16,7 @@ func NewRouter(areas domain.AreaRepository, services domain.ServiceRepository, f
 	}
 	router := gin.New()
 	router.Use(requestLogger(logger))
+	router.Use(corsMiddleware())
 	router.Use(gin.CustomRecovery(func(ctx *gin.Context, recovered any) {
 		logger.ErrorContext(ctx.Request.Context(), "pânico durante requisição", "recovered", recovered)
 		handlers.WriteError(ctx, http.StatusInternalServerError, "internal_error", "Não foi possível processar a solicitação.")

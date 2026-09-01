@@ -1,19 +1,34 @@
 :root {
+  --navy: #07132f;
+  --blue: #075fd8;
+  --blue-hover: #034fad;
+  --blue-soft: #eaf2ff;
+  --teal: #168f8b;
+  --surface: #ffffff;
+  --canvas: #f6f8fb;
+  --text-muted: #5d6679;
+  --border: #dce2eb;
+  --danger: #c63d4f;
+  --shadow: 0 18px 50px rgba(7, 19, 47, 0.1);
   color-scheme: light;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  color: #171717;
-  background: #ffffff;
+  min-width: 20rem;
+  color: var(--navy);
+  background: var(--canvas);
 }
 
-main {
+body > main:not(.auth-shell) {
   display: grid;
   min-height: 100vh;
   place-content: center;
@@ -21,12 +36,347 @@ main {
   text-align: center;
 }
 
-h1,
-p {
+body > main:not(.auth-shell) h1,
+body > main:not(.auth-shell) p {
   margin: 0;
 }
 
-p {
+body > main:not(.auth-shell) p {
   margin-top: 0.75rem;
   color: #525252;
+}
+
+.auth-shell {
+  display: grid;
+  grid-template-columns: minmax(20rem, 0.9fr) minmax(28rem, 1.1fr);
+  min-height: 100svh;
+}
+
+.brand-panel,
+.form-panel {
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.brand-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(145deg, #fff 0%, var(--blue-soft) 100%);
+}
+
+.brand-panel h1 {
+  margin: 0.75rem 0 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.04em;
+}
+
+.brand-icon {
+  color: var(--blue);
+}
+
+.brand-copy {
+  max-width: 25rem;
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.benefit-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.82);
+  font-weight: 650;
+}
+
+.benefit-list svg {
+  flex: 0 0 auto;
+  color: var(--teal);
+}
+
+.form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  width: min(100%, 31rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.auth-card h2 {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2rem);
+  letter-spacing: -0.025em;
+}
+
+.auth-description {
+  margin: 0.5rem 0 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.field label {
+  font-weight: 650;
+}
+
+.field input:not([type="checkbox"]) {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: #fff;
+  color: var(--navy);
+  font: inherit;
+}
+
+.field input:not([type="checkbox"]):disabled {
+  background: var(--canvas);
+  color: var(--text-muted);
+}
+
+.field-help,
+.password-strength p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 5rem !important;
+}
+
+.password-wrap button {
+  position: absolute;
+  inset: 0 0 0 auto;
+  border: 0;
+  padding: 0 0.875rem;
+  color: var(--blue);
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.password-wrap button:disabled,
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.password-strength {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.password-meter {
+  height: 0.3rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.password-meter span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--danger);
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.password-meter.is-weak span {
+  width: 33%;
+}
+
+.password-meter.is-medium span {
+  width: 66%;
+  background: #dc8b16;
+}
+
+.password-meter.is-strong span {
+  width: 100%;
+  background: var(--teal);
+}
+
+.checkbox-field label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  color: var(--text-muted);
+  font-size: 0.925rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.checkbox-field input {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0.125rem 0 0;
+  flex: 0 0 auto;
+  accent-color: var(--blue);
+}
+
+.button {
+  width: 100%;
+  min-height: 3rem;
+  margin-top: 1.25rem;
+  border: 0;
+  border-radius: 0.75rem;
+  color: #fff;
+  background: var(--blue);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--blue-hover);
+}
+
+.auth-footer {
+  margin: 1.25rem 0 0;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+a {
+  color: var(--blue);
+  font-weight: 650;
+  text-underline-offset: 0.2em;
+}
+
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.toast {
+  position: fixed;
+  z-index: 1000;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(calc(100vw - 2rem), 25rem);
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--danger) 35%, var(--border));
+  border-left: 0.3rem solid var(--danger);
+  border-radius: 0.875rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.toast strong {
+  display: block;
+}
+
+.toast p {
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.toast button {
+  min-width: 2rem;
+  min-height: 2rem;
+  border: 0;
+  border-radius: 0.5rem;
+  color: var(--text-muted);
+  background: transparent;
+  font: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 50rem) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .brand-panel {
+    min-height: auto;
+    padding: 1.25rem;
+  }
+
+  .brand-panel > div {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .brand-panel h1 {
+    margin: 0;
+    font-size: 1.75rem;
+  }
+
+  .brand-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .brand-copy,
+  .benefit-list {
+    display: none;
+  }
+
+  .form-panel {
+    align-items: start;
+    padding: 1rem;
+  }
+
+  .auth-card {
+    border-radius: 1rem;
+    box-shadow: none;
+  }
+
+  .toast {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

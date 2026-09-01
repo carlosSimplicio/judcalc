@@ -43,9 +43,14 @@ configurações podem ser substituídas por variáveis de ambiente:
 ```powershell
 $env:HTTP_ADDR = ":8081"
 $env:DATABASE_PATH = "C:\caminho\app.db"
+$env:CORS_ALLOWED_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
 Set-Location backend
 go run ./cmd/api
 ```
+
+`CORS_ALLOWED_ORIGINS` aceita uma lista de origens separadas por vírgulas. Se
+não for informada, somente `http://localhost:3000` será permitida. As origens
+devem ser completas, incluindo protocolo e porta.
 
 Se o banco não existir ou tiver esquema incompatível, a aplicação encerra na
 inicialização com uma mensagem de erro.

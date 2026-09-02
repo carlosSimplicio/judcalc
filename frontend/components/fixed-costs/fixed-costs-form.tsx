@@ -66,7 +66,8 @@ export function FixedCostsForm({
     initialCosts ? valuesToInputs(initialCosts.values) : emptyInputs(),
   );
   const [saving, setSaving] = useState(false);
-  const isLoading = loading || initialCosts === null;
+  const busy = loading || saving;
+  const disabled = busy || savedValues === null;
 
   useEffect(() => {
     if (!initialCosts) {
@@ -84,7 +85,6 @@ export function FixedCostsForm({
     () => inputsToValues(displayedInputs),
     [displayedInputs],
   );
-  const formDisabled = isLoading || saving;
   const total = initialCosts ? formatCurrency(monthlyTotal(currentValues)) : "—";
 
   function handleInputChange(key: FixedCostKey, value: string) {
@@ -99,7 +99,7 @@ export function FixedCostsForm({
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (formDisabled || !savedValues) {
+    if (disabled || !savedValues) {
       return;
     }
 
@@ -155,7 +155,7 @@ export function FixedCostsForm({
 
       <form
         className="costs-form"
-        aria-busy={isLoading || saving}
+        aria-busy={busy}
         onSubmit={handleSubmit}
       >
         {COST_SECTIONS.map((section) => (
@@ -179,7 +179,7 @@ export function FixedCostsForm({
                   key={field.key}
                   field={field}
                   value={displayedInputs[field.key]}
-                  disabled={formDisabled}
+                  disabled={disabled}
                   onChange={(value) => handleInputChange(field.key, value)}
                 />
               ))}
@@ -191,7 +191,7 @@ export function FixedCostsForm({
           <Button
             className="button-secondary"
             type="button"
-            disabled={formDisabled}
+            disabled={disabled}
             onClick={handleRestore}
           >
             Restaurar
@@ -199,7 +199,7 @@ export function FixedCostsForm({
           <Button
             className="button-save"
             type="submit"
-            disabled={isLoading}
+            disabled={disabled}
             loading={saving}
             loadingLabel="Salvando..."
           >

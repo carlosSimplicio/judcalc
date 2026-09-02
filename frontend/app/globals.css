@@ -490,11 +490,15 @@ a:focus-visible {
 
 .profile-copy {
   display: grid;
-  min-width: 6rem;
+  min-width: 0;
+  max-width: min(16rem, 30vw);
   text-align: left;
 }
 
 .profile-copy strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 0.85rem;
 }
 

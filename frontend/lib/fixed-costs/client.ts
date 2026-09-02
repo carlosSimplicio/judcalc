@@ -72,7 +72,8 @@ function parseFixedCostsEnvelope(
   const oab = costs.oab_annual_fee;
   if (
     !isRecord(oab) ||
-    !isNonNegativeInteger(oab.annual_amount_cents)
+    !isNonNegativeInteger(oab.annual_amount_cents) ||
+    !isNonNegativeInteger(oab.monthly_amount_cents)
   ) {
     throw unexpectedResponse(status);
   }

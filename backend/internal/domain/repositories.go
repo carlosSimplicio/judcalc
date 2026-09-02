@@ -8,6 +8,7 @@ type AreaRepository interface {
 
 type ServiceRepository interface {
 	ListServices(context.Context, ListOptions) (ListResult[Service], error)
+	GetService(context.Context, int64) (Service, bool, error)
 }
 
 type FixedCostsRepository interface {

@@ -3,6 +3,7 @@ package sqlite
 import (
 	"context"
 	"database/sql"
+	"errors"
 	"fmt"
 
 	"github.com/carlosSimplicio/judcalc/backend/internal/domain"
@@ -12,8 +13,26 @@ type ServiceRepository struct {
 	database *sql.DB
 }
 
+type serviceRowScanner interface {
+	Scan(...any) error
+}
+
 func NewServiceRepository(database *sql.DB) *ServiceRepository {
 	return &ServiceRepository{database: database}
+}
+
+func (repository *ServiceRepository) GetService(ctx context.Context, serviceID int64) (domain.Service, bool, error) {
+	row := repository.database.QueryRowContext(ctx, `
+		SELECT id, area_id, name, amount_cents, percentage_min, percentage_max
+		FROM services WHERE id = ?`, serviceID)
+	service, err := scanService(row)
+	if errors.Is(err, sql.ErrNoRows) {
+		return domain.Service{}, false, nil
+	}
+	if err != nil {
+		return domain.Service{}, false, fmt.Errorf("buscar serviço: %w", err)
+	}
+	return service, true, nil
 }
 
 func (repository *ServiceRepository) ListServices(ctx context.Context, options domain.ListOptions) (domain.ListResult[domain.Service], error) {
@@ -52,27 +71,25 @@ func (repository *ServiceRepository) ListServices(ctx context.Context, options d
 	defer rows.Close()
 
 	for rows.Next() {
-		var service domain.Service
-		var amount sql.NullInt64
-		var minimum sql.NullFloat64
-		var maximum sql.NullFloat64
-		if err := rows.Scan(
-			&service.ID,
-			&service.AreaID,
-			&service.Name,
-			&amount,
-			&minimum,
-			&maximum,
-		); err != nil {
+		service, err := scanService(rows)
+		if err != nil {
 			return result, fmt.Errorf("ler serviço: %w", err)
 		}
-		service.AmountCents = nullableInt64(amount)
-		service.PercentageMin = nullableFloat64(minimum)
-		service.PercentageMax = nullableFloat64(maximum)
 		result.Items = append(result.Items, service)
 	}
 	if err := rows.Err(); err != nil {
 		return result, fmt.Errorf("percorrer serviços: %w", err)
 	}
 	return result, nil
+}
+
+func scanService(row serviceRowScanner) (domain.Service, error) {
+	var service domain.Service
+	var amount sql.NullInt64
+	var minimum, maximum sql.NullFloat64
+	err := row.Scan(&service.ID, &service.AreaID, &service.Name, &amount, &minimum, &maximum)
+	service.AmountCents = nullableInt64(amount)
+	service.PercentageMin = nullableFloat64(minimum)
+	service.PercentageMax = nullableFloat64(maximum)
+	return service, err
 }

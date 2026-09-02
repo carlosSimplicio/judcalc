@@ -7,6 +7,34 @@ import (
 	"github.com/carlosSimplicio/judcalc/backend/internal/domain"
 )
 
+func TestServiceRepositoryGetsServiceByIDAndReportsMissing(t *testing.T) {
+	_, repository, closeDatabase := newTestRepositories(t)
+	defer closeDatabase()
+	ctx := context.Background()
+
+	service, exists, err := repository.GetService(ctx, 1)
+	if err != nil || !exists {
+		t.Fatalf("service = %#v, exists = %v, err = %v", service, exists, err)
+	}
+	if service.ID != 1 || service.AreaID != 3 || service.Name != "Ação previdenciária comum" ||
+		service.AmountCents == nil || *service.AmountCents != 10000 ||
+		service.PercentageMin == nil || *service.PercentageMin != 10 ||
+		service.PercentageMax == nil || *service.PercentageMax != 20 {
+		t.Fatalf("unexpected service: %#v", service)
+	}
+
+	nullable, exists, err := repository.GetService(ctx, 2)
+	if err != nil || !exists || nullable.AmountCents != nil ||
+		nullable.PercentageMin != nil || nullable.PercentageMax != nil {
+		t.Fatalf("nullable service = %#v, exists = %v, err = %v", nullable, exists, err)
+	}
+
+	missing, exists, err := repository.GetService(ctx, 999)
+	if err != nil || exists || missing != (domain.Service{}) {
+		t.Fatalf("missing = %#v, exists = %v, err = %v", missing, exists, err)
+	}
+}
+
 func TestServiceRepositorySearchesMultipleTerms(t *testing.T) {
 	_, repository, closeDatabase := newTestRepositories(t)
 	defer closeDatabase()

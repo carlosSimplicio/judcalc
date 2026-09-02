@@ -31,8 +31,12 @@ func (stub *areaRepositoryStub) ListAreas(_ context.Context, options domain.List
 }
 
 type serviceRepositoryStub struct {
-	result domain.ListResult[domain.Service]
-	err    error
+	result      domain.ListResult[domain.Service]
+	err         error
+	service     domain.Service
+	exists      bool
+	getErr      error
+	requestedID int64
 }
 
 type fixedCostsRepositoryStub struct {
@@ -63,6 +67,11 @@ type responseError struct {
 
 func (stub *serviceRepositoryStub) ListServices(context.Context, domain.ListOptions) (domain.ListResult[domain.Service], error) {
 	return stub.result, stub.err
+}
+
+func (stub *serviceRepositoryStub) GetService(_ context.Context, serviceID int64) (domain.Service, bool, error) {
+	stub.requestedID = serviceID
+	return stub.service, stub.exists, stub.getErr
 }
 
 func (stub *fixedCostsRepositoryStub) GetFixedCosts(_ context.Context, userID int64) (domain.FixedCosts, bool, error) {

@@ -173,9 +173,11 @@ python -m unittest discover -s python/tests
 ## Deploy na VPS
 
 O workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) roda os
-testes, publica as imagens do backend e do frontend no GitHub Container Registry
-(GHCR) e atualiza os containers da VPS. Ele é executado em pushes para `main` e
-também pode ser iniciado manualmente em **Actions**.
+testes, empacota o commit e envia o código para a VPS por SCP. Em seguida, acessa
+a VPS por SSH, constrói as imagens Docker no próprio servidor e atualiza os
+containers. Nenhuma imagem da aplicação é publicada em um registry. O fluxo é
+executado em pushes para `main` e também pode ser iniciado manualmente em
+**Actions**.
 
 ### Preparar a VPS
 
@@ -185,18 +187,24 @@ usuário:
 
 ```dotenv
 CORS_ALLOWED_ORIGINS=https://app.exemplo.com
-HOST_BIND_ADDRESS=127.0.0.1
-BACKEND_PORT=8080
-FRONTEND_PORT=3000
+NEXT_PUBLIC_API_BASE_URL=https://app.exemplo.com/api/v1
+HOST_BIND_ADDRESS=0.0.0.0
+HTTP_PORT=80
 ```
 
-O endereço `127.0.0.1` pressupõe um proxy reverso no host (Caddy, Nginx etc.)
-responsável por publicar os serviços e terminar HTTPS. Para expor as portas
-diretamente, use `HOST_BIND_ADDRESS=0.0.0.0` e configure o firewall da VPS.
+O Nginx do Compose é o único container que publica uma porta no host. Ele
+encaminha `/api/*` para o backend e as demais rotas para o frontend, conforme
+[`infra/nginx.conf`](infra/nginx.conf). Para colocar outro proxy responsável por
+HTTPS à frente dele, use `HOST_BIND_ADDRESS=127.0.0.1` e uma porta livre em
+`HTTP_PORT`. Ao expor diretamente em `0.0.0.0`, configure o firewall da VPS.
 
 O banco fica no volume nomeado `judcalc_backend_data`. A cada inicialização, o
 backend sincroniza áreas e serviços a partir do JSON incluído na imagem sem
 remover usuários, tokens ou custos fixos.
+
+Cada commit enviado é extraído em `~/judcalc/releases/<sha>`. Releases antigas
+podem ser removidas manualmente depois que o novo deploy for verificado; as
+imagens e o volume do banco não dependem desses diretórios após o build.
 
 ### Configurar o GitHub
 
@@ -209,12 +217,6 @@ Crie um environment chamado `production` e cadastre nele estes secrets:
   `ssh-keyscan -H seu-host` e conferida contra a fingerprint da VPS;
 - `VPS_SSH_PORT`: porta SSH, opcional; o padrão é `22`.
 
-Cadastre também a variável de repositório `NEXT_PUBLIC_API_BASE_URL` com a URL
-pública da API, incluindo `/api/v1`, por exemplo
-`https://api.exemplo.com/api/v1`. O Next.js incorpora esse valor na imagem no
-momento do build.
-
-O workflow usa o `GITHUB_TOKEN` temporário para publicar e baixar as imagens
-privadas durante o deploy. O usuário SSH precisa ter acesso de escrita a
-`~/judcalc`; o Compose e as credenciais temporárias do GHCR são atualizados
-automaticamente.
+O usuário SSH precisa ter acesso de escrita a `~/judcalc` e permissão para
+executar Docker. A URL pública da API é lida do `.env` da VPS e incorporada ao
+frontend durante o build.

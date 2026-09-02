@@ -8,9 +8,9 @@ A referência da OAB permanecerá separada dos valores calculados. O endpoint ap
 
 ## Escopo
 
-- Criar `POST /api/v1/services/:service_id/fee-calculation` sob o middleware de autenticação existente.
+- Criar `POST /api/v1/services/fee-calculation` sob o middleware de autenticação existente.
 - Identificar o usuário exclusivamente pela sessão autenticada.
-- Buscar o serviço pelo identificador da rota e os custos fixos do usuário autenticado.
+- Buscar o serviço pelo identificador informado no corpo e os custos fixos do usuário autenticado.
 - Calcular e devolver o custo operacional por hora, o custo mínimo sustentável e a estimativa técnica quando houver custos fixos utilizáveis.
 - Devolver a referência da OAB mesmo quando o cálculo econômico não puder ser realizado.
 - Não persistir cálculos nem alterar o esquema SQLite.
@@ -22,13 +22,14 @@ A referência da OAB permanecerá separada dos valores calculados. O endpoint ap
 ### Requisição
 
 ```http
-POST /api/v1/services/42/fee-calculation
+POST /api/v1/services/fee-calculation
 Authorization: Bearer <token>
 Content-Type: application/json
 ```
 
 ```json
 {
+  "service_id": 42,
   "estimated_hours": 10,
   "billable_hours_per_month": 80,
   "complexity": "medium",
@@ -36,7 +37,7 @@ Content-Type: application/json
 }
 ```
 
-`estimated_hours` e `billable_hours_per_month` aceitarão números inteiros ou fracionários maiores que zero. `complexity` aceitará `low`, `medium` ou `high`; `risk` aceitará os mesmos três níveis. Campos desconhecidos serão rejeitados, seguindo o comportamento estrito dos demais corpos JSON da API.
+`service_id` será um inteiro positivo obrigatório. `estimated_hours` e `billable_hours_per_month` aceitarão números inteiros ou fracionários maiores que zero. `complexity` aceitará `low`, `medium` ou `high`; `risk` aceitará os mesmos três níveis. Campos desconhecidos serão rejeitados, seguindo o comportamento estrito dos demais corpos JSON da API.
 
 ### Resposta com cálculo disponível
 
@@ -126,10 +127,10 @@ Um calculador puro no domínio receberá os custos fixos consolidados e as entra
 O repositório de serviços ganhará uma operação de busca por ID. O handler executará o fluxo:
 
 1. Obter o usuário autenticado.
-2. Validar o ID do serviço e o corpo da requisição.
+2. Validar o corpo da requisição, incluindo o ID do serviço.
 3. Buscar o serviço; interromper com `404` se ele não existir.
 4. Buscar os custos fixos do usuário.
-5. Invocar o calculador quando o total mensal for maior que zero.
+5. Invocar o calculador, que produzirá resultados nulos quando o total mensal for zero.
 6. Montar a resposta com as três referências separadas e eventuais avisos.
 
 O endpoint reutilizará as dependências de serviços e custos fixos já entregues ao roteador; não será criado um novo repositório nem haverá persistência do resultado.
@@ -137,7 +138,8 @@ O endpoint reutilizará as dependências de serviços e custos fixos já entregu
 ## Tratamento de erros
 
 - Token ausente ou inválido: `401 unauthorized`, conforme o middleware existente.
-- `service_id` inválido: `400 invalid_service_id`.
+- `service_id` ausente, zero ou negativo: `400 invalid_service_id`.
+- `service_id` com tipo JSON inválido: `400 invalid_body`.
 - Corpo malformado, campos desconhecidos, horas não positivas ou níveis desconhecidos: `400 invalid_body`.
 - Serviço inexistente: `404 service_not_found`.
 - Falha ao consultar serviços ou custos fixos: `500 internal_error`, sem expor detalhes internos.
@@ -163,6 +165,6 @@ Como o esquema, os campos persistidos, as constraints, os relacionamentos, a car
 - Confirmar que o cálculo usa todos os custos mensais e a média mensal da anuidade da OAB.
 - Confirmar que usuário sem custos recebe `200`, referência da OAB, resultados nulos e o aviso esperado.
 - Confirmar que referências com valor, percentual ou ambos preservam seus campos sem conversão indevida.
-- Testar `service_id` inválido, serviço inexistente, corpo malformado, horas não positivas e níveis inválidos.
+- Testar `service_id` ausente, não inteiro ou não positivo, serviço inexistente, corpo malformado, horas não positivas e níveis inválidos.
 - Testar falhas dos dois repositórios e garantir que detalhes internos não vazem.
-- Executar `go test ./...` no backend após reconciliar os testes de autenticação que já estão em desenvolvimento no diretório de trabalho.
+- Executar `go test ./...` e `go vet ./...` no backend.

@@ -58,8 +58,12 @@ func CalculateFee(costs FixedCosts, input FeeCalculationInput) (FeeCalculation, 
 	}
 	complexityFactor := complexityFactors[input.Complexity]
 	riskFactor := riskFactors[input.Risk]
+	monthlyFixedCostsCents, err := costs.MonthlyTotalCents()
+	if err != nil {
+		return FeeCalculation{}, err
+	}
 	result := FeeCalculation{
-		MonthlyFixedCostsCents: costs.MonthlyTotalCents(),
+		MonthlyFixedCostsCents: monthlyFixedCostsCents,
 		ComplexityFactor:       complexityFactor,
 		RiskFactor:             riskFactor,
 	}
@@ -69,9 +73,18 @@ func CalculateFee(costs FixedCosts, input FeeCalculationInput) (FeeCalculation, 
 	hourCost := float64(result.MonthlyFixedCostsCents) / input.BillableHoursPerMonth
 	minimum := hourCost * input.EstimatedHours
 	technical := minimum * complexityFactor * riskFactor
-	result.OperationalHourCostCents = roundedCents(hourCost)
-	result.MinimumSustainableCostCents = roundedCents(minimum)
-	result.TechnicalEstimateCents = roundedCents(technical)
+	result.OperationalHourCostCents, err = roundedCents(hourCost)
+	if err != nil {
+		return FeeCalculation{}, err
+	}
+	result.MinimumSustainableCostCents, err = roundedCents(minimum)
+	if err != nil {
+		return FeeCalculation{}, err
+	}
+	result.TechnicalEstimateCents, err = roundedCents(technical)
+	if err != nil {
+		return FeeCalculation{}, err
+	}
 	return result, nil
 }
 
@@ -79,7 +92,16 @@ func positiveFinite(value float64) bool {
 	return value > 0 && !math.IsNaN(value) && !math.IsInf(value, 0)
 }
 
-func roundedCents(value float64) *int64 {
-	rounded := int64(math.Round(value))
-	return &rounded
+func roundedCents(value float64) (*int64, error) {
+	const (
+		int64LowerBound = -1 << 63
+		int64UpperBound = 1 << 63
+	)
+	roundedValue := math.Round(value)
+	if !math.IsNaN(roundedValue) && !math.IsInf(roundedValue, 0) &&
+		roundedValue >= int64LowerBound && roundedValue < int64UpperBound {
+		rounded := int64(roundedValue)
+		return &rounded, nil
+	}
+	return nil, ErrInvalidFeeCalculation
 }

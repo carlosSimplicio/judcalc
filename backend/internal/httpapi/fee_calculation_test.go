@@ -2,6 +2,7 @@ package httpapi
 
 import (
 	"errors"
+	"math"
 	"net/http"
 	"testing"
 
@@ -91,7 +92,9 @@ func TestFeeCalculationRejectsInvalidBodiesBeforeRepositoryCalls(t *testing.T) {
 		{`{}`, "invalid_service_id"},
 		{`{"service_id":0,"estimated_hours":10,"billable_hours_per_month":80,"complexity":"low","risk":"low"}`, "invalid_service_id"},
 		{`{"service_id":-1,"estimated_hours":10,"billable_hours_per_month":80,"complexity":"low","risk":"low"}`, "invalid_service_id"},
+		{`{"service_id":null,"estimated_hours":10,"billable_hours_per_month":80,"complexity":"low","risk":"low"}`, "invalid_body"},
 		{`{"service_id":"1","estimated_hours":10,"billable_hours_per_month":80,"complexity":"low","risk":"low"}`, "invalid_body"},
+		{`{"service_id":1.5,"estimated_hours":10,"billable_hours_per_month":80,"complexity":"low","risk":"low"}`, "invalid_body"},
 		{`{`, "invalid_body"},
 		{`{"service_id":1,"estimated_hours":0,"billable_hours_per_month":80,"complexity":"low","risk":"low"}`, "invalid_body"},
 		{`{"service_id":1,"estimated_hours":10,"billable_hours_per_month":0,"complexity":"low","risk":"low"}`, "invalid_body"},
@@ -116,6 +119,60 @@ func TestFeeCalculationRejectsInvalidBodiesBeforeRepositoryCalls(t *testing.T) {
 				t.Fatalf("repositories called: service id = %d, user id = %d", services.requestedID, costs.requestedUserID)
 			}
 		})
+	}
+}
+
+func TestFeeCalculationRejectsOutOfRangeResultsAsInvalidBody(t *testing.T) {
+	tests := []struct {
+		name string
+		body string
+	}{
+		{
+			"very small billable hours",
+			`{"service_id":1,"estimated_hours":1,"billable_hours_per_month":5e-324,"complexity":"low","risk":"low"}`,
+		},
+		{
+			"very large estimated hours",
+			`{"service_id":1,"estimated_hours":1.7976931348623157e308,"billable_hours_per_month":1,"complexity":"low","risk":"low"}`,
+		},
+	}
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			services := &serviceRepositoryStub{service: domain.Service{ID: 1}, exists: true}
+			costs := &fixedCostsRepositoryStub{result: domain.FixedCosts{InternetCents: 1}, exists: true}
+			response := performJSONRequest(t, &areaRepositoryStub{}, services, costs, http.MethodPost,
+				"/api/v1/services/fee-calculation", test.body)
+			if response.Code != http.StatusBadRequest {
+				t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+			}
+			var body responseError
+			decodeResponse(t, response, &body)
+			if body.Error.Code != "invalid_body" {
+				t.Fatalf("code = %q, want invalid_body", body.Error.Code)
+			}
+			if services.requestedID != 1 || costs.requestedUserID != 123 {
+				t.Fatalf("service id = %d, user id = %d", services.requestedID, costs.requestedUserID)
+			}
+		})
+	}
+}
+
+func TestFeeCalculationMapsFixedCostsOverflowToInternalError(t *testing.T) {
+	services := &serviceRepositoryStub{service: domain.Service{ID: 1}, exists: true}
+	costs := &fixedCostsRepositoryStub{result: domain.FixedCosts{
+		InternetCents: math.MaxInt64,
+		PhoneCents:    1,
+	}, exists: true}
+	response := performJSONRequest(t, &areaRepositoryStub{}, services, costs, http.MethodPost,
+		"/api/v1/services/fee-calculation",
+		`{"service_id":1,"estimated_hours":1,"billable_hours_per_month":1,"complexity":"low","risk":"low"}`)
+	if response.Code != http.StatusInternalServerError {
+		t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+	}
+	var body responseError
+	decodeResponse(t, response, &body)
+	if body.Error.Code != "internal_error" || contains(response.Body.String(), "overflow") {
+		t.Fatalf("body = %s", response.Body.String())
 	}
 }
 

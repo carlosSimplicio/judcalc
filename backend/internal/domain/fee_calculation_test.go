@@ -15,8 +15,22 @@ func TestMonthlyTotalCentsIncludesMonthlyOABAverageAndEveryCategory(t *testing.T
 		MarketingCents: 9, OfficeSuppliesCents: 10,
 		EquipmentAndDepreciationCents: 11, OtherCostsCents: 12,
 	}
-	if got, want := costs.MonthlyTotalCents(), int64(10079); got != want {
+	got, err := costs.MonthlyTotalCents()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if want := int64(10079); got != want {
 		t.Fatalf("monthly total = %d, want %d", got, want)
+	}
+}
+
+func TestMonthlyTotalCentsRejectsOverflow(t *testing.T) {
+	_, err := (FixedCosts{
+		DigitalCertificateCents: math.MaxInt64,
+		AccountantCents:         1,
+	}).MonthlyTotalCents()
+	if !errors.Is(err, ErrFixedCostsOverflow) {
+		t.Fatalf("error = %v, want ErrFixedCostsOverflow", err)
 	}
 }
 
@@ -67,6 +81,46 @@ func TestCalculateFeeRejectsInvalidInputsAndLevels(t *testing.T) {
 		if _, err := CalculateFee(FixedCosts{InternetCents: 100}, input); !errors.Is(err, ErrInvalidFeeCalculation) {
 			t.Fatalf("input %#v returned %v", input, err)
 		}
+	}
+}
+
+func TestCalculateFeeRejectsMonetaryResultsOutsideInt64(t *testing.T) {
+	tests := []struct {
+		name  string
+		costs FixedCosts
+		input FeeCalculationInput
+	}{
+		{
+			name:  "non-finite hour cost from very small billable hours",
+			costs: FixedCosts{InternetCents: 1},
+			input: FeeCalculationInput{
+				EstimatedHours: 1, BillableHoursPerMonth: math.SmallestNonzeroFloat64,
+				Complexity: FeeLevelLow, Risk: FeeLevelLow,
+			},
+		},
+		{
+			name:  "out-of-range minimum from very large estimated hours",
+			costs: FixedCosts{InternetCents: 1},
+			input: FeeCalculationInput{
+				EstimatedHours: math.MaxFloat64, BillableHoursPerMonth: 1,
+				Complexity: FeeLevelLow, Risk: FeeLevelLow,
+			},
+		},
+		{
+			name:  "out-of-range technical estimate after factors",
+			costs: FixedCosts{InternetCents: 6_000_000_000_000_000_000},
+			input: FeeCalculationInput{
+				EstimatedHours: 1, BillableHoursPerMonth: 1,
+				Complexity: FeeLevelHigh, Risk: FeeLevelHigh,
+			},
+		},
+	}
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			if _, err := CalculateFee(test.costs, test.input); !errors.Is(err, ErrInvalidFeeCalculation) {
+				t.Fatalf("error = %v, want ErrInvalidFeeCalculation", err)
+			}
+		})
 	}
 }
 

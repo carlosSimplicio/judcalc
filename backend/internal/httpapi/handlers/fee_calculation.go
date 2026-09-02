@@ -1,6 +1,8 @@
 package handlers
 
 import (
+	"bytes"
+	"encoding/json"
 	"errors"
 	"log/slog"
 	"net/http"
@@ -26,11 +28,25 @@ func NewFeeCalculation(services domain.ServiceRepository, fixedCosts domain.Fixe
 }
 
 type feeCalculationRequest struct {
-	ServiceID             int64   `json:"service_id"`
-	EstimatedHours        float64 `json:"estimated_hours"`
-	BillableHoursPerMonth float64 `json:"billable_hours_per_month"`
-	Complexity            string  `json:"complexity"`
-	Risk                  string  `json:"risk"`
+	ServiceID             requiredServiceID `json:"service_id"`
+	EstimatedHours        float64           `json:"estimated_hours"`
+	BillableHoursPerMonth float64           `json:"billable_hours_per_month"`
+	Complexity            string            `json:"complexity"`
+	Risk                  string            `json:"risk"`
+}
+
+type requiredServiceID int64
+
+func (id *requiredServiceID) UnmarshalJSON(data []byte) error {
+	if bytes.Equal(bytes.TrimSpace(data), []byte("null")) {
+		return errors.New("service_id must be an integer")
+	}
+	var parsed int64
+	if err := json.Unmarshal(data, &parsed); err != nil {
+		return err
+	}
+	*id = requiredServiceID(parsed)
+	return nil
 }
 
 type feeServiceResponse struct {
@@ -102,7 +118,7 @@ func (handler *FeeCalculation) Calculate(ctx *gin.Context) {
 		return
 	}
 
-	service, exists, err := handler.services.GetService(ctx.Request.Context(), request.ServiceID)
+	service, exists, err := handler.services.GetService(ctx.Request.Context(), int64(request.ServiceID))
 	if err != nil {
 		handler.internalError(ctx, "falha ao buscar serviço para cálculo", err)
 		return

@@ -1,3 +1,7 @@
+import { apiRequest, isRecord, unexpectedResponse } from "@/lib/api/client";
+
+export { ApiError } from "@/lib/api/client";
+
 export type AuthUser = {
   id: number;
   email: string;
@@ -20,29 +24,6 @@ export type SignUpInput = SignInInput & {
   name: string;
 };
 
-type ErrorEnvelope = {
-  error: {
-    code: string;
-    message: string;
-  };
-};
-
-const DEFAULT_API_BASE_URL = "http://localhost:8080/api/v1";
-const API_BASE_URL = (
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? DEFAULT_API_BASE_URL
-).replace(/\/$/, "");
-
-export class ApiError extends Error {
-  constructor(
-    readonly status: number,
-    readonly code: string,
-    message: string,
-  ) {
-    super(message);
-    this.name = "ApiError";
-  }
-}
-
 export function signIn(input: SignInInput): Promise<AuthSession> {
   return requestSession("/auth/sign-in", input);
 }
@@ -55,56 +36,11 @@ async function requestSession(
   path: string,
   input: SignInInput | SignUpInput,
 ): Promise<AuthSession> {
-  let response: Response;
-  try {
-    response = await fetch(`${API_BASE_URL}${path}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(input),
-    });
-  } catch {
-    throw new ApiError(
-      0,
-      "network_error",
-      "Não foi possível conectar ao servidor. Tente novamente.",
-    );
-  }
-
-  const payload: unknown = await response.json().catch(() => null);
-
-  if (!response.ok) {
-    if (isErrorEnvelope(payload)) {
-      throw new ApiError(
-        response.status,
-        payload.error.code,
-        payload.error.message,
-      );
-    }
-    throw unexpectedResponse(response.status);
-  }
-
+  const payload = await apiRequest(path, { method: "POST", body: input });
   if (!isSessionEnvelope(payload)) {
-    throw unexpectedResponse(response.status);
+    throw unexpectedResponse(200);
   }
   return payload.data;
-}
-
-function unexpectedResponse(status: number): ApiError {
-  return new ApiError(
-    status,
-    "unexpected_response",
-    "O servidor retornou uma resposta inesperada.",
-  );
-}
-
-function isErrorEnvelope(value: unknown): value is ErrorEnvelope {
-  if (!isRecord(value) || !isRecord(value.error)) {
-    return false;
-  }
-  return (
-    typeof value.error.code === "string" &&
-    typeof value.error.message === "string"
-  );
 }
 
 function isSessionEnvelope(value: unknown): value is { data: AuthSession } {
@@ -129,8 +65,4 @@ function isSessionEnvelope(value: unknown): value is { data: AuthSession } {
     typeof data.expires_at === "string" &&
     !Number.isNaN(Date.parse(data.expires_at))
   );
-}
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === "object" && value !== null;
 }

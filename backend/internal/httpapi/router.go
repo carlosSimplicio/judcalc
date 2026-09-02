@@ -21,6 +21,9 @@ func NewRouter(areas domain.AreaRepository, services domain.ServiceRepository, f
 		logger.ErrorContext(ctx.Request.Context(), "pânico durante requisição", "recovered", recovered)
 		handlers.WriteError(ctx, http.StatusInternalServerError, "internal_error", "Não foi possível processar a solicitação.")
 	}))
+	router.GET("/healthz", func(ctx *gin.Context) {
+		ctx.JSON(http.StatusOK, gin.H{"status": "ok"})
+	})
 
 	areaHandler := handlers.NewArea(areas, logger)
 	serviceHandler := handlers.NewService(services, logger)

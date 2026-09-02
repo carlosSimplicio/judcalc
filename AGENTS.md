@@ -15,6 +15,8 @@
 - A carga é transacional, substitui integralmente apenas o catálogo de áreas e
   serviços, preserva usuários, tokens e custos fixos válidos e habilita
   `PRAGMA foreign_keys = ON`.
+- O container do backend executa essa carga a cada inicialização sobre o banco
+  persistido no volume Docker, antes de iniciar a API.
 - O projeto ainda não possui migrações. Após alterações incompatíveis no
   esquema, apague `backend/data/app.db` e execute novamente o inicializador.
 

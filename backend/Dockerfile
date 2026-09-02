@@ -1,12 +1,3 @@
-# Build from the repository root:
-# docker build -f backend/Dockerfile -t judcalc-backend .
-
-FROM python:3.13-alpine AS database
-
-WORKDIR /src
-COPY python/ ./python/
-RUN python -m python.scripts.init_database --output /tmp/app.db
-
 FROM golang:1.24-alpine AS build
 
 WORKDIR /src
@@ -21,24 +12,28 @@ RUN CGO_ENABLED=0 GOOS=linux go build \
     -o /out/judcalc-api \
     ./cmd/api
 
-FROM alpine:3.22 AS runtime
+FROM python:3.13-alpine AS runtime
 
-RUN apk add --no-cache ca-certificates \
-    && addgroup -S app \
+RUN addgroup -S app \
     && adduser -S -G app app \
     && mkdir -p /app/data \
     && chown app:app /app/data
 
 WORKDIR /app
 COPY --from=build --chown=app:app /out/judcalc-api ./judcalc-api
-COPY --from=database --chown=app:app /tmp/app.db ./data/app.db
+COPY --chown=app:app python/__init__.py ./python/__init__.py
+COPY --chown=app:app python/database/ ./python/database/
+COPY --chown=app:app python/data/oab-sp.json ./python/data/oab-sp.json
+COPY --chown=app:app python/scripts/ ./python/scripts/
+COPY --chown=app:app backend/docker-entrypoint.sh ./docker-entrypoint.sh
 
 USER app
 
 ENV HTTP_ADDR=:8080 \
-    DATABASE_PATH=/app/data/app.db
+    DATABASE_PATH=/app/data/app.db \
+    GIN_MODE=release
 
 EXPOSE 8080
 VOLUME ["/app/data"]
 
-ENTRYPOINT ["/app/judcalc-api"]
+ENTRYPOINT ["/app/docker-entrypoint.sh"]

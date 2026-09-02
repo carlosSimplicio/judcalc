@@ -106,6 +106,16 @@ func (stub *fixedCostsRepositoryStub) UpsertFixedCosts(_ context.Context, patch 
 	return stub.result, stub.err
 }
 
+func TestHealthCheckDoesNotRequireAuthentication(t *testing.T) {
+	response := performRawRequest(t, &authServiceStub{err: errors.New("should not authenticate")}, http.MethodGet, "/healthz", "", "")
+	if response.Code != http.StatusOK {
+		t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+	}
+	if response.Body.String() != "{\"status\":\"ok\"}" {
+		t.Fatalf("body = %s", response.Body.String())
+	}
+}
+
 func TestListAreasUsesDefaultsAndReturnsMetadata(t *testing.T) {
 	areas := &areaRepositoryStub{result: domain.ListResult[domain.Area]{
 		Items: []domain.Area{{ID: 1, Name: "Família"}},

@@ -64,6 +64,7 @@ inicialização com uma mensagem de erro.
 - `GET /api/v1/fixed-costs`
 - `PATCH /api/v1/fixed-costs`
 - `POST /api/v1/services/fee-calculation`
+- `GET /healthz` (health check público)
 
 Cadastre um usuário informando email, nome e uma senha de 8 a 72 bytes:
 
@@ -168,3 +169,52 @@ go vet ./...
 Set-Location ..
 python -m unittest discover -s python/tests
 ```
+
+## Deploy na VPS
+
+O workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) roda os
+testes, publica as imagens do backend e do frontend no GitHub Container Registry
+(GHCR) e atualiza os containers da VPS. Ele é executado em pushes para `main` e
+também pode ser iniciado manualmente em **Actions**.
+
+### Preparar a VPS
+
+Instale Docker Engine com o plugin Docker Compose e permita que o usuário de
+deploy execute `docker` sem `sudo`. Depois crie `~/judcalc/.env` para esse
+usuário:
+
+```dotenv
+CORS_ALLOWED_ORIGINS=https://app.exemplo.com
+HOST_BIND_ADDRESS=127.0.0.1
+BACKEND_PORT=8080
+FRONTEND_PORT=3000
+```
+
+O endereço `127.0.0.1` pressupõe um proxy reverso no host (Caddy, Nginx etc.)
+responsável por publicar os serviços e terminar HTTPS. Para expor as portas
+diretamente, use `HOST_BIND_ADDRESS=0.0.0.0` e configure o firewall da VPS.
+
+O banco fica no volume nomeado `judcalc_backend_data`. A cada inicialização, o
+backend sincroniza áreas e serviços a partir do JSON incluído na imagem sem
+remover usuários, tokens ou custos fixos.
+
+### Configurar o GitHub
+
+Crie um environment chamado `production` e cadastre nele estes secrets:
+
+- `VPS_HOST`: hostname ou IP da VPS;
+- `VPS_USER`: usuário SSH preparado para o deploy;
+- `VPS_SSH_PRIVATE_KEY`: chave privada dedicada ao workflow;
+- `VPS_SSH_KNOWN_HOSTS`: linha verificada do host, obtida por exemplo com
+  `ssh-keyscan -H seu-host` e conferida contra a fingerprint da VPS;
+- `VPS_SSH_PORT`: porta SSH, opcional; o padrão é `22`.
+
+Cadastre também a variável de repositório `NEXT_PUBLIC_API_BASE_URL` com a URL
+pública da API, incluindo `/api/v1`, por exemplo
+`https://api.exemplo.com/api/v1`. O Next.js incorpora esse valor na imagem no
+momento do build.
+
+O workflow usa o `GITHUB_TOKEN` temporário para publicar e baixar as imagens
+privadas durante o deploy. O usuário SSH precisa ter acesso de escrita a
+`~/judcalc`; o Compose e as credenciais temporárias do GHCR são atualizados
+automaticamente.

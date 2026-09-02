@@ -213,7 +213,7 @@ func newFixedCostsResponse(costs domain.FixedCosts) fixedCostsResponse {
 		Costs: fixedCostsResponseBody{
 			OABAnnualFee: annualCostResponse{
 				AnnualAmountCents:  costs.OABAnnualFeeCents,
-				MonthlyAmountCents: monthlyAverage(costs.OABAnnualFeeCents),
+				MonthlyAmountCents: domain.MonthlyAverageCents(costs.OABAnnualFeeCents),
 			},
 			DigitalCertificate:             monthlyCostResponse{costs.DigitalCertificateCents},
 			Accountant:                     monthlyCostResponse{costs.AccountantCents},
@@ -229,12 +229,4 @@ func newFixedCostsResponse(costs domain.FixedCosts) fixedCostsResponse {
 			OtherCosts:                     monthlyCostResponse{costs.OtherCostsCents},
 		},
 	}
-}
-
-func monthlyAverage(annualAmount int64) int64 {
-	monthly := annualAmount / 12
-	if annualAmount%12 >= 6 {
-		monthly++
-	}
-	return monthly
 }

@@ -63,6 +63,7 @@ inicialização com uma mensagem de erro.
 - `GET /api/v1/services`
 - `GET /api/v1/fixed-costs`
 - `PATCH /api/v1/fixed-costs`
+- `POST /api/v1/services/fee-calculation`
 
 Cadastre um usuário informando email, nome e uma senha de 8 a 72 bytes:
 
@@ -129,6 +130,34 @@ resposta.
   }
 }
 ```
+
+### Cálculo de honorários
+
+O cálculo usa os custos fixos do usuário autenticado e mantém a referência da
+OAB separada dos valores econômicos. Envie horas positivas e os níveis `low`,
+`medium` ou `high`:
+
+```json
+{
+  "service_id": 42,
+  "estimated_hours": 10,
+  "billable_hours_per_month": 80,
+  "complexity": "medium",
+  "risk": "high"
+}
+```
+
+```text
+POST /api/v1/services/fee-calculation
+```
+
+Complexidade usa fatores `1.00`, `1.25` e `1.50`; risco usa `1.00`, `1.10` e
+`1.20`. A resposta apresenta a referência da OAB, os fatores usados, o custo
+operacional por hora, o custo mínimo sustentável e a estimativa técnica.
+
+Quando não há custos fixos utilizáveis, a referência da OAB continua presente,
+os resultados econômicos são `null` e `warnings` contém
+`fixed_costs_unavailable`.
 
 ## Testes
 

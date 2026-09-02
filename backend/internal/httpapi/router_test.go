@@ -31,15 +31,20 @@ func (stub *areaRepositoryStub) ListAreas(_ context.Context, options domain.List
 }
 
 type serviceRepositoryStub struct {
-	result domain.ListResult[domain.Service]
-	err    error
+	result      domain.ListResult[domain.Service]
+	err         error
+	service     domain.Service
+	exists      bool
+	getErr      error
+	requestedID int64
 }
 
 type fixedCostsRepositoryStub struct {
-	result domain.FixedCosts
-	exists bool
-	err    error
-	patch  domain.FixedCostsPatch
+	result          domain.FixedCosts
+	exists          bool
+	err             error
+	patch           domain.FixedCostsPatch
+	requestedUserID int64
 }
 
 type authServiceStub struct {
@@ -65,7 +70,13 @@ func (stub *serviceRepositoryStub) ListServices(context.Context, domain.ListOpti
 	return stub.result, stub.err
 }
 
+func (stub *serviceRepositoryStub) GetService(_ context.Context, serviceID int64) (domain.Service, bool, error) {
+	stub.requestedID = serviceID
+	return stub.service, stub.exists, stub.getErr
+}
+
 func (stub *fixedCostsRepositoryStub) GetFixedCosts(_ context.Context, userID int64) (domain.FixedCosts, bool, error) {
+	stub.requestedUserID = userID
 	if stub.result.UserID == 0 {
 		stub.result.UserID = userID
 	}

@@ -25,6 +25,7 @@ func NewRouter(areas domain.AreaRepository, services domain.ServiceRepository, f
 	areaHandler := handlers.NewArea(areas, logger)
 	serviceHandler := handlers.NewService(services, logger)
 	fixedCostsHandler := handlers.NewFixedCosts(fixedCosts, logger)
+	feeCalculationHandler := handlers.NewFeeCalculation(services, fixedCosts, logger)
 	authenticationHandler := handlers.NewAuthentication(authentication, logger)
 	api := router.Group("/api/v1")
 	api.POST("/auth/sign-up", authenticationHandler.SignUp)
@@ -33,6 +34,7 @@ func NewRouter(areas domain.AreaRepository, services domain.ServiceRepository, f
 	protected.Use(requireAuthentication(authentication, logger))
 	protected.GET("/areas", areaHandler.List)
 	protected.GET("/services", serviceHandler.List)
+	protected.POST("/services/fee-calculation", feeCalculationHandler.Calculate)
 	protected.GET("/fixed-costs", fixedCostsHandler.Get)
 	protected.PATCH("/fixed-costs", fixedCostsHandler.Patch)
 

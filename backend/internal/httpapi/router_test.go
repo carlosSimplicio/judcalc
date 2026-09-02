@@ -40,10 +40,11 @@ type serviceRepositoryStub struct {
 }
 
 type fixedCostsRepositoryStub struct {
-	result domain.FixedCosts
-	exists bool
-	err    error
-	patch  domain.FixedCostsPatch
+	result          domain.FixedCosts
+	exists          bool
+	err             error
+	patch           domain.FixedCostsPatch
+	requestedUserID int64
 }
 
 type authServiceStub struct {
@@ -75,6 +76,7 @@ func (stub *serviceRepositoryStub) GetService(_ context.Context, serviceID int64
 }
 
 func (stub *fixedCostsRepositoryStub) GetFixedCosts(_ context.Context, userID int64) (domain.FixedCosts, bool, error) {
+	stub.requestedUserID = userID
 	if stub.result.UserID == 0 {
 		stub.result.UserID = userID
 	}

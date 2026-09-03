@@ -31,18 +31,26 @@
       <div class="fees-layout">
         <form class="costs-form fees-form" id="fees-form">
           <section class="form-section" aria-labelledby="service-title">
-            <div class="section-heading"><span class="section-icon section-icon-blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 9h6M8 12h4"/></svg></span><div><h2 id="service-title">Serviço jurídico</h2><p>Busque pelo nome ou selecione uma opção da tabela da OAB.</p></div></div>
+            <div class="section-heading"><span class="section-icon section-icon-blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 9h6M8 12h4"/></svg></span><div><h2 id="service-title">Serviço jurídico</h2><p>Digite para buscar ou selecione um serviço da lista.</p></div></div>
             <div class="service-picker">
               <label for="service-search">Qual serviço será prestado?</label>
-              <div class="service-search-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="service-search" type="search" role="combobox" aria-expanded="true" aria-controls="service-options" aria-autocomplete="list" autocomplete="off" placeholder="Digite para buscar um serviço..."><kbd>⌘ K</kbd></div>
-              <div class="service-options" id="service-options" role="listbox" aria-label="Serviços disponíveis">
-                <p class="options-label"><span>Serviços sugeridos</span><span id="service-count">5 opções</span></p>
-                <button class="service-option is-selected" type="button" role="option" aria-selected="true" data-name="Consulta" data-area="Atividades avulsas ou extrajudiciais" data-price="R$ 539,25"><span class="option-check">✓</span><span class="option-copy"><strong>Consulta</strong><small>Atividades avulsas ou extrajudiciais</small></span><span class="option-value"><small>Mínimo OAB</small><strong>R$ 539,25</strong></span></button>
-                <button class="service-option" type="button" role="option" aria-selected="false" data-name="Hora intelectual" data-area="Atividades avulsas ou extrajudiciais" data-price="R$ 868,96"><span class="option-check">✓</span><span class="option-copy"><strong>Hora intelectual</strong><small>Atividades avulsas ou extrajudiciais</small></span><span class="option-value"><small>Mínimo OAB</small><strong>R$ 868,96</strong></span></button>
-                <button class="service-option" type="button" role="option" aria-selected="false" data-name="Elaboração de notificação extrajudicial" data-area="Atividades avulsas ou extrajudiciais" data-price="R$ 868,96"><span class="option-check">✓</span><span class="option-copy"><strong>Elaboração de notificação extrajudicial</strong><small>Atividades avulsas ou extrajudiciais</small></span><span class="option-value"><small>Mínimo OAB</small><strong>R$ 868,96</strong></span></button>
-                <button class="service-option" type="button" role="option" aria-selected="false" data-name="Ação de alimentos: provisórios – provisionais" data-area="Atividades em matéria de família e sucessões" data-price="R$ 2.606,88"><span class="option-check">✓</span><span class="option-copy"><strong>Ação de alimentos: provisórios – provisionais</strong><small>Atividades em matéria de família e sucessões</small></span><span class="option-value"><small>Mínimo OAB</small><strong>R$ 2.606,88</strong></span></button>
-                <button class="service-option" type="button" role="option" aria-selected="false" data-name="Procedimento ordinário: proposição ou defesa" data-area="Atividades em matéria cível" data-price="R$ 6.256,51"><span class="option-check">✓</span><span class="option-copy"><strong>Procedimento ordinário: proposição ou defesa</strong><small>Atividades em matéria cível</small></span><span class="option-value"><small>Mínimo OAB</small><strong>R$ 6.256,51</strong></span></button>
+              <div class="service-dropdown">
+                <div class="service-combobox">
+                  <svg class="service-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+                  <input id="service-search" type="search" role="combobox" aria-expanded="false" aria-controls="service-options" aria-autocomplete="list" autocomplete="off" placeholder="Selecione ou busque um serviço...">
+                  <button class="service-toggle" id="service-toggle" type="button" aria-label="Abrir lista de serviços" tabindex="-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m7 10 5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                </div>
+                <div class="service-menu" id="service-menu" hidden>
+                  <p class="service-count" id="service-count">5 serviços encontrados</p>
+                  <div class="service-options" id="service-options" role="listbox" aria-label="Serviços disponíveis">
+                <button class="service-option" type="button" role="option" aria-selected="false" data-name="Consulta" data-area="Atividades avulsas ou extrajudiciais"><span class="option-check">✓</span><span class="option-copy"><strong>Consulta</strong><small>Atividades avulsas ou extrajudiciais</small></span></button>
+                <button class="service-option" type="button" role="option" aria-selected="false" data-name="Hora intelectual" data-area="Atividades avulsas ou extrajudiciais"><span class="option-check">✓</span><span class="option-copy"><strong>Hora intelectual</strong><small>Atividades avulsas ou extrajudiciais</small></span></button>
+                <button class="service-option" type="button" role="option" aria-selected="false" data-name="Elaboração de notificação extrajudicial" data-area="Atividades avulsas ou extrajudiciais"><span class="option-check">✓</span><span class="option-copy"><strong>Elaboração de notificação extrajudicial</strong><small>Atividades avulsas ou extrajudiciais</small></span></button>
+                <button class="service-option" type="button" role="option" aria-selected="false" data-name="Ação de alimentos: provisórios – provisionais" data-area="Atividades em matéria de família e sucessões"><span class="option-check">✓</span><span class="option-copy"><strong>Ação de alimentos: provisórios – provisionais</strong><small>Atividades em matéria de família e sucessões</small></span></button>
+                <button class="service-option" type="button" role="option" aria-selected="false" data-name="Procedimento ordinário: proposição ou defesa" data-area="Atividades em matéria cível"><span class="option-check">✓</span><span class="option-copy"><strong>Procedimento ordinário: proposição ou defesa</strong><small>Atividades em matéria cível</small></span></button>
                 <p class="service-empty" hidden>Nenhum serviço encontrado. Tente outro termo.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -51,7 +59,7 @@
             <div class="section-heading"><span class="section-icon section-icon-teal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><h2 id="work-title">Tempo de trabalho</h2><p>Informe a dedicação prevista e o tempo já investido no caso.</p></div></div>
             <div class="cost-fields-grid">
               <div class="cost-field"><label for="estimated-hours">Horas estimadas</label><div class="unit-input"><input id="estimated-hours" name="estimated-hours" type="number" min="0" step="0.5" placeholder="0"><span>horas</span></div><small>Tempo que ainda será necessário para concluir o serviço.</small></div>
-              <div class="cost-field"><label for="effective-hours">Horas efetivas</label><div class="unit-input"><input id="effective-hours" name="effective-hours" type="number" min="0" step="0.5" placeholder="0"><span>horas</span></div><small>Tempo já dedicado a reuniões, estudos e atividades.</small></div>
+              <div class="cost-field"><label for="billable-hours">Horas faturáveis</label><div class="unit-input"><input id="billable-hours" name="billable-hours" type="number" min="0" step="0.5" placeholder="0"><span>horas</span></div><small>Horas de trabalho que serão consideradas na cobrança.</small></div>
             </div>
           </section>
 
@@ -63,15 +71,27 @@
             </div>
           </section>
 
-          <div class="form-actions fees-actions"><button class="button button-secondary" type="reset">Limpar</button><button class="button button-save" type="submit"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h16v18H4zM8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg>Calcular honorários</button></div>
+          <div class="form-actions fees-actions"><button class="button button-secondary" type="reset">Limpar</button><button class="button button-save" type="submit"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h12l2 2v16H5zM8 3v6h8V3M8 21v-7h8v7" stroke-linecap="round" stroke-linejoin="round"/></svg>Salvar alterações</button></div>
         </form>
 
-        <aside class="estimate-card" aria-labelledby="estimate-title">
-          <div class="estimate-heading"><span class="estimate-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h16v18H4zM8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg></span><div><p>Sua estimativa</p><h2 id="estimate-title">Resumo do cálculo</h2></div></div>
-          <div class="estimate-empty"><span><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h10l3 3v15H4V3h3Z"/><path d="M8 10h8M8 14h8M8 18h5"/></svg></span><strong>Pronto para calcular</strong><p>Preencha os dados ao lado para obter uma sugestão de honorários.</p></div>
-          <div class="selected-service"><small>Serviço selecionado</small><strong id="selected-name">Consulta</strong><span id="selected-area">Atividades avulsas ou extrajudiciais</span></div>
-          <div class="oab-reference"><span>Referência mínima OAB</span><strong id="selected-price">R$ 539,25</strong></div>
-          <p class="estimate-note">ⓘ Este valor é uma referência e não substitui a análise profissional do caso.</p>
+        <aside class="estimate-card" id="estimate-card" aria-labelledby="estimate-title" aria-live="polite">
+          <div class="estimate-heading"><span class="estimate-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h16v18H4zM8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg></span><div><p id="estimate-eyebrow">Sua estimativa</p><h2 id="estimate-title">Resumo do cálculo</h2></div></div>
+          <div id="estimate-initial">
+            <div class="estimate-empty"><span><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h10l3 3v15H4V3h3Z"/><path d="M8 10h8M8 14h8M8 18h5"/></svg></span><strong>Pronto para calcular</strong><p>Preencha os dados ao lado para obter uma sugestão de honorários.</p></div>
+            <div class="selected-service"><small>Serviço selecionado</small><strong id="selected-name">Nenhum serviço selecionado</strong><span id="selected-area">Escolha um serviço para ver os detalhes.</span></div>
+            <p class="estimate-note">ⓘ A estimativa considera o tempo informado e as características do caso.</p>
+          </div>
+          <div class="estimate-result" id="estimate-result" hidden>
+            <div class="result-value"><small>Honorários sugeridos</small><strong>R$ 4.850,00</strong><span>Valor total recomendado</span></div>
+            <div class="result-range"><span>Faixa recomendada</span><strong>R$ 4.350,00 a R$ 5.400,00</strong></div>
+            <dl class="result-breakdown">
+              <div><dt>Valor da hora</dt><dd>R$ 350,00</dd></div>
+              <div><dt>Horas consideradas</dt><dd>12 horas</dd></div>
+              <div><dt>Ajuste de risco</dt><dd>+ 10%</dd></div>
+              <div><dt>Ajuste de complexidade</dt><dd>+ 5%</dd></div>
+            </dl>
+            <p class="estimate-note">ⓘ Resultado ilustrativo para validação deste protótipo.</p>
+          </div>
         </aside>
       </div>
     </main>
@@ -84,24 +104,73 @@
     </nav>
   </div>
   <script>
+    const dropdown = document.querySelector('.service-dropdown');
+    const toggle = document.querySelector('#service-toggle');
+    const menu = document.querySelector('#service-menu');
     const search = document.querySelector('#service-search');
     const options = [...document.querySelectorAll('.service-option')];
+    const estimateCard = document.querySelector('#estimate-card');
+    const estimateInitial = document.querySelector('#estimate-initial');
+    const estimateResult = document.querySelector('#estimate-result');
     const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    function setDropdown(open) {
+      menu.hidden = !open;
+      search.setAttribute('aria-expanded', open);
+      toggle.setAttribute('aria-label', open ? 'Fechar lista de serviços' : 'Abrir lista de serviços');
+      dropdown.classList.toggle('is-open', open);
+      if (open) requestAnimationFrame(() => search.focus());
+    }
     function selectService(option) {
       options.forEach(item => { const selected = item === option; item.classList.toggle('is-selected', selected); item.setAttribute('aria-selected', selected); });
+      search.value = option.dataset.name;
       document.querySelector('#selected-name').textContent = option.dataset.name;
       document.querySelector('#selected-area').textContent = option.dataset.area;
-      document.querySelector('#selected-price').textContent = option.dataset.price;
+      options.forEach(item => { item.hidden = false; });
+      document.querySelector('#service-count').textContent = '5 serviços encontrados';
+      setDropdown(false);
     }
     search.addEventListener('input', () => {
+      setDropdown(true);
+      const selected = options.find(option => option.classList.contains('is-selected'));
+      if (selected && search.value !== selected.dataset.name) {
+        selected.classList.remove('is-selected');
+        selected.setAttribute('aria-selected', 'false');
+        document.querySelector('#selected-name').textContent = 'Nenhum serviço selecionado';
+        document.querySelector('#selected-area').textContent = 'Escolha um serviço para ver os detalhes.';
+      }
       const term = normalize(search.value.trim()); let visible = 0;
       options.forEach(option => { const match = normalize(`${option.dataset.name} ${option.dataset.area}`).includes(term); option.hidden = !match; if (match) visible++; });
       document.querySelector('.service-empty').hidden = visible !== 0;
-      document.querySelector('#service-count').textContent = `${visible} ${visible === 1 ? 'opção' : 'opções'}`;
+      document.querySelector('#service-count').textContent = `${visible} ${visible === 1 ? 'serviço encontrado' : 'serviços encontrados'}`;
     });
+    search.addEventListener('focus', () => setDropdown(true));
+    toggle.addEventListener('click', () => setDropdown(menu.hidden));
     options.forEach(option => option.addEventListener('click', () => selectService(option)));
-    document.querySelector('#fees-form').addEventListener('submit', event => event.preventDefault());
-    document.addEventListener('keydown', event => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search.focus(); } });
+    document.querySelector('#fees-form').addEventListener('submit', event => {
+      event.preventDefault();
+      estimateInitial.hidden = true;
+      estimateResult.hidden = false;
+      document.querySelector('#estimate-eyebrow').textContent = 'Cálculo concluído';
+      document.querySelector('#estimate-title').textContent = 'Resultado dos honorários';
+      if (window.matchMedia('(max-width: 68rem)').matches) estimateCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.querySelector('#fees-form').addEventListener('reset', () => {
+      options.forEach(option => { option.classList.remove('is-selected'); option.setAttribute('aria-selected', 'false'); option.hidden = false; });
+      search.value = '';
+      document.querySelector('#service-count').textContent = '5 serviços encontrados';
+      document.querySelector('#selected-name').textContent = 'Nenhum serviço selecionado';
+      document.querySelector('#selected-area').textContent = 'Escolha um serviço para ver os detalhes.';
+      estimateInitial.hidden = false;
+      estimateResult.hidden = true;
+      document.querySelector('#estimate-eyebrow').textContent = 'Sua estimativa';
+      document.querySelector('#estimate-title').textContent = 'Resumo do cálculo';
+      setDropdown(false);
+    });
+    document.addEventListener('click', event => { if (!dropdown.contains(event.target)) setDropdown(false); });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') { search.focus(); setDropdown(false); }
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); setDropdown(true); }
+    });
   </script>
 </body>
 </html>

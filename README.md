@@ -182,21 +182,55 @@ executado em pushes para `main` e também pode ser iniciado manualmente em
 ### Preparar a VPS
 
 Instale Docker Engine com o plugin Docker Compose e permita que o usuário de
-deploy execute `docker` sem `sudo`. Depois crie `~/judcalc/.env` para esse
-usuário:
+deploy execute `docker` sem `sudo`. Aponte o DNS do domínio para a VPS e libere
+as portas TCP 80 e 443. Depois crie `~/judcalc/.env` para esse usuário, usando
+[`infra/.env.production.example`](infra/.env.production.example) como
+referência:
 
 ```dotenv
+DOMAIN=app.exemplo.com
+CERTBOT_EMAIL=admin@exemplo.com
 CORS_ALLOWED_ORIGINS=https://app.exemplo.com
 NEXT_PUBLIC_API_BASE_URL=https://app.exemplo.com/api/v1
 HOST_BIND_ADDRESS=0.0.0.0
 HTTP_PORT=80
+HTTPS_PORT=443
 ```
 
-O Nginx do Compose é o único container que publica uma porta no host. Ele
-encaminha `/api/*` para o backend e as demais rotas para o frontend, conforme
-[`infra/nginx.conf`](infra/nginx.conf). Para colocar outro proxy responsável por
-HTTPS à frente dele, use `HOST_BIND_ADDRESS=127.0.0.1` e uma porta livre em
-`HTTP_PORT`. Ao expor diretamente em `0.0.0.0`, configure o firewall da VPS.
+Proteja o arquivo com `chmod 600 ~/judcalc/.env`. O Nginx do Compose é o único
+container da aplicação que publica portas no host. Ele redireciona HTTP para
+HTTPS, entrega o certificado, encaminha `/api/*` para o backend e as demais
+rotas para o frontend, conforme
+[`infra/nginx.conf.template`](infra/nginx.conf.template). O container Certbot
+verifica a renovação do certificado duas vezes ao dia e o Nginx recarrega os
+certificados a cada seis horas. Os certificados ficam no volume nomeado
+`judcalc_letsencrypt` e não são removidos com uma nova release.
+
+Antes do primeiro deploy HTTPS, emita o certificado. A porta 80 precisa estar
+livre e o domínio já deve resolver publicamente para a VPS. Carregue os valores
+do `.env` e execute:
+
+```sh
+set -a
+. "$HOME/judcalc/.env"
+set +a
+docker volume create judcalc_letsencrypt
+docker run --rm -p 80:80 \
+  -v judcalc_letsencrypt:/etc/letsencrypt \
+  certbot/certbot certonly --standalone \
+  --non-interactive --agree-tos \
+  --email "$CERTBOT_EMAIL" \
+  -d "$DOMAIN"
+```
+
+Depois do deploy, valide a renovação sem alterar o certificado:
+
+```sh
+docker exec judcalc-certbot certbot renew --dry-run
+```
+
+Ao expor diretamente em `0.0.0.0`, configure também o firewall da VPS para
+permitir apenas as portas públicas necessárias.
 
 O banco fica no volume nomeado `judcalc_backend_data`. A cada inicialização, o
 backend sincroniza áreas e serviços a partir do JSON incluído na imagem sem

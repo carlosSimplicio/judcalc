@@ -39,12 +39,21 @@ services:
 
   nginx:
     image: nginx:stable-alpine
+    container_name: judcalc-nginx
     pull_policy: always
     restart: unless-stopped
+    environment:
+      DOMAIN: "${DOMAIN:?DOMAIN is required}"
+      NGINX_ENVSUBST_FILTER: "^DOMAIN$"
+      NGINX_RELOAD_INTERVAL: "6h"
     ports:
       - "${HOST_BIND_ADDRESS:-0.0.0.0}:${HTTP_PORT:-80}:80"
+      - "${HOST_BIND_ADDRESS:-0.0.0.0}:${HTTPS_PORT:-443}:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx.conf.template:/etc/nginx/templates/default.conf.template:ro
+      - ./nginx-reload-certificates.sh:/docker-entrypoint.d/99-reload-certificates.sh:ro
+      - letsencrypt:/etc/letsencrypt:ro
+      - certbot_webroot:/var/www/certbot:ro
     depends_on:
       backend:
         condition: service_healthy
@@ -57,5 +66,26 @@ services:
       retries: 6
       start_period: 5s
 
+  certbot:
+    image: certbot/certbot:latest
+    container_name: judcalc-certbot
+    pull_policy: always
+    restart: unless-stopped
+    entrypoint: /bin/sh
+    command:
+      - -c
+      - |
+        while true; do
+          certbot renew --webroot --webroot-path /var/www/certbot --quiet
+          sleep 12h
+        done
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - certbot_webroot:/var/www/certbot
+
 volumes:
   backend_data:
+  letsencrypt:
+    name: judcalc_letsencrypt
+  certbot_webroot:
+    name: judcalc_certbot_webroot

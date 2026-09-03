@@ -1,24 +1,27 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 export type AppItem = "home" | "fees" | "fixed-costs" | "profile";
 
 type AppShellProps = {
   activeItem: AppItem;
   children: ReactNode;
+  tip?: string;
 };
 
 const navigationItems: Array<{
   id: AppItem;
   desktopLabel: string;
   mobileLabel: string;
+  href?: string;
 }> = [
-  { id: "home", desktopLabel: "Início", mobileLabel: "Início" },
-  { id: "fees", desktopLabel: "Honorários", mobileLabel: "Honorários" },
-  { id: "fixed-costs", desktopLabel: "Custos fixos", mobileLabel: "Custos" },
+  { id: "home", desktopLabel: "Início", mobileLabel: "Início", href: "/" },
+  { id: "fees", desktopLabel: "Honorários", mobileLabel: "Honorários", href: "/honorarios" },
+  { id: "fixed-costs", desktopLabel: "Custos fixos", mobileLabel: "Custos", href: "/custos-fixos" },
   { id: "profile", desktopLabel: "Perfil", mobileLabel: "Perfil" },
 ];
 
-export function AppShell({ activeItem, children }: AppShellProps) {
+export function AppShell({ activeItem, children, tip = "Revise seus custos sempre que uma despesa recorrente mudar." }: AppShellProps) {
   return (
     <div className="app-shell">
       <aside className="app-sidebar" aria-label="Navegação principal">
@@ -43,7 +46,7 @@ export function AppShell({ activeItem, children }: AppShellProps) {
           <TipIcon />
           <p>
             <strong>Dica</strong>
-            Revise seus custos sempre que uma despesa recorrente mudar.
+            {tip}
           </p>
         </div>
       </aside>
@@ -74,6 +77,19 @@ type NavigationButtonProps = {
 
 function NavigationButton({ activeItem, item, label, size }: NavigationButtonProps) {
   const isActive = item.id === activeItem;
+
+  if (item.href) {
+    return (
+      <Link
+        aria-current={isActive ? "page" : undefined}
+        className={isActive ? "is-active" : undefined}
+        href={item.href}
+      >
+        <NavigationIcon item={item.id} size={size} />
+        {label}
+      </Link>
+    );
+  }
 
   return (
     <button
